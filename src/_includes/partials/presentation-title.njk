@@ -1,0 +1,7 @@
+<section {% if titleImage %} data-background="{{ titleImage }}"{% endif %}>
+	<h1>{{ title }}</h1>
+	{% if subtitle %}
+	<h2>{{ subtitle }}</h2>
+	{% endif %}
+	<p>{{ author }}</p>
+</section>
