@@ -1,0 +1,22 @@
+<svg width="900" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="402" width="902" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="#000" id="svg_1" height="340" width="752.000007" y="51" x="14.000001" stroke-width="4" fill="#fff"/>
+  <rect stroke="#000" id="svg_3" height="200" width="200" y="160" x="35.5" stroke-opacity="null" stroke-width="0" fill="#482816"/>
+  <rect stroke="#000" id="svg_4" height="200" width="200" y="160" x="293.5" stroke-opacity="null" stroke-width="0" fill="#482816"/>
+  <rect stroke="#000" id="svg_5" height="200" width="200" y="158" x="537.5" stroke-opacity="null" stroke-width="0" fill="#482816"/>
+  <text style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="40" id="svg_8" y="113.5" x="148.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">main axis</text>
+  <path transform="rotate(90 827.7874755859375,183.7016906738282) " stroke="#fff" id="svg_9" d="m822.968946,193.283487l16.806124,-5.918181l-32.49382,0l-32.493748,0l0,-3.663635l0,-3.663638l32.12098,0c17.666514,0 32.120955,-0.18569 32.120955,-0.412647c0,-0.226951 -7.032984,-2.890134 -15.628834,-5.91818l-15.628884,-5.505539l14.445865,0l14.445812,0l22.062026,7.757425l22.062015,7.757421l-22.104337,7.742578l-22.10433,7.742578l-15.207982,0l-15.208017,0l16.80617,-5.918184l0.000007,0.000001z" stroke-width="4" fill="#000"/>
+  <path stroke="#fff" id="svg_10" d="m394.968946,109.283487l16.806124,-5.918181l-32.49382,0l-32.493749,0l0,-3.663635l0,-3.663638l32.12098,0c17.666514,0 32.120955,-0.18569 32.120955,-0.412647c0,-0.226951 -7.032984,-2.890133 -15.628835,-5.91818l-15.628884,-5.505539l14.445865,0l14.445811,0l22.062027,7.757425l22.062015,7.757421l-22.104337,7.742578l-22.10433,7.742579l-15.207981,0l-15.208018,0l16.80617,-5.918184l0.000007,0.000001z" stroke-width="4" fill="#000"/>
+  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="40" id="svg_11" y="111.5" x="795.5" stroke-opacity="null" stroke-width="0" fill="#000000">axis</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="40" id="svg_12" y="78.5" x="782.5" stroke-width="0" stroke="#fff" fill="#000000">cross</text>
+ </g>
+</svg>
