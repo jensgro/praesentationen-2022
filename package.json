@@ -5,15 +5,18 @@
   "scripts": {
     "clean": "rimraf _site",
     "watch:sass": "sass --watch src/assets/scss:_site/assets/css",
-    "build:sass": "sass --no-source-map src/assets/scss:_site/assets/css",
+    "build:sass": "sass --no-source-map src/assets/scss/reveal.scss:_site/assets/css/reveal.css",
     "watch:eleventy": "eleventy --serve",
     "slides": "eleventy",
     "copyReveal": "gulp cpRev",
+    "copyFonts": "gulp copyFonts",
     "copyA11y": "gulp cpA11y",
+    "copyA11yImages": "gulp cpA11yImages",
     "copyTest1": "gulp cpTest2",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:sass slides",
-    "test": "npm-run-all slides build:sass copyReveal copyA11y copyTest1"
+    "test": "npm-run-all slides build:sass copyReveal copyFonts copyA11y copyA11yImages",
+    "theme": "npm-run-all build:sass copyA11y"
   },
   "repository": {
     "type": "git",

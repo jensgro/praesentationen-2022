@@ -1,0 +1,284 @@
+/**
+ * Blood theme for reveal.js
+ * Author: Walther http://github.com/Walther
+ *
+ * Designed to be used with highlight.js theme
+ * "monokai_sublime.css" available from
+ * https://github.com/isagalaev/highlight.js/
+ *
+ * For other themes, change $codeBackground accordingly.
+ *
+ */
+
+ // Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+
+// @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,700,300italic,700italic);
+
+// Colors used in the theme
+$blood: #a23;
+$coal: #222;
+$codeBackground: #23241f;
+
+// neue Farben
+$orange: #C27F47;
+
+$backgroundColor: $coal;
+
+// Main text
+$mainFont: 'Noto Regular', 'sans-serif';
+$mainColor: #eee;
+
+// Headings
+$headingFont: 'Noto Bold', 'sans-serif';
+$headingTextShadow: 2px 2px 2px $coal;
+
+// h1 shadow, borrowed humbly from
+// (c) Default theme by Hakim El Hattab
+$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+
+// Links
+$linkColor: $blood;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: $blood;
+$selectionColor: #fff;
+
+// Change text colors against dark slide backgrounds
+@include light-bg-text-color(#222);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// some overrides after theme template import
+
+.reveal p {
+    font-weight: 300;
+    text-shadow: 1px 1px $coal;
+}
+
+section.has-light-background {
+	p, h1, h2, h3, h4 {
+		text-shadow: none;
+	}
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-weight: 700;
+}
+
+.reveal p code {
+    background-color: $codeBackground;
+    display: inline-block;
+    border-radius: 7px;
+}
+
+.reveal small code {
+    vertical-align: baseline;
+}
+
+// =================================================
+// ========== Eigene Erweiterungen =================
+// =================================================
+.reveal pre code {
+    line-height: 1.25;
+    max-height: 600px;
+  }
+  .reveal pre code.css, .reveal pre code.html, .reveal pre code.js, .reveal pre code.jquery, .reveal pre code.scss, .reveal pre code.bash, .reveal pre code.svg {
+    position: relative;
+  }
+  .reveal pre code.css:before, .reveal pre code.html:before, .reveal pre code.js:before, .reveal pre code.jquery:before, .reveal pre code.scss:before, .reveal pre code.bash:before, .reveal pre code.svg:before {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 18px;
+    display: inline-block;
+    padding: 3px 9px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .reveal pre code.css:before {
+    content: "CSS";
+    background-color: #304ffe;
+  }
+  .reveal pre code.scss:before {
+    content: "SCSS";
+    background-color: #795548;
+  }
+  .reveal pre code.html:before {
+    content: "HTML";
+    background-color: #b71c1c;
+  }
+  .reveal pre code.js:before {
+    content: "JS";
+    background-color: #455a64;
+  }
+  .reveal pre code.jquery:before {
+    content: "jQuery";
+    background-color: #2e7d32;
+  }
+  .reveal pre code.bash:before {
+    content: "Terminal";
+  }
+  .reveal pre code.svg:before {
+    content: "SVG";
+  }
+  .reveal pre code mark {
+    display: inline-block;
+    padding: 0 3px;
+    background-color: rgba(255, 255, 0, 0.75);
+  }
+
+  .linksToOutside {
+    text-align: right;
+    font-size: 18px !important;
+  }
+  .linksToOutside a {
+    display: inline-block;
+    padding: 3px 10px;
+    color: #fff;
+    background: rgba(239, 83, 80, 0.75);
+    border-bottom: 1px solid #EF5350;
+  }
+  .linksToOutside a:focus, .linksToOutside a:hover {
+    background: #fff;
+    color: #4e342e;
+    border-bottom: 1px solid rgba(239, 83, 80, 0.25);
+  }
+  .linksToOutside a + a {
+    margin-left: 20px;
+  }
+  .linksToOutside p {
+    text-align: left;
+  }
+  ol + .linksToOutside, ul + .linksToOutside {
+    margin-top: 20px;
+  }
+
+  @media print {
+    .linksToOutside a ~ a {
+      display: none;
+    }
+  }
+  .split {
+    display: flex;
+    height: 100%;
+  }
+  .split.splitted-lean > div:first-child {
+    flex: 1 1 25%;
+  }
+  .split.splitted-lean > div:last-child {
+    flex: 1 1 75%;
+  }
+  .split > div {
+    padding: 0 20px;
+    flex: 1 1 50%;
+  }
+  .split > div:first-child {
+    padding-left: 0;
+  }
+  .split > div:last-child {
+    padding-right: 0;
+  }
+
+  .split-5 {
+    display: flex;
+  }
+  .split-5 div {
+    flex: 1;
+  }
+  .split-5 div + div {
+    margin-left: 10px;
+  }
+
+  .shouting,
+  .slide-background.shouting {
+    background-color: #FF9800;
+  }
+  .shouting h2, .shouting p,
+  .slide-background.shouting h2,
+  .slide-background.shouting p {
+    color: #a20000;
+    text-shadow: none;
+  }
+  .shouting h3,
+  .slide-background.shouting h3 {
+    color: #000 !important;
+  }
+
+  .shouting-secondary,
+  .slide-background.shouting-secondary {
+    background-color: #7c1f22;
+  }
+  .shouting-secondary h2, .shouting-secondary p, .shouting-secondary li,
+  .slide-background.shouting-secondary h2,
+  .slide-background.shouting-secondary p,
+  .slide-background.shouting-secondary li {
+    color: #fff;
+    text-shadow: 1px 1px #222;
+  }
+  .shouting-secondary a,
+  .slide-background.shouting-secondary a {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+  }
+  .shouting-secondary h3,
+  .slide-background.shouting-secondary h3 {
+    color: #dce1e1;
+  }
+
+  .shouting-tertiary,
+  .slide-background.shouting-tertiary {
+    background-color: #345f6f;
+  }
+  .shouting-tertiary h2, .shouting-tertiary p, .shouting-tertiary li,
+  .slide-background.shouting-tertiary h2,
+  .slide-background.shouting-tertiary p,
+  .slide-background.shouting-tertiary li {
+    color: #fff;
+    text-shadow: 1px 1px #222;
+  }
+  .shouting-tertiary a,
+  .slide-background.shouting-tertiary a {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+  }
+  .shouting-tertiary h3,
+  .slide-background.shouting-tertiary h3 {
+    color: #aed3e0;
+  }
+
+  .shouting-exercise,
+  .slide-background.shouting-exercise {
+    background-color: #5d4037;
+  }
+  .shouting-exercise h2, .shouting-exercise p, .shouting-exercise li,
+  .slide-background.shouting-exercise h2,
+  .slide-background.shouting-exercise p,
+  .slide-background.shouting-exercise li {
+    color: #fff;
+    text-shadow: 1px 1px #222;
+  }
+  .shouting-exercise a,
+  .slide-background.shouting-exercise a {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+  }
+  .shouting-exercise h3,
+  .slide-background.shouting-exercise h3 {
+    color: #bdbdbd;
+  }
+
+// =================================================
