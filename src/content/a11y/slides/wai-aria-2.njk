@@ -1,0 +1,275 @@
+<section class="shouting">
+  <h2>WAI-ARIA</h2>
+</section>
+
+<section>
+  <p>Viele Elemente einer Webseite sind für uns Sehende durch das Erlernen von Design-Mustern erkennbar. Sie haben aber keine semantische Entsprechung. Ein blinder Nutzer hat aber keinen Zugang zur Optik, ihm kann nur die Semantik nahegebracht werden.</p>
+  <p>Wie soll ein Blinder also den Unterschied zwischen einer Liste und einer Navigation erkennen? Wie soll ein Blinder wissen, dass es sich bei einem Link um einen Teil eines Tab-Interfaces handelt?</p>
+</section>
+
+<section>
+  <h2>Mit WAI-ARIA kann HTML um nicht-existente semantische Informationen <mark>für Screenreader</mark> ergänzt werden.</h2>
+</section>
+
+<section class="shouting-secondary">
+  <h2><mark>Landmark Roles</mark> <br>geben Konstrukten semantische Bedeutung, die ansonsten nicht existieren (bspw. Slider, Tab-Interface).</h2>
+</section>
+<section class="shouting-secondary">
+  <h2><mark>ARIA-Attribute</mark> <br>beeinflussen den Accessibility Tree (wie das DOM).</h2>
+</section>
+<section class="shouting-secondary">
+  <h2><mark>Live Regions</mark> <br>reflektieren dynamische Änderungen des Dokumentinhaltes.</h2>
+</section>
+<section class="shouting-secondary">
+  <h2><mark>States und Properties</mark> <br>sind Attribute als Ergänzungen für ältere Screenreader und als Erweiterung für eigene Webcomponents.</h2>
+</section>
+
+<section class="shouting-secondary">
+  <h2>WAI-ARIA hilft bei vielen Unklarheiten!</h2>
+</section>
+<section class="shouting-tertiary">
+  <h2>Die erste Regel von WAI-ARIA: <br><mark>Nutze nicht WAI-ARIA!</mark></h2>
+</section>
+
+<section>
+<pre><code class="html">&lt;!-- FALSCH --&gt;
+&lt;span role=&quot;button&quot;&gt;Formular absenden&lt;&#x2F;span&gt;
+&lt;!-- RICHTIG --&gt;
+&lt;button type=&quot;submit&quot;&gt;Formular absenden&lt;&#x2F;button&gt;</code></pre>
+<pre><code class="html">&lt;!-- Falsch --&gt;
+&lt;span role=&quot;checkbox&quot;&gt;Falsche Checkbox&lt;&#x2F;span&gt;
+&lt;!-- RICHTIG --&gt;
+&lt;label for=&quot;y&quot;&gt;Echte Checkbox&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;y&quot; id=&quot;y&quot;&gt;</code></pre>
+<pre><code class="html">&lt;!-- FALSCH --&gt;
+&lt;span role=&quot;link&quot; data-target=&quot;http:&#x2F;&#x2F;google.com&quot;&gt;Falscher Link&lt;&#x2F;span&gt;
+&lt;!-- RICHTIG --&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;google.com&quot;&gt;Echter Link&lt;&#x2F;a&gt;</code></pre>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Die zweite Regel von WAI-ARIA: <br><mark>Kein semantisches HTML unnötigerweise durch ARIA ersetzen!</mark></h2>
+</section>
+<section>
+<pre><code class="html">&lt;!-- FALSCH --&gt;
+&lt;h2 role=&quot;tab&quot;&gt;Tolle Überschrift&lt;&#x2F;h2&gt;
+
+&lt;!-- RICHTIG --&gt;
+&lt;div role=&quot;tab&quot;&gt;
+  &lt;h2&gt;Tolle Überschrift&lt;&#x2F;h2&gt;
+&lt;&#x2F;div&gt;</code></pre>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Die dritte Regel von WAI-ARIA: <br><mark>Alle interaktiven ARIA-Kontrollelemente müssen mit der Tastatur erreichbar sein.</mark></h2>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Die vierte Regel von WAI-ARIA: <br><mark>Keine Eigenschaften nutzen, die fokussierbare Elemente stören!</mark></h2>
+</section>
+<section>
+  <pre><code class="html">
+&lt;!-- Das w&auml;re falsch! --&gt;
+&lt;button role=&quot;presentation&quot;&gt;Click Me&lt;/button&gt;
+&lt;button aria-hidden=&quot;true&quot;&gt;Click Me&lt;/button&gt;
+  </code></pre>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Die fünfte Regel von WAI-ARIA: <br><mark>Alle interaktiven Elemente benötigen einen zugänglichen Namen (bspw. durch ein Label)</mark></h2>
+</section>
+<section>
+<pre><code class="html">&lt;label for=&quot;uname&quot;&gt;Nutzername&lt;&#x2F;label&gt;
+&lt;input id=&quot;uname&quot; type=&quot;text&quot;&gt;</code></pre>
+</section>
+
+
+<section class="shouting-secondary">
+  <h2>Landmark Roles</h2>
+</section>
+<section>
+  <ul>
+    <li>banner</li>
+    <li>complementary</li>
+    <li>contentinfo</li>
+    <li>form</li>
+    <li>main</li>
+    <li>navigation</li>
+    <li>region</li>
+    <li>search</li>
+  </ul>
+</section>
+<section>
+  <h2>Eine simple, einfach ausgezeichnete Navigation</h2>
+  <p>Einem Blinden wird dieses Konstrukt nicht als Navigation angesagt. Es ist eine Liste von Links.</p>
+<pre><code class="html">
+&lt;div class=&quot;navigation&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Startseite&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Impressum&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</section>
+<section>
+  <h2>Jetzt bekommt ein Blinder eine Navigation angesagt</h2>
+  <p>Durch die Angabe einer "Rolle", die ein semantisches Konstrukt spielt, kann der Screenreader den Zweck des Codes ansagen.</p>
+  <pre><code class="html" data-noescape>
+&lt;div class=&quot;navigation&quot; <mark>role=&quot;navigation&quot;</mark>&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Startseite&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Impressum&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</section>
+<section>
+  <h2>Im neuen <code>nav</code>-Element ist die Rolle fest eingebaut.</h2>
+<pre><code class="html" data-noescape>
+&lt;<mark>nav</mark> class=&quot;navigation&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Startseite&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Impressum&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+</section>
+<section>
+
+<pre><code class="html">&lt;div role=&quot;banner&quot;&gt;
+  &lt;h1&gt;page title identifying website&lt;/h1&gt;
+  .... banner content....
+&lt;&#x2F;div&gt;</code></pre>
+<pre><code class="html">&lt;div role=&quot;complementary&quot;&gt;
+  &lt;h2&gt;Title for complementary area&lt;/h2&gt;
+  .... complementary content area ....
+&lt;&#x2F;div&gt;</code></pre>
+<pre><code class="html">&lt;main role=&quot;main&quot;&gt;
+  &lt;h2&gt;title for main content&lt;/h2&gt;
+  .... main content area ....
+&lt;&#x2F;main&gt;</code></pre>
+
+</section>
+<section data-menu-title="Screenshot der Landmarks">
+  <img src="pictures/a11y/aria-landmarks.png" alt="Screenshot von markierten Landmarks einer Beispielseite des W3C.">
+  <div class="linksToOutside"><a href="http://w3c.github.io/aria-practices/examples/landmarks/index.html" target="_blank">zur Seite des W3C</a></div>
+  <p>Der hier nicht sichtbare Footer hat die Rolle "<code>contentinfo</code>". </p>
+</section>
+
+<section class="shouting-secondary">
+  <h2>Live Regions</h2>
+</section>
+<section>
+  <ul>
+    <li>alert</li>
+    <li>log</li>
+    <li>marquee</li>
+    <li>status</li>
+    <li>timer</li>
+  </ul>
+</section>
+
+<section class="shouting-secondary">
+  <h2>States und Properties</h2>
+</section>
+<section>
+  <h2>Eine Auswahl</h2>
+    <ul class="list--two-columns">
+      <li>aria-busy</li>
+      <li>aria-controls</li>
+      <li>aria-current</li>
+      <li>aria-describedby</li>
+      <li>aria-disabled</li>
+      <li>aria-expanded</li>
+      <li>aria-errormessage</li>
+      <li>aria-haspopup</li>
+      <li>aria-hidden</li>
+      <li>aria-labelledby</li>
+      <li>aria-invalid</li>
+      <li>aria-required</li>
+      <li>aria-valuemax</li>
+      <li>aria-valuemin</li>
+    </ul>
+</section>
+
+<section class="shouting-secondary">
+  <h2>ARIA Rollen</h2>
+</section>
+<section>
+  <h2>Eine Auswahl</h2>
+   <ul class="list--two-columns">
+    <li>alert</li>
+    <li>alertdialog</li>
+    <li>tab</li>
+    <li>tablist</li>
+    <li>tabpanel</li>
+    <li>toolbar</li>
+    <li>tooltip</li>
+    <li>tree</li>
+    <li>treegrid</li>
+    <li>treeitem</li>
+  </ul>
+</section>
+<section>
+  <h2>Implizite ARIA-Attribute in HTML</h2>
+  <img src="pictures/a11y/aria-in-html.png" alt="Screenshot eines W3C-Dokumets mit einer tabellarischen Übersicht über ARIA-Attribute in HTML.">
+  <div class="linksToOutside"><a href="https://www.w3.org/TR/html-aria/#docconformance" target="_blank">W3C-Dokument</a></div>
+</section>
+
+<section class="shouting-secondary">
+  <h2>Bootstrap nutzt gerne und oft WAI-ARIA</h2>
+</section>
+<section>
+  <h2>Bootstrap-Alert</h2>
+<pre><code class="html">
+&lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;&#10;  This is a primary alert&mdash;check it out!&#10;&lt;/div&gt;&#10;&lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;&#10;  This is a secondary alert&mdash;check it out!&#10;&lt;/div&gt;
+</code></pre>
+<img src="pictures/a11y/bootstrap-alerts.png" alt="Drei der Alert-Boxen von Bootstrap">
+</section>
+
+<section>
+  <h2>Buttons und Links</h2>
+  <p>Warum einem Link eine Rolle "button" geben, anstatt von Anfang an einen Button nutzen?</p>
+  <p>Wenn das Element auf eine andere Seite oder einen anderen Bereich der selben Seite führt, ist es ein Link. Wenn eine Aktion (ein Programm) ausgeführt wird, ist es Button.</p>
+<pre class="medium-code"><code class="html">
+&lt;a class=&quot;btn btn-primary&quot; data-toggle=&quot;collapse&quot; href=&quot;#collapseExample&quot;
+  role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseExample&quot;&gt;
+  Link with href
+&lt;/a&gt;
+&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot;
+  data-target=&quot;#collapseExample&quot; aria-expanded=&quot;false&quot;
+  aria-controls=&quot;collapseExample&quot;&gt;
+  Button with data-target
+&lt;/button&gt;
+</code></pre>
+<div class="linksToOutside"><a href="https://getbootstrap.com/docs/4.0/components/collapse/" target="_blank">Doku von Bootstrap</a></div>
+</section>
+
+<section data-menu-title="aria-labelledby und aria-controls">
+  <h2><code>aria-labelledby</code> und <code>aria-controls</code></h2>
+<pre class="small-code"><code class="html" data-noescape>&lt;div id=&quot;accordion&quot;&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-header&quot; <mark>id=&quot;headingOne&quot;</mark>&gt;
+      &lt;h5 class=&quot;mb-0&quot;&gt;
+        &lt;button <mark>aria-controls=&quot;collapseOne&quot;</mark>
+                <mark>aria-expanded=&quot;true&quot;</mark>
+                class=&quot;btn btn-link&quot;
+                data-target=&quot;#collapseOne&quot;
+                data-toggle=&quot;collapse&quot;&gt;Collapsible Group Item #1&lt;&#x2F;button&gt;
+      &lt;&#x2F;h5&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div <mark>aria-labelledby=&quot;headingOne&quot;</mark>
+         class=&quot;collapse show&quot;
+         data-parent=&quot;#accordion&quot;
+         <mark>id=&quot;collapseOne&quot;</mark>&gt;
+      &lt;div class=&quot;card-body&quot;&gt;Anim pariatur cliche ...&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+  &lt;!-- ... usw ... --&gt;
+&lt;&#x2F;div&gt;
+</code></pre>
+</section>
+

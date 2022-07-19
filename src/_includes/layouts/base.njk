@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>{{title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="assets/css/reveal.css">
 </head>
 <body>
 	<div class="reveal">
@@ -15,6 +15,23 @@
 
 		</div>
 	</div>
-	{% include "partials/footer.njk" %}
+
+	<script src="assets/js/reveal.js"></script>
+	<script>
+		// More info https://revealjs.com/config/
+		{# Reveal.initialize(); #}
+
+		Reveal.initialize({
+			controlsTutorial: false,
+			history: true,
+			slideNumber: true,
+			slideNumber: 'c/t',
+			center: true,
+			transition: 'default', // none/fade/slide/convex/concave/zoom
+			transitionSpeed: 'fast' // default/fast/slow
+		}); 
+
+	</script>
+	<!-- Copyright © 2022 Jens Grochtdreis -->
 </body>
 </html>

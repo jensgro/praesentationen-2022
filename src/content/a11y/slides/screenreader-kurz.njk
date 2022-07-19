@@ -1,0 +1,51 @@
+<section class="shouting">
+  <h2>Wie funktionieren Screenreader?</h2>
+</section>
+<section>
+  <ul>
+    <li>Ein Screenreader ist ein Aufsatz auf das Betriebssystem bzw. den Browser.</li>
+    <li>Ein Screenreader liest den Browser aus und ist nicht selber ein Browser wie Lynx.</li>
+    <li>Deshalb bekommt er interpretiertes CSS und mit Javascript erzeugte Inhalte mit.</li>
+    <li>Der Screenreader liest den Inhalt in einen eigenen Puffer und arbeitet ihn von oben nach unten ab.</li>
+    <li>Screenreader haben einen normalen und einen Formularmodus.</li>
+  </ul>
+</section>
+<section>
+  <h2>Screenreader testen?!</h2>
+  <ul>
+    <li>Sehr andere Bedienung</li>
+    <li>normal ist vier- bis sechsfache Vorlesegeschwindigkeit</li>
+    <li>Man muss damit navigieren lernen</li>
+    <li>Viele verschiedene Kombinationen aus Screenreader, Browser und Betriebssystem</li>
+  </ul>
+  <p>Also: <mark>Lieber einen Screenreadernutzer suchen und testen lassen, als einen Screenreader installieren und selber testen.</mark></p>
+</section>
+<section data-menu-title="Viele Infos zu Screenreadern und deren Nutzung">
+  <img src="pictures/a11y/screenreader-survey.png" alt="Screenshot des Screenreader-Survey von WebAIM.">
+  <div class="linksToOutside"><a href="https://webaim.org/projects/screenreadersurvey7/" target="_blank">zur Umfrage</a></div>
+</section>
+<section>
+  <h2>Dem Screenreader Meldung machen</h2>
+  <ul>
+    <li>Virtual Buffer aktualisieren</li>
+    <li>focus() folgenden Elementen geben: <br>
+    a, area, button, input, object, select, textarea</li>
+    <li>Wenn ein Element einen tabindex=“-1„ hat, kann es fokussiert werden, auch wenn es nicht zu der oben genannten Liste gehört.</li>
+  </ul>
+</section>
+<section>
+  <h2>Focus</h2>
+  <pre><code class="jquery">$( "#other" ).click(function() {
+  $( "#target" ).focus();
+});</code></pre>
+<pre><code class="jquery">$( "input[type=text]" ).focus(function() {
+  $( this ).blur();
+});</code></pre>
+<pre><code class="js">// Use the focus() method to set focus
+function showModal() {
+  ...
+  var modal = document.getElementById('modal2');
+  modal.focus();
+  ...
+}</code></pre>
+</section>

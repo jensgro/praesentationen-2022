@@ -1,0 +1,66 @@
+
+<section class="shouting-secondary">
+  <h2>Verständlich (Understandable)</h2>
+</section>
+<section>
+  <h2>Die Inhalte und die Bedienung der Schnittstelle müssen für den Nutzer verständlich sein.</h2>
+  <ul>
+    <li>Die Sprache der Seite sollte im HTML-Element angegeben sein.</li>
+    <li>Ein Sprachwechsel im Text sollte markiert werden.</li>
+    <li>Geben Sie Informationen zur Bedienung, bspw. bei Formulareingaben.</li>
+  </ul>
+</section>
+<section class="shouting-secondary">
+  <h2>Dokument in der richtigen Sprache ausgeben und Sprachwechsel markieren</h2>
+</section>
+<section>
+<pre><code class="html">
+&lt;html lang=&quot;de&quot;&gt;
+</code></pre>
+<pre><code class="html">
+&lt;html lang=&quot;fr&quot;&gt;
+</code></pre>
+<pre><code class="html">
+&lt;p&gt;Ein &lt;span lang=&quot;en&quot;&gt;Browser&lt;/span&gt; ist eine
+  &lt;span lang=&quot;en&quot;&gt;Software&lt;/span&gt;
+  zur Darstellung von Webseiten.&lt;/p&gt;
+</code></pre>
+<pre><code class="css">[lang="en"] p.test {
+  /* Spezialformatierung für diese Sprache! */
+}
+</code></pre>
+</section>
+
+<section>
+	<h2>Viele Betroffene mögen Sprachwechsel nicht.</h2>
+	<p>Ein Sprachwechsel führt zu einem Wechsel der Vorlesestimme. Das ist nicht nur ein anderer Eindruck, der Wechsel erzeugt auch eine hörbare Pause. In einer kurzen Diskussion auf Twitter bekam ich dies von Blinden als Feedback.</p>
+</section>
+
+<section>
+	<h2>Das <code>lang</code>-Attribut in der Screenreader-Ausgabe</h2>
+	<figure>
+		<video width="800" controls>
+		  <source src="video/a11y/screenreader-lang-attribute-demo.webm" type="video/webm">
+		  <source src="video/a11y/screenreader-lang-attribute-demo.mp4" type="video/mp4">
+		</video>
+		<figcaption>
+			<p class="linksToOutside"><a href="https://youtu.be/ox5QVbZSPBk" target="_blank">Youtube</a></p>
+		</figcaption>
+	</figure>
+	<p>Ein französischer Text wird erst "auf Englisch" und dann mit französischer Aussprache vorgelesen.</p>
+	<aside class="notes">
+		<p>Dieses Video stammt von Léonie Watson</p>
+	</aside>
+</section>
+
+<section>
+  <h2>Abkürzungen erklären</h2>
+<pre><code class="html">
+&lt;p&gt;Manche Menschen haben einen
+&lt;abbr title=&quot;Abk&uuml;rzungsfimmel&quot;&gt;Ak&uuml;Fi&lt;/abbr&gt;.
+Dem kann man mit der Nutzung des
+&lt;code&gt;abbr&lt;/code&gt;-Elements entgegenwirken.&lt;/p&gt;
+</code></pre>
+<p>Manche Menschen haben einen <abbr title="Abkürzungsfimmel">AküFi</abbr>. Dem kann man mit der Nutzung des <code>abbr</code>-Elements entgegenwirken.</p>
+
+</section>

@@ -1,0 +1,107 @@
+<section class="shouting-secondary">
+  <h2>Bedienbar (Operable)</h2>
+</section>
+<section class="shouting-tertiary">
+  <h2>Je weniger das Interface voraussetzt, umso einfacher ist es zu bedienen und umso zugänglicher ist es!</h2>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Wenn der Nutzer raten muss, wie eine Seite bedient werden soll, dann ist das miserable Usability und fehlende Accessibility.</h2>
+</section>
+
+<section>
+  <h2>Der Benutzer muss in der Lage sein, die Schnittstelle zu bedienen.</h2>
+  <ul>
+    <li>Alle Seitenlemente müssen auch mit der Tastatur bedienbar sein.</li>
+    <li>Sollte ein Element ein Zeitlimit zur Bedienung haben, muss dieses Zeitlimit beeinflussbar sein.</li>
+    <li>Selbstablaufende Karuselle/Galerien müssen vom Nutzer kontrollierbar sein.</li>
+    <li>Links müssen erkennbar und verständlich sein.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Tasturlayouts</h2>
+  <p>Es gibt sehr unterschiedliche Tastaturlayouts. Eine Tastenkombination mag auf der Englischen Tastatur praktisch sein, aber auf der tschechischen nicht.</p>
+  <p>Und niemand sollte glauben, dass bspw. in Deutschland von jedem nur die deutsche Tastatur genutzt wird.</p>
+</section>
+ 
+ 
+<section>
+  <h2>Focus-Styles nie vergessen</h2>
+<pre><code class="css">/* Am Besten immer mit :hover zusammen schreiben! */
+  a {
+    color: #a20000;
+    text-decoration: underline;
+  }
+  a:hover, a:focus {
+    color: #000;
+    text-decoration: none;
+  }
+</code></pre>
+<pre><code class="css"> /* Eine Outline konkret definieren. */
+  a:focus {
+    outline: 2px solid #a20000;
+  }
+</code></pre>
+</section>
+
+<section>
+  <h2>Fokussierbare und mit der Tastatur erreichbare Elemente</h2>
+  <ul>
+    <li>Links</li>
+    <li>Formularelemente</li>
+    <li>Audio und Video mit Kontrollelementen</li>
+    <li>Alles mit [tabindex="0"]</li>
+    <li>Alles mit [tabindex="-1"] ist nur fokussierbar, aber nicht mit der Tastatur erreichbar</li>
+    <li>Elemente mit [contenteditable]</li>
+    <li>und mehr</li>
+  </ul>
+</section>
+
+<section data-menu-title="focussable and tabbable elements">
+    <figure>
+        <img src="pictures/a11y/focusable-elements-2.png" alt="Übersicht fokussierbarer Elemente.">
+        <figcaption class="linksToOutside"><a href="https://allyjs.io/data-tables/focusable.html" target="_blank">zur Übersicht</a></figcaption>
+    </figure>
+</section> 
+
+<section>
+  <h2>Hier haben wir IMMER mit diesem Problem zu tun</h2>
+<pre><code class="html">
+&lt;button&gt;Ein echter Button&lt;/button&gt;
+
+&lt;div class=&quot;btn&quot;&gt;Ein falscher Button mit JavaScript-Magie&lt;/div&gt;
+&lt;div class=&quot;btn&quot; tabindex=&quot;0&quot;&gt;Noch ein falscher Button&lt;/div&gt;
+&lt;div class=&quot;btn&quot; tabindex=&quot;0&quot; role=&quot;button&quot;&gt;Auch nicht besser!&lt;/div&gt;
+
+&lt;div type=&quot;button&quot; (click)=&quot;takePhoto()&quot;&gt;Angular-Magic
+  &lt;i class=&quot;fa fa-camera fa-2x&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+</code></pre>
+</section> 
+
+
+<section>
+  <h2>Überschriften können von Screenreader-Nutzern als Inhaltsverzeichnis vorgelesen werden. Sie dienen zur Navigation.</h2>
+</section>
+<section>
+  <h2>Überschriftenstruktur bei der FAZ</h2>
+    <figure>
+        <img src="pictures/a11y/faz-headlines-1.png" alt="Screenshot der FAZ mit einem Bookmarklet, das alle Überschriften auflistet. Leider ist das Bookmarklet schölecht bedienbar.">
+    </figure>
+</section>
+<section>
+  <h2>Aria-Landmarks helfen auch bei der Navigation.</h2>
+<pre><code class="html">
+&lt;header role=&quot;banner&quot;&gt;&lt;/header&gt;
+
+&lt;section&gt;
+  &lt;form role=&quot;search&quot;&gt;&lt;/form&gt;
+&lt;/section&gt;
+
+&lt;aside&gt;&lt;/aside&gt;
+
+&lt;footer role=&quot;contentinfo&quot;&gt;&lt;/footer&gt;
+</code></pre>
+</section> 
+

@@ -1,0 +1,144 @@
+<section class="shouting">
+  <h2>Inhalte verstecken</h2>
+</section>
+
+<section>
+  <h2>Screenreader bekommen den Seiteninhalt vom Browser durchgereicht. Wenn der Browser etwas nicht anzeigen soll, dann reicht er auch die Info nicht weiter.</h2>
+</section>
+<section>
+  <h2>Wenn man genau diesen Effekt erreichen will, bspw. bei der großen Menge Inhalt von Mega-Menüs, dann kann man ohne Probleme mit <mark>
+    <code>display: none</code>
+  </mark> arbeiten.</h2>
+</section>
+
+<section>
+  <h2>Versteckt auch vor dem Screenreader</h2>
+  <pre><code class="css">
+/* Das Element verschwindet komplett.
+   Es bleibt kein Platz frei. */
+.versteckmich-1 {
+  display: none;
+}
+
+/* Der Platz, den das Element eigentlich
+   einnimmt, wird reserviert. */
+.versteckmich-2 {
+  visibility: hidden;
+}
+</code></pre>
+</section>
+<section>
+  <h2>Hier ist das sinnvoll</h2>
+  <img src="pictures/a11y/amazon-navigation.png" alt="Ein Screenshot der Navigation von Amazon." class="stretch">
+</section>
+
+<section>
+  <h2>Mit HTML verstecken</h2>
+<pre><code class="html" data-noescape>
+&lt;p <mark>hidden</mark>&gt;Dieser Inhalt wird vor Screenreadern <mark>und</mark>
+visuellen Browsern versteckt.&lt;/p&gt;
+</code></pre>
+<pre><code class="html" data-noescape>
+&lt;p <mark>aria-hidden="true"</mark>&gt;Dieser Inhalt wird <strong>nur</strong>
+vor Screenreadern versteckt.&lt;/p&gt;
+</code></pre>
+</section>
+
+<section>
+  <h2>Inhalte aus dem Viewport schieben</h2>
+  <pre><code class="css">.offscreen {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* wichtig!! */
+}</code></pre>
+<p>Sehende Nutzer sehen die mit dieser Klasse versehenen Inhalte nicht. Screenreader-Nutzer bekommen sie aber vorgelesen.</p>
+<p>Die Eigenschaft <code>white-space</code> wird benötigt, damit mehrere Wörter <a href="https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe" target="_blank">nicht als ein Wort vorgelesen werden</a>.</p>
+</section>
+
+<section>
+  <p>Da herausgeschobener Text aber noch mit der Tastatur fokussierbar ist, sollte er bei Fokus auch wieder erscheinen (dürfen).</p>
+
+  <pre><code class="css">a.offscreen {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+a.offscreen:focus {
+  position:relative;
+  clip:auto;
+  width:auto;
+  height:auto;
+  overflow:auto;
+}</code></pre>
+  <pre><code class="html">&lt;a class=&quot;offscreen&quot; href=&quot;test.html&quot;&gt;Dieser Link
+    ist ausserhalb des Viewports, bis er fokussiert wird.&lt;/a&gt;</code></pre>
+</section>
+
+<section>
+  <h2>Bei uns</h2>
+  <pre><code class="css">
+.t-visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px
+}
+  </code></pre>
+</section>
+<section>
+  <h2>versteckter Text in der Live-Seite</h2>
+  <pre><code class="html">
+<div class="o-dyn-teaser__link__price">
+    <span class="a-price">
+        <span class="prefix">ab</span>
+        <span> 22,49 </span>
+        <span> € </span> *
+    </span>
+    <span class="o-dyn-teaser__link--discount">
+        %
+        <span class="t-visuallyhidden">
+            rabattierter Preis</span>
+        </span>
+</div>
+  </code></pre>
+</section>
+
+<section>
+  <h2>SVG verstecken</h2>
+  <pre><code class="html">
+&lt;svg xmlns="http://www.w3.org/2000/svg"
+     focusable="false"
+     aria-hidden="true"
+     class="a-icon a-icon--cms a-icon--medium"&gt;
+  <use xlink:href="svg/icons-cms.svg#a_ico-cms_0_placeholder"></use>
+&lt;/svg&gt;
+  </code></pre>
+</section>
+
+<section>
+  <h2>Screenreader-Support-Tests</h2>
+  <figure>
+    <img src="pictures/a11y/screenreader-support-for-hidden-content.png" alt="Ein Screenshot einer Übersicht der Tests mit Screenreadern.">
+    <figcaption class="linksToOutside"><a href="http://stevefaulkner.github.io/HTML5accessibility/tests/hidden-2016.html" target="_blank">zur Übersicht</a></figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Weitere Leseempfehlung</h2>
+  <figure>
+    <img src="pictures/a11y/ally-hide-elements.png" alt="Screenshot eines Artikels über das unterschiedliche Verstecken von Inhalten.">
+    <figcaption class="linksToOutside"><a href="https://allyjs.io/tutorials/hiding-elements.html" target="_blank">zum Artikel</a></figcaption>
+  </figure>
+</section>

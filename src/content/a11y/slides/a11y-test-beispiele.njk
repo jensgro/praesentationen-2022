@@ -1,0 +1,78 @@
+<section class="shouting">
+    <h2>Ein Praxisbeispiel</h2>
+</section>
+
+<section data-menu-title="Screenshot Flughafen Cannes">
+    <figure>
+        <img src="pictures/a11y/flughafen-cannes.png" alt="Screenshot der Startseite des Flughafens Cannes.">
+        <figcaption class="linksToOutside"><a href="" target="_blank">zur Webseite</a></figcaption>
+    </figure>
+</section>
+
+<section>
+    <h2>Flughafen Cannes</h2>
+    <p>Hier ist eine sehr kreative, nichts destotrotz falsche Semantik am Werk.</p>
+    {% highlight "html" %}
+<!-- Codeausschnitt aus: https://www.cannes.aeroport.fr/  -->
+
+<aside class="left-off-canvas-menu sidebar">
+  <ul>
+    <li>
+      <dl data-accordion="" class="accordion large-12 columns main-menu">
+        <dd>
+          <a href="/">Accueil</a>
+        </dd>
+        <dd>
+          <a href="#content0" class="icon-right-open">AEROPORT</a>
+          <dl id="content0" class="content accordion" data-accordion="">
+            <dd>
+              <a href="#" title="Destination C&ocirc;te d&apos;Azur">Destination C&ocirc;te d&apos;Azur</a>
+            </dd>
+            <dd>
+              <a href="#" title="Actualit&eacute;s">Actualit&eacute;s</a>
+            </dd>
+            <!-- ... usw. -->
+          </dl>
+        </dd>
+        <dd>
+          <a href="#content1" class="icon-right-open">SERVICES &amp;amp; ASSISTANCES</a>
+          <dl id="content1" class="content accordion" data-accordion="">
+
+            <!--  mehrfach dd > a -->
+
+            <dd>
+              <a href="#content1-3" class="icon-right-open">C&ocirc;t&eacute; A&eacute;rogare</a>
+              <dl id="content1-3" class="level-2 content">
+                <dd><a href="#" title="Services d&CloseCurlyQuote;assistance complets &agrave; l&CloseCurlyQuote;avion">Services d&CloseCurlyQuote;assistance complets &agrave; l&CloseCurlyQuote;avion</a></dd>
+                <!--  mehrfach dd > a -->
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+        <!--  ... usw.  -->
+      </dl>
+    </li>
+    <div class="second-part large-12 columns">
+      <ul class="second-menu">
+        <li class="icon-right-open book">
+          <a href="#">
+            <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="37.039px" height="17.478px" viewBox="0 0 37.039 17.478" enable-background="new 0 0 37.039 17.478" xml:space="preserve"> ... </svg>Book your handling</a></li>
+        <li class="icon-right-open"><a href="contact.php" class="icon-mail-alt">contact us</a></li>
+      </ul>
+    </div>
+  </ul>
+</aside>
+
+    {% endhighlight %}
+</section>
+
+<section>
+    <h2>Die semantischen Fehler</h2>
+    <ol>
+      <li>Eine Definitionsliste in einer unsortiertierten Liste zu schachteln ist mehr als ungewöhnlich.</li>
+      <li>Wo ist eigentlich die Definition? Es fehlen immer die <code>DT</code>-Elemente.</li>
+      <li>Das title-Attribut in den Links ist eine Doppelung der Linktexte und deshalb unnötig bis störend.</li>
+      <li>Ein <code>DIV</code> darf nicht auf der gleichen Ebene wie <code>LI</code> stehen.</li>
+      <li>Was soll denn eine Definitionsliste in einer Definitionsliste in einer unsortiertierten Liste?</li>
+    </ol>
+</section>

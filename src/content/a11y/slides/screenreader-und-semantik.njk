@@ -1,0 +1,90 @@
+<section class="shouting">
+  <h2>Screenreader und Semantik</h2>
+</section>
+
+<section>
+  <h2>Screenreader sind genauso unvollkommen und fehleranfällig wie Browser!</h2>
+</section>
+
+<section>
+  <img src="pictures/a11y/html5-a11y.png" alt="Screenshot eines Projekts zur Erforschung der Unterstützung von HTML5-Features in den Screenreadern.">
+  <div class="linksToOutside"><a href="http://html5accessibility.com/" target="_blank">zum Projekt</a></div>
+</section>
+
+<section>
+  <h2>Das <code>mark</code>-Element wird nicht überall unterstützt!</h2>
+  <img src="pictures/a11y/html5-a11y-text-level-detail.png" alt="Die Unterstützung der HTML5-Elemente time und mark in den Screenreadern.">
+  <div class="linksToOutside"><a href="http://html5accessibility.com/#text" target="_blank">zum Projekt</a></div>
+</section>
+
+<section>
+  <h2>Die Standard-Formatierung</h2>
+  <pre><code class="css">mark {
+  background-color: #ff0;
+  color: #000;
+}</code></pre>
+</section>
+
+<section>
+  <h2>Tolle Workaround-Idee!</h2>
+  <pre><code class="css">/* Text visuell verstecken */
+mark::before, mark::after, del::before, del::after,
+ins::before, ins::after, s::before, s::after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}</code></pre>
+
+<pre><code class="css">mark::before { content: " [Start der Markierung] ";}
+mark::after { content: " [Ende der Markierung] ";}
+
+*[lang=en] mark::before { content: " [highlight start] ";}
+*[lang=en] mark::after { content: " [highlight end] ";}</code></pre>
+  <div class="linksToOutside"><a href="http://adrianroselli.com/2017/12/tweaking-text-level-styles.html#comment-89366" target="_blank">zum Artikel</a></div>
+</section>
+
+
+<section>
+  <h2>Für den Windows High Contrast Modus</h2>
+  <pre><code class="css">@media screen and (-ms-high-contrast: active) {
+  mark {
+    color: HighlightText;
+    background-color: Highlight;
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2>Für die anderen Elemente entsprechend.</h2>
+  <pre class="small-code"><code class="css">del::before {
+  content: " [Beginn der Löschung] ";
+}
+
+del::after {
+  content: " [Ende der Löschung] ";
+}
+ins::before {
+  content: " [Beginn der Einfügung] ";
+}
+
+ins::after {
+  content: " [Ende der Einfügung] ";
+}
+
+s::before {
+content: " [Beginn des durchgestrichenen Textes] ";
+}
+
+s::after {
+  content: " [Ende des durchgestrichenen Textes] ";
+}
+  </code></pre>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Das ist doch eine tolle Ergänzung für ein Basis-CSS!</h2>
+</section>

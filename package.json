@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "description": "Präsentationen rund ums Frontend, auf Basis von reveal.js.",
   "scripts": {
-    "clean": "rm -rf _site",
-    "watch:sass": "sass --watch src/assets/scss:_site/css",
-    "build:sass": "sass --no-source-map src/assets/scss:_site/css",
+    "clean": "rimraf _site",
+    "watch:sass": "sass --watch src/assets/scss:_site/assets/css",
+    "build:sass": "sass --no-source-map src/assets/scss:_site/assets/css",
     "watch:eleventy": "eleventy --serve",
-    "build:eleventy": "eleventy",
+    "slides": "eleventy",
+    "copyReveal": "gulp cpRev",
+    "copyA11y": "gulp cpA11y",
+    "copyTest1": "gulp cpTest2",
     "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm-run-all build:sass build:eleventy"
+    "build": "npm-run-all build:sass slides",
+    "test": "npm-run-all slides build:sass copyReveal copyA11y copyTest1"
   },
   "repository": {
     "type": "git",
@@ -36,6 +40,7 @@
     "postcss": "^8.4.14",
     "postcss-cli": "^10.0.0",
     "reveal.js": "^4.3.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.53.0"
   },
   "browserslist": [

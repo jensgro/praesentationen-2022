@@ -1,0 +1,27 @@
+<section class="shouting">
+  <h2>WAI-ARIA (Einschub)</h2>
+</section>
+<section>
+  <h2>Mit WAI-ARIA kann HTML um nicht-existente semantische Informationen <mark>für Screenreader</mark> ergänzt werden.</h2>
+</section>
+<section>
+  <h2>Die erste Regel von WAI-ARIA: <br><mark>Nutze nicht WAI-ARIA!</mark></h2>
+</section>
+<section>
+  <h2>Kein semantisches HTML durch ARIA ersetzen!</h2>
+<pre><code class="html">&lt;!-- Schlecht! --&gt;
+&lt;div role=&quot;heading&quot; aria-level=&quot;2&quot;&gt;Subheading&lt;/div&gt;
+
+&lt;!-- Korrekt --&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+</code></pre>
+<pre><code class="html">&lt;!-- Schlecht! --&gt;
+&lt;div role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;checkbox1&quot; aria-labelledby=&quot;label-for-checkbox1&quot;&gt;&lt;/div&gt; &lt;div class=&quot;label&quot; id=&quot;label-for-checkbox1&quot;&gt;My checkbox label&lt;/div&gt;
+
+&lt;!-- Korrekt --&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; name=&quot;checkbox1&quot;&gt; &lt;label for=&quot;checkbox1&quot;&gt;My checkbox label&lt;/label&gt;
+</code></pre>
+<pre><code class="html">
+
+</code></pre>
+</section>
