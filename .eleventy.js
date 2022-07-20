@@ -25,14 +25,10 @@ module.exports = function (eleventyConfig) {
   // keine Ahnung, was das tut :-)
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addPassthroughCopy({
-    "./src/assets/pictures": "pictures"
-  });
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy({"./src/assets/scss/fonts/**/*.*": "css/fonts"});
-  eleventyConfig.addPassthroughCopy({
-    "./src/static/": "/"
-  });
+  // eleventyConfig.addPassthroughCopy({ "./src/assets/images": "assets/images" });
+  // eleventyConfig.addPassthroughCopy({"./src/assets/scss/fonts/**/*.*": "assets/css/fonts"});
+  // eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy({ "./src/static/": "/" });
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
