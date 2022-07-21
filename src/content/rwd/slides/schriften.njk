@@ -1,0 +1,145 @@
+<section class="shouting">
+    <h2>Schriften</h2>
+</section>
+
+<section>
+    <h2>4 unterschiedliche Schriftformate</h2>
+    <ol>
+        <li>TTF</li>
+        <li>EOT</li>
+        <li>WOFF</li>
+        <li>WOFF2</li>
+    </ol>
+    <p>Die Unterstützung von SVG-Schriften setzte sich nie durch und Chrome hat diese mittlerweile wieder ausgebaut.</p>
+</section>
+<section>
+    <ol>
+        <li>Die meisten Browser werden mit <mark>WOFF</mark> erreicht.</li>
+        <li>Einige moderne Browser kennen auch <mark>WOFF2</mark>, das performanter ist.</li>
+        <li><mark>EOT</mark> ist nur sinnvoll für alte IE.</li>
+        <li><mark>TTF</mark> können alle Browser, lohnt sich nur noch für alte Android. </li>
+    </ol>
+    <p>EOT und TTF sind nicht komprimierte Formate. WOFF und WOFF2 hingegen benutzen eine Komprimierung. Die von WOFF2 ist effektiver, als die des Vorgängers. </p>
+    <p><mark>Wer sich um IE &lt; 9 und antike Android-Systeme vor v 4.4 keine Gedanken machen muss, kann ohne Probleme nur noch WOFF und WOFF2 nutzen!</mark></p>
+</section>
+
+<section>
+    <h2><code>@font-face</code> schreiben</h2>
+    <pre><code class="css large-text">@font-face {
+  font-family: 'Awesome Font';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Awesome Font'),
+       url('/fonts/awesome.woff2') format('woff2'),
+       url('/fonts/awesome.woff') format('woff'),
+       url('/fonts/awesome.ttf') format('ttf'),
+       url('/fonts/awesome.eot') format('eot');
+}   </code></pre>
+<p>Erst wird lokal nach der Schrift geschaut, danach die Schriften von oben nach unten abgearbeitet, bis eine gefunden wird, die der Browser kennt.</p>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Einfach System-Schriftarten nehmen</h2>
+</section>
+<section>
+    <h2>Standard System-Schriftarten</h2>
+    <pre><code class="css large-text">body{
+    font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”,
+    “Ubuntu”, “Cantarell”, “Fira Sans”,
+    “Droid Sans”, “Helvetica Neue”, sans-serif;
+}</code></pre>
+<p>Wegen <mark>-apple-system</mark> sollte diese Regel so nicht in der font-Shorthand-Schreibweise stehen. Bei <code>font</code> ist sowieso die Shorthand-Schreibweise zu vermeiden.</p>
+</section>
+
+<section>
+    <h2>Wer zu wem?</h2>
+    <table>
+        <thead>
+            <th>Schriftart</th>
+            <th>WO?</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td> -apple-system</td>
+                <td>Safari (wechselt zwischen "San Francisco", "Neue Helvetica" und "Lucida Grande"</td>
+            </tr>
+            <tr>
+                <td>BlinkMacSystemFont</td>
+                <td>Chrome auf macOS</td>
+            </tr>
+            <tr>
+                <td>Segoe UI</td>
+                <td>Windows und Windows Phone</td>
+            </tr>            
+            <tr>
+                <td>Roboto</td>
+                <td>Android-Systeme ab v4</td>
+            </tr>
+            <tr>
+                <td>Oxygen</td>
+                <td>KDE</td>
+            </tr>
+            <tr>
+                <td>Ubuntu</td>
+                <td>Ubuntu</td>
+            </tr>
+            <tr>
+                <td>Cantarell</td>
+                <td>Gnome</td>
+            </tr>
+            <tr>
+                <td>FiraSans</td>
+                <td>FirefoxOS</td>
+            </tr>
+            <tr>
+                <td>DroidSans</td>
+                <td>ältere Android</td>
+            </tr>
+            <tr>
+                <td>Helvetica Neue</td>
+                <td>macOS <strong>vor</strong> El Capitan</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>Ein anderer Ansatz (von Jonathan Neal)</h2>
+    <pre><code class="css">@font-face {
+	font-family: system-ui;
+	font-style: normal;
+	font-weight: 300;
+	src: local(".SFNSText-Light"), 
+             local(".HelveticaNeueDeskInterface-Light"), 
+             local(".LucidaGrandeUI"), local("Segoe UI Light"), 
+             local("Ubuntu Light"), local("Roboto-Light"), 
+             local("DroidSans"), local("Tahoma");
+}</code></pre>
+<pre><code class="css">
+body {
+    font-family: system-ui, sans-serif;        
+}    
+</code></pre>
+</section>
+
+<section>
+    <h2>Browserunterstützung</h2>
+    <figure>
+        <img src="pictures/rwd/webfonts-browser-compatibility.png" alt="Kompatibilitätstabelle für einige Schrift-Eigenschaften von MDN">
+        <figcaption class="linksToOutside"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face#Browser_compatibility" target="_blank">Übersicht bei MDN</a></figcaption>
+    </figure>
+</section>
+
+<section>
+    <h2>Linktipps</h2>
+    <ul>
+        <li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=de">Optimierung von Webschriftarten</a></li>
+        <li><a href="https://blog.prototypr.io/typography-and-cross-browser-compatibility-fc1fa3b8fa9a">Typography And Cross Browser Compatibility</a></li>
+        <li><a href="https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/">Using UI System Fonts In Web Design: A Quick Practical Guide</a></li>
+        <li><a href="https://booking.design/implementing-system-fonts-on-booking-com-a-lesson-learned-bdc984df627f">Implementing system fonts on Booking.com — A le</a></li>
+        <li><a href="https://css-tricks.com/os-specific-fonts-css/">OS Specific Fonts in CSS</a></li>
+        <li><a href="https://github.com/jonathantneal/system-font-css">System-font-css</a></li>
+        <li><a href="https://www.zeichenschatz.net/typografie/websichere-schriften.html">Websichere Schriften in Zeiten von Responsive Webdesign</a></li>
+    </ul>
+</section>

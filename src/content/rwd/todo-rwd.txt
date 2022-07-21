@@ -1,0 +1,66 @@
+# Ideen für den RWD-Workshop
+
+## Werbung
+
+- Frage in die Runde, ob jemand mit Werbung arbeitet. Wenn ja: Erfahrung mit responsiven Werbeformaten gemacht?
+- Bislang hört man in Deutschland immer, dass es seitens der Werbewirtschaft keine echte responsive Werbung gibt. Man muss sich dann evtl. behelfen, wie Christian Schäfer (derSchepp) es in einem Podcast beschreibt: https://scheppundmies.de/2018/08/18/sum02-responsive-webdesign/
+- Dabei spielen sie unterschiedliche Größen einer Werbung aus und entscheiden dann im Client, welches Werbeformat benötigt wird, das andere wird auskommentiert.
+
+## Video- und Bildformate, Schriften
+
+- Ganz am Anfang stand ein heilloses Durcheinander an Formaten für Video, Bilder und Schriften.
+- Mittlerweile hat sich das gegeben.
+- Wir haben nur noch ein Videoformat.
+- Wir können überall responsive Bilder nutzen. Denn sollte ein Browser diese nicht können, nimmt er den Fallback. Und diese Browser gibt es alle nicht auf mobilen Endgeräten, sodass der Fallback einfach die Desktopversion ist und alles ist gut.
+- Im Grunde benötigen wir bei den Schriften nur noch WOFF. Wer unbedingt WOFF2 nutzen will, aus Performancegründen, schreibt wieder ein wenig mehr Code. Aber im Grunde ist es nicht mehr so schlimm, wie vor Jahren.
+
+## Performance
+
+- Nach aktuellen Statistiken schauen.
+- Es macht nicht den Eindruck, als wäre alles besser geworden. Im Gegenteil.
+- Zudem wird alles immer stärker JS-getrieben mit großen Frameworks. Das addiert sich zur schlechten Grund-Performance.
+
+## Reset vs. Normalize
+
+## Gridsysteme
+
+- Begriffsklärungen
+- Wie funktionieren Float-Grids?
+- Flexbox, endlich alles einfach und flexibel
+- Grids, der nächste Step
+- Modernisierung alter Projekte?
+
+## SVG
+
+- Einfache Tipps zum Umgang mit SVG
+- passt es noch rein, responsive Logos zu beschreiben?
+
+## Breakpoints
+
+- matchmedia ==> Breakpoints in JS abfragen
+
+## Styleguides
+
+- Wer arbeitet in und mit einem Living Styleguide?
+
+
+## Änderung der Reihenfolge
+
+- Dank Flexbox und CSS-Grid können wir ja ziemlich einfach die visuelle Reihenfolge von Elementen verändern. Das ist eher keine gute Idee: a11y! Aber auch ohne das Thema hochzuhängen, alle Tastaturnutzer (da sind wir wieder bei a11y) leiden nachher darunter.
+- Deshalb: wenn die Änderung der Reihenfolge unerlässlich ist, diese nur für schmale Breakpoints vornehmen. Das sind dann eh alles Smartphones und die haben keine Tab-Taste. Da ist eine Änderung der Reihenfolge nicht so schlimm.
+- Wenn ansonsten mobile first entwickelt wird, muss in diesem Falle eine Ausnahme gemacht werden.
+
+## Mobile first
+
+- Wer arbeitet so?
+- Gute Erfahrungen? Schlechte Erfahrungen?
+- Bei Änderung der Reihenfolge dringend davon abweichen.
+- Ansonsten ist der Ansatz erstmal ungewohnt, aber logisch und eigentlich einfach.
+- Vom Einfachen zum Komplizierten.
+- Manchmal benötigt man evtl. auch gar keine Anpassung, weil das Modul im Grid passend mitwächst.
+
+
+## Die nächsten Themen
+
+- SVG, simpler Umgang mit SVGs inkl. Einbindung für IE
+- Flexbox-Spielereien von Heydon Pickering

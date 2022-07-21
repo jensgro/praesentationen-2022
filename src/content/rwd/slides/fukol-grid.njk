@@ -1,0 +1,50 @@
+<section class="shouting">
+    <h2>Fukol Grid</h2>
+    <h3>von Heydon Pickering</h3>
+</section>
+
+<section>
+    <h2>Der Code</h2>
+    <pre><code class="css">
+.fukol-grid {
+  display: flex; 
+  flex-wrap: wrap; 
+  margin: -0.5em; /* (edit me!) */
+}
+
+.fukol-grid > * {
+  flex: 1 0 5em; /* (edit me!) */
+  margin: 0.5em; /* (edit me!) */
+}        
+    </code></pre>
+    <div class="linksToOutside">
+        <a href="https://github.com/Heydon/fukol-grids" target="_blank">das Github-Repo</a>
+    </div>
+</section>
+
+<section>
+  <h2>Kleine Hinweise</h2>
+  <pre><code class="css">.fukol-grid > * {
+  flex: 1 0 5em; /* (edit me!) */
+}  </code></pre>
+  <ol>
+    <li>Der Sternselektor ermöglicht, ohne spezielle Klassen zu arbeiten und jedes x-beliebige Element als Flex-Item zu nutzen. Aber benötigen wir das? Unsere Module sind gekapselt und Grids haben normalerweise dezidierte Container. Also bspw. <code>.fukol-grid__cnt</code>.</li>
+    <li>Die <code>flex</code>-Kurzschreibweise definiert eine Mindestbreite, ab der ein Container wachsen kann. Die Spalten werden ungleichmässig.</li>
+  </ol>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Vor- und Nachteil dieses Ansatzes sind seine extreme Flexibilität. Zuviel Kontrolle ist nicht gewünscht.</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Experimentierfelder</h2>
+
+    <ol>
+      <li><a href="https://codepen.io/jensgro/pen/rRGeNo" target="_blank">Demonstration des Prinzips</a>  ohne echte Inhalte</li>
+      <li><a href="https://codepen.io/jensgro/pen/gEvaeX" target="_blank">zwei Grids mit Textteasern</a></li>
+      <li><a href="https://codepen.io/jensgro/pen/RdQrXd" target="_blank">zwei Bilderlisten</a> mit unterschiedlich breiten Bildern</li>
+      <li>die gleichen Bilderlisten <a href="https://codepen.io/jensgro/pen/OqQRLw?editors=1100" target="_blank">einem Kasten um die Bilder</a></li>
+      <li>zwei umfangreiche Bilderlisten <a href="https://codepen.io/jensgro/pen/XGZdjZ?editors=1100" target="_blank">mit gleich dimensionierten Bildern</a></li>
+    </ol>
+</section>

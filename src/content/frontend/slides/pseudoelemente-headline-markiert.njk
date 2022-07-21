@@ -1,0 +1,166 @@
+<section class="shouting" data-notes="Keine Ausblendungen">
+  <h2>Überschriften mit Hintergrundlinie</h2>
+</section>
+
+<section>
+  <h2>Das Ziel</h2>
+  <iframe src="beispiele/headline-with-a-line-behind/index.html" width="100%" height="540" frameborder="0"></iframe>
+</section>
+
+<section>
+<pre><code class="html"><h2 class="separator">
+  <span>What a stunning headline</span>
+</h2>
+
+<h2 class="separator separator--left-aligned">
+  <span>What a stunning headline</span>
+</h2>
+
+<h2 class="separator separator--right-aligned">
+  <span>What a stunning headline</span>
+</h2></code></pre>
+</section>
+
+<section class="shouting-secondary">
+  <h2>Obwohl es sich hier nur um ein Designproblem handelt, benötigen wir ein extra Element als Wrapper des Überschriftentexts. Wir würden sonst die Linien unter den Überschriften sehen.</h2>
+</section>
+
+<section class="shouting-secondary">
+  <h2>Es gibt zwei Lösungswege</h2>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Erster Versuch: Die Linen quellen aus dem <code>span</code>-Element hervor.</h2>
+</section>
+
+<section>
+<pre><code class="css">.separator {
+  overflow: hidden;
+  text-align: center;
+
+  color: #a20000;
+  margin: 40px 0;
+}</code></pre>
+
+<ol>
+  <li>Die Überschrift selber schneidet überschüssige Inhalte ab.</li>
+  <li>Die Überschrift wird als Standard zentriert.</li>
+</ol>
+</section>
+
+<section>
+<pre><code class="css">
+.separator span {
+  position: relative;
+  padding: 0 20px;
+  display: inline-block;
+  max-width: 80%;
+}</code></pre>
+<ol>
+  <li><code>display: inline-block</code>, damit wir eine Maximalbreite zuweisen können.</li>
+  <li>Padding für ein wenig Platz zwischen Linie und Text.</li>
+  <li><code>position: relative</code>, damit die Linien absolut positioniert werden können.</li>
+</ol>
+</section>
+
+<section>
+<pre><code class="css">.separator span:before, .separator span:after {
+  content: "";
+  position: absolute;
+  width: 10000px;
+  height: 1px;
+  top: 50%;
+  border-bottom: 1px solid #a20000;
+}
+.separator span:before {
+  left: -10000px;
+}
+.separator span:after {
+  left: 100%;
+}</code></pre>
+<ol>
+  <li>Zwei Linien immenser Breite werden erzeugt.</li>
+  <li>Beide haben nur 1px Höhe und eine untere Border.</li>
+  <li>Sie werden auf die Hälfte in der Vertikalen absolut positioniert.</li>
+  <li>Eine wird nach links, die andere nach rechts geschoben.</li>
+</ol>
+<p>Überschüssiges wird von der Überschrift selber abgeschnitten.</p>
+</section>
+
+<section>
+<pre><code class="css">.separator--left-aligned {
+  text-align: left;
+}
+.separator--right-aligned {
+  text-align: right;
+}</code></pre>
+<p>Für die links- und rechtsbündige Ausrichtung müssen wir nur den jeweiligen Modifikatoren das passende <code>text-align</code> mitgeben.</p>
+</section>
+
+
+<section class="shouting-tertiary">
+  <h2>Zweiter Versuch: Das <code>span</code>-Element legt sich über einen einzigen Balken.</h2>
+</section>
+
+
+<section>
+<pre><code class="css">.separator-single {
+  overflow: hidden;
+  text-align: center;
+  color: #a20000;
+  margin: 40px 0;
+  position: relative;
+}</code></pre>
+<p>Die Regeln sind im Prinzip mit der ersten Variante identisch. Allerdings ist hier das <code>position: relative</code> von entscheidender Bedeutung.</p>
+</section>
+
+<section>
+<pre><code class="css">.separator-single:before {
+  content: "";
+  position: absolute;
+  width: 10000px;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  border-bottom: 1px solid #a20000;
+}</code></pre>
+<ol>
+  <li>Der Balken wird der Überschrift selber zugeordnet.</li>
+  <li>Er ist wieder immens lang und wird abgeschnitten</li>
+</ol>
+</section>
+
+<section>
+<pre><code class="css">.separator-single span {
+  display: inline-block;
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+  padding: 10px;
+}</code></pre>
+<ol>
+  <li>Der <code>span</code> um den Text bekommt ein wenig Padding. Dafür ist <code>display: inline-block</code> wichtig.</li>
+  <li>Die Hintergrundfarbe bedeckt den Balken.</li>
+  <li>Dafür benötigen wir relative Positionierung zusammen mit einem <code>z-index</code>.</li>
+</ol>
+</section>
+
+<section>
+<pre><code class="css">.separator-single--left-aligned {
+  text-align: left;
+}
+.separator-single--right-aligned {
+  text-align: right;
+}
+</code></pre>
+<p>Auch hier sorgen Modifikatoren für eine andere Textausrichtung.</p>
+</section>
+
+<section class="shouting-tertiary">
+  <h2>Fällt Ihnen ein Nachteil der zweiten Methode ein?</h2>
+</section>
+
+<section>
+  <p>Wenn der Hintergrund der Überschrift nicht eine feste Farbe hat, dann kann die Abdeckung des Textes ungewünscht aussehen.</p>
+  <p>Bei der ersten Lösung hatte der Text keine Hintergrundfarbe und kann somit auf allen Hintergründen stehen.</p>
+</section>

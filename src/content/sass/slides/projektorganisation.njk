@@ -1,0 +1,90 @@
+<section class="shouting">
+	<h2>Projektorganisation</h2>
+</section>
+<section>
+	<div class="split">
+		<div>
+			<figure>
+				<img src="pictures/sass/projektaufbau-sass.png" class="flexible" alt="Sass-Projektaufbau">
+			</figure>
+		</div>
+		<div>
+			<figure>
+				<img src="pictures/sass/projektaufbau-sass-modules.png" class="flexible" alt="Sass-Projektaufbau">
+			</figure>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>Ein Blick in den Modules-Ordner</h2>
+<pre>
+	modules
+	|___boxes
+		|____   _box.scss
+			_faq.scss
+			_imagebox.scss
+			_mediabox.scss
+			_newsbox.scss
+			_switchcontainer.scss
+			_teaser.scss 
+</pre>	
+</section>
+
+
+<section class="shouting-secondary">
+	<h2>Dateien importieren</h2>
+</section>
+
+<section>
+	<h2>Sass-@import ≠ CSS-@import</h2>
+	<p>Es ist keine gute Idee, CSS-Dateien zu importieren. Das beeinträchtigt die Performance.</p>
+	<p>Bei Sass sprechen wir allerdings nur Arbeiten auf einem lokalen Rechner. Hier können wir ohne Probleme einzelne (S)CSS-Dateien in eine zentrale Datei importieren.</p>
+</section>
+
+<section>
+	<h2>Die Steuerdatei von Bootstrap 4</h2>
+<pre><code class="scss">
+@import "functions";
+@import "variables";
+@import "mixins"; // führt zu weiteren Verzweigungen
+
+// ab hier ist alles verzichtbar
+@import "root";
+@import "reboot";
+
+@import "type";
+@import "images";
+@import "code";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "input-group";
+@import "custom-forms";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "jumbotron";
+@import "alert";
+@import "progress";
+@import "media";
+@import "list-group";
+@import "close";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+
+@import "utilities";
+
+@import "print";
+</code></pre>
+</section>
+

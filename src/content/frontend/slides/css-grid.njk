@@ -1,0 +1,80 @@
+<section class="shouting">
+    <h2>CSS-Grid</h2>
+</section>
+
+<section>
+    <h2>Noch ein Layoutmodul</h2>
+    <p>Flexbox kann Layouts nur horizontal oder vertikal anordnen. Es ist also eindimendional.</p>
+    <p>CSS-Grid ist hingegen zweidimensional. Damit sind ausgefilte Layouts sehr einfach möglich. Die Syntax ist dementsprechend nicht sehr einfach zu lesen. Die Variationsmöglichkeiten sind sehr groß. Aber der Einstieg lohnt.</p>
+</section>
+
+<section>
+    <h2>Ein Grid definieren</h2>
+    <pre><code class="css">.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px 200px 200px;
+    grid-gap: 20px;
+}        
+    </code></pre>
+</section>
+
+<section>
+    <h2>Flexible Breiten</h2>
+    <pre><code class="css">.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}        
+    </code></pre>
+    <p>Die Einheit <code>fr</code> ist neu für CSS-Grid eingeführt worden und bedeutet "fraction". Sie ist "ein Teil eines Bereichs" und damit ein relatives Mass.</p>
+</section>
+
+<section>
+    <h2>Weniger Wiederholung dank repeat()</h2>
+    <pre><code class="css">.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}        
+    </code></pre>
+    <p>Innerhalb des Klammerausdrucks wird zuerst die Anzahl der Wiederholungen notiert und danach, mit einem Komma getrennt, das zu wiederholende Muster.</p>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ZvWaNp" target="_blank">CodePen mit mehr Beispielen</a></div>
+</section>
+
+<section>
+    <h2>Benannte Bereiche</h2>
+    <pre><code class="css">.main-header { grid-area: kopf;}
+.main-navigation { grid-area: navigation; }
+.main-content { grid-area: hauptinhalt; }
+.main-aside { grid-area: werbung; }
+.main-footer { grid-area: fuss; }</code></pre>
+
+    <pre><code class="css">.grid {
+   grid-template-columns: 1fr 3fr 1fr;
+   grid-template-areas:
+     "kopf kopf kopf"
+     "navigation hauptinhalt werbung"
+     "fuss fuss .";
+}</code></pre>
+</section>      
+          
+
+<section>
+    <h2>In breiteren Breakpoints ein Grid</h2>
+    <p>Auf meiner Mitte 2019 überarbeiteten Webseite habe ich ein Element, das in breiteren Breakpoints (ab 900px Breite) ein Grid ist. Vorher steht der Inhalt einfach untereinander. Das ist auch die Darstellung, die Browser gezeigt bekommen, die kein CSS-Grid beherrschen. Dafür habe ich mittels Feature-Query gesorgt.</p>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/MNOMGO" target="_blank">CodePen</a></div>
+</section>
+
+<section>
+    <h2>Empfehlenswerte Links</h2>
+    <ul>
+        <li><a href="https://gridbyexample.com/" target="_blank">Grid by Example</a>, <strong>die</strong> Quelle für CSS-Grid</li>
+        <li><a href="https://developer.mozilla.org/de/docs/Web/CSS/CSS_Grid_Layout" target="_blank">CSS-Grid-Layout</a> bei MDN</li>
+        <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid</a></li>
+        <li><a href="http://maddesigns.de/css-grid-layout-2764.html" target="_blank">Native CSS Grid Layouts ohne Framework – ein einfaches Beispiel</a></li>
+        <li><a href="https://www.hongkiat.com/blog/css-grid-layout-fr-unit/" target="_blank">Guide to CSS Grid Layout Fr Unit</a></li>
+        <li><a href="https://maurice-web.de/min-content-max-content-und-grid-template-rows-bei-css-grid/" target="_blank">min-content, max-content und grid-template-rows bei CSS-Grid</a></li>
+        <li><a href="https://www.youtube.com/layoutland/" target="_blank">Videos von Layoutland</a> auf Youtube</li>
+        <li><a href="https://cssgrid.io/" target="_blank">kostenlose Videoserie</a> von WesBos</li>
+    </ul>
+</section>

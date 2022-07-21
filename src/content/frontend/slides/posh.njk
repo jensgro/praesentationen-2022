@@ -1,0 +1,81 @@
+<section class="shouting">
+    <h2>POSH (Plain Old Semantic HTML)</h2>
+</section>
+
+<section>
+    <figure>
+        <img src="pictures/frontend/decent-markup.jpg" alt="" style="transform: scale(1.5) translateY(25%);">
+    </figure>
+</section>
+
+
+<section>
+  <h2>Semantisches HTML</h2>
+  <p>Wenn für einen Inhalt ein passendes HTML-Element existiert, nutzen Sie es. <code>DIV</code> und <code>SPAN</code> sind nur Not-Behelfe. Auch WAI-ARIA sollte nur als Ausnahme eingesetzt werden. </p>
+
+  <pre><code class="html"><!-- So ist es korrekt -->
+&lt;button type=&quot;submit&quot;&gt; Formular abschicken &lt;/button&gt;
+</code></pre>
+  <pre><code class="html"><!-- Bitte nicht so!!!! -->
+&lt;span&gt;Formular abschicken&lt;/span&gt;
+</code></pre>
+  <pre><code class="html"><!-- Bitte nicht so!!!! -->
+&lt;a href=&quot;#&quot;&gt;Formular abschicken&lt;/a&gt;
+</code></pre>
+  <pre><code class="html"><!-- So ist es auch nicht besser!!!! -->
+&lt;a href=&quot;#&quot; class=&quot;btn&quot; aria-role=&quot;button&quot;&gt;Formular abschicken&lt;/a&gt;
+</code></pre>
+</section>
+
+<section>
+  <h2>Semantisches HTML</h2>
+  <p>Entgegen mancher Gerüchte gibt es keine Studienergebnisse, wonach eine Vielzahl verlinkter Überschriften schlecht für SEO wäre. Diesem Irrtum sass die Süddeutsche Zeitung leider lange auf.</p>
+<pre><code class="html"><!-- DAS soll ernsthaft eine Überschrift sein.  -->
+<!-- Ich habe die URLs verkürzt oder entfernt.  -->
+&lt;a href=&quot;#&quot; class=&quot;entry-title&quot; rel=&quot;bookmark&quot; data-pagetype=&quot;STANDARD_ARTICLE&quot; data-id=&quot;1.3789774&quot; data-linktrack=&quot;onclick_platformtype_homepage_topthema&quot;&gt;
+  &lt;em&gt;Trump verliert, Moore betet&lt;/em&gt;
+  &lt;div class=&quot;image&quot;&gt;
+    &lt;img src=&quot;600x338?v=1513149739&quot; data-src=&quot;600x338?v=1513149739&quot; class=&quot;  lazyloading&quot; alt=&quot;Alabama GOP Senate Candidate Roy Moore Holds Election Night Victory Party&quot;&gt;
+    &lt;span data-href=&quot;#&quot; class=&quot;imagelabel&quot; data-linktrack=&quot;imagelabel.label.1.3789774&quot; data-linktrack-options=&quot;{&amp;quot;additionalNames&amp;quot; : [&amp;quot;imagelabel.video.1.3789774&amp;quot;]}&quot; data-pagetype=&quot;VIDEO&quot; data-id=&quot;1.3789781&quot;&gt;Video&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+</code></pre>
+</section>
+
+<section>
+  <h2>Semantisches HTML</h2>
+  <ol>
+    <li>Semantischer Code gibt dem Inhalt eine Bedeutung.</li>
+    <li>Überschriften können von Screenreadern zur Navigation genutzt werden.</li>
+    <li>Einige Elemente wie Checkboxen, Radiobuttons oder Buttons haben eingebaute Zustände (states) sowie eine eingebaute Zugänglichkeit für Tastaturen. Das müsste alles per JavaScript nachgebaut werden, wenn man die falschen Elemente nutzt.</li>
+    <li>Frontend-Entwicklung ist ein Handwerk. Dazu gehört, die Frontendsprachen korrekt zu benutzen. Wer das ohne Not nicht tut, ist ein schlechter Handwerker.</li>
+  </ol>
+  <div class="linksToOutside">Der Artikel <a href="https://www.smashingmagazine.com/2019/02/buttons-interfaces/" target="_blank">"When Is A Button Not A Button?"</a> zeigt sehr gut, welche Details in einem Element stecken können.</div>
+</section>
+
+<section>
+  <h2>Hölle!</h2>
+  <pre><code class="html">
+&lt;div class=&quot;headline&quot;&gt;
+  &lt;span class=&quot;bold&quot;&gt;New&lt;/span&gt;Items
+&lt;/div&gt;
+&lt;div class=&quot;navigation&quot;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;span style=&quot;display: block;&quot;&gt;
+      &lt;i class=&quot;icon&quot;&gt;&lt;/i&gt;
+      &lt;span class=&quot;navigation-item&quot;&gt;
+        Home
+      &lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+  </code></pre>
+</section>
+
+<section>
+  <h2>Die DIV-Tastatur für Angular/React</h2>
+    <figure>
+        <img src="pictures/frontend/div-tastatur.jpg" alt="Die Tastatur lässt nur ein DIV schreiben und zeigt sonst nur Klammern.">
+        <figcaption class="linksToOutside"><a href="https://twitter.com/tcaspers/status/711097010028482560" target="_blank">Tastatur für semantikfreien Code</a></figcaption>
+    </figure>
+</section>

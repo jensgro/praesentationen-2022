@@ -1,0 +1,26 @@
+<section class="shouting">
+	<h2>Platzhalter (placeholder)</h2>
+</section>
+
+<section data-menu-title="Was sind Platzhalter?">
+	<p>Platzhalter sind "<mark>stille Klassen</mark>". Sie werden selber nicht generiert. </p>
+	<p>Im Gegensatz zu Mixins werden bei Platzhaltern keine Variablen übergeben.</p>
+	<p>Die Platzhalter werden mit <code>@extend</code> angesprochen.</p>
+</section>
+
+<section data-menu-title="Ein Codebeispiel">
+<pre><code class="scss">%a-tdn-tdu{
+  text-decoration: none;
+  &:hover, &:focus {text-decoration: underline;}
+}
+
+%a-tdu-tdn{
+  text-decoration: underline;
+  &:hover, &:focus {text-decoration: none;}
+}
+
+
+a { @extend %a-tdu-tdn;}
+
+.breadcrumb a { @extend %a-tdn-tdu;}</code></pre>
+</section>

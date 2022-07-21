@@ -1,0 +1,114 @@
+<section class="shouting">
+    <h2>Positionierung</h2>
+</section>
+
+<section>
+    <h2>Wohin positionieren?</h2>
+    <pre><code class="css x-large-text">.alle-4-richtungen {
+    top: 10px;
+    right: 0;
+    bottom: 1em;
+    left: 20%;
+}     </code></pre>
+</section>
+
+<section>
+    <h2>Der Standard</h2>
+    <pre><code class="css x-large-text">.test {
+    position: static;
+}</code></pre>
+<p>Nur in diesem Fall sind die vier Richtungen <mark>komplett wirkungslos</mark>.</p>
+<p>Wenn ein Element <mark>nicht positioniert wurde</mark>, ist es statisch positioniert.</p>
+</section>
+
+<section>
+    <h2>Relative Positionierung</h2>
+    <pre><code class="css x-large-text">.test {
+    position: relative;
+}</code></pre>
+
+    <p>Das Element bleibt im Dokumentenfluss, kann aber einfach verschoben werden. Die Eigenschaft <mark><code>z-index</code></mark> kann in diesem Zusamenhang wichtig sein.</p>
+</section>
+
+<section>
+    <h2>Absolute Positionierung</h2>
+    <pre><code class="css x-large-text">.test {
+    position: absolute;
+}</code></pre>
+
+    <p>Das Element wird aus dem Dokumentenfluss gezogen und wird von nichts anderem mehr beeinflusst. Die Eigenschaft <mark><code>z-index</code></mark> ist in diesem Zusamenhang wichtig.</p>
+</section>
+
+<section>
+    <h2>Kleines Beispiel - die Struktur</h2>
+    <pre><code class="html">&lt;div class=&quot;box box-1&quot;&gt;&lt;/div&gt;&#10;&lt;div class=&quot;box box-2&quot;&gt;&lt;/div&gt;&#10;&lt;div class=&quot;box box-3&quot;&gt;&lt;/div&gt;</code></pre>
+</section>
+
+<section>
+    <h2>Absolut positioniert ohne z-index</h2>
+    <img src="pictures/frontend/ohne-z-index.png" alt="Stapelreihenfolge von drei Boxen ohne z-index" class="stretch">
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/oKoJBj" target="_blank">Codepen</a></div>
+</section>
+
+<section>
+    <h2>Absolut positioniert mit z-index</h2>
+    <img src="pictures/frontend/mit-z-index.png" alt="Stapelreihenfolge von drei Boxen mit z-index" class="stretch">
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/oKoJBj" target="_blank">Codepen</a></div>
+</section>
+
+<section>
+    <h2>Der Kontext ist wichtig!</h2>
+    <pre><code class="css x-large-text">.der-wrapper {
+    position: relative;
+}
+
+.innendrin {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/WVXLJK" target="_blank">Codepen</a></div>
+</section>
+
+<section>
+    <h2>Relative Positionierung</h2>
+    <pre><code class="css x-large-text">.test {
+    position: relative;
+}</code></pre>
+
+    <p>Das Element bleibt im Dokumentenfluss, kann aber einfach verschoben werden. Die Eigenschaft <mark><code>z-index</code></mark> kann in diesem Zusamenhang wichtig sein.</p>
+</section>
+
+
+<section>
+    <h2>Etwas fixieren</h2>
+
+    <h3>Methode 1</h3>
+    <pre><code class="css x-large-text">.test {
+    position: fixed;
+}</code></pre>
+<div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/xvPmQZ" target="_blank">CodePen</a></div>
+
+    <h3>Methode 2</h3>
+    <pre><code class="css x-large-text">.test {
+    position: sticky;
+}</code></pre>
+    <div class="linksToOutside"><a href="https://caniuse.com/#search=sticky" target="_blank">Der IE kennt sticky leider nicht!</a> <a href="https://codepen.io/jensgro/pen/KOyJjz" target="_blank">CodePen</a></div>
+</section>
+<section>
+    <figure>
+        <img src="pictures/frontend/z-index.jpg" alt="" style="transform: scale(0.75) translateY(-15%);">
+    </figure>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Ein <a href="https://codepen.io/jensgro/pen/PVyMey?editors=1100" target="_blank">Codepen zum Spielen</a></h2>
+</section>
+
+<section class="shouting-exercise">
+    <h2>Eine kleine Aufgabe</h2>
+
+    <p>Gestalten Sie eine Fläche, zwei Boxen und positionieren Sie diese wie im Bild dargestellt. Als Zusatz können Sie beim Überfahren des Containers <code>.vorne</code> die Hintergrundfarbe des Containers <code>.hinten</code> in <code>#a20000</code> ändern.</p>
+    <img class="stretch" src="pictures/frontend/testaufgabe-positionierung.png" alt="Angestrebtes Endergebnis der Testaufgabe">
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/Euwvi" target="_blank">Codepen</a> <a href="https://jsbin.com/buqural/edit?html,output" target="_blank">JS Bin</a></div>
+</section>

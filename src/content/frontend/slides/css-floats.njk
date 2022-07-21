@@ -1,0 +1,27 @@
+<section class="shouting">
+    <h2>Floats</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Floats waren eigentlich dafür gedacht, Bilder innerhalb von Absätzen zur Seite "fliessen" zu lassen.</h2>
+</section>
+
+<section>
+    <h2>Float und clear</h2>
+    <p>Dinge können nach links oder rechts gefloatet werden. Ausserdem kann man mit <code>float:none</code> ein Floating wieder beenden. Mehr Entscheidungen existeren nicht.</p>
+    <p>Ein Float wird aus dem Dokumentenfluss gezogen, die nachfolgenden Elemente wissen nichts von seiner Existenz. </p>
+    <p>Deshalb ist die Eigenschaft <code>clear</code> so wichtig. Durch sie beginnt der nachfolgende Inhalt wieder an der ersten Position der Leserichtung (bei uns links aussen).</p>
+    <p>Es gibt <code>clear: both</code>, <code>clear: left</code> und <code>clear:right</code>.</p>
+</section>
+
+<section>
+    <h2>Möglichkeiten des Clearings</h2>
+    <ol>
+        <li>Der Elterncontainer des/der Floats bekommt ein <code>overflow: hidden</code>.</li>
+        <li>Es wird der <mark>clearfix-Hack</mark> auf dem Elterncontainer eingesetzt.</li>
+        <li>Am Ende der Floatumgebung wird ein leeres Element mit <code>clear</code> gesetzt. </li>
+    </ol>
+    <p>Wichtig ist also immer der Bezug zum Elterncontainer!</p>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/qgzMYy" target="_blank">Codepen zum Spielen</a></div>
+    <div class="linksToOutside"><a href="https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution" target="_blank">ein paar (geschichtliche) Hintergründe zum Clearfix-Hack</a></div>
+</section>

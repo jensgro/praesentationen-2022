@@ -1,0 +1,60 @@
+<section class="shouting">
+    <h2>Spezifität</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Je spezifischer eine Regel ist, umso mehr Gewicht (Bedeutung) hat sie.</h2>
+</section>
+
+<section>
+    <pre><code class="css large-text">p {
+	color: #000;
+	background-color: #cecece;
+	padding: 10px;
+}    </code></pre>
+    <pre><code class="css large-text">p.tolleklasse {
+	color: #a20000;
+}    </code></pre>
+    <pre><code class="css large-text">p.nocheineklasse {
+	padding-bottom: 30px;
+}    </code></pre>
+<p>In diesem Fall können die spezifischeren Regeln <mark>vor</mark> der allgemeinen stehen. <mark>
+    Die höhere Spezifität hebelt die Kaskade aus.
+</mark></p>
+</section>
+
+<section>
+    <h2><code>!important</code> macht impotent</h2>
+    <pre><code class="css x-large-text">
+/* So ist alles wichtig */
+table.data-table tbody>tr>td {
+	background-color:#fff!important;
+}
+    </code></pre>
+    <pre><code class="css x-large-text">
+/* So ist es besser! */
+.data-table tbody td {
+	background-color:#fff;
+}
+    </code></pre>
+</section>
+
+<section>
+    <figure>
+        <img src="pictures/frontend/batman-important.jpg" alt="">
+    </figure>
+</section> 
+
+<section class="shouting-exercise">
+    <h2>Was kommt am Ende raus?</h2>
+<pre><code class="html">
+    &lt;h1 class="specificity"&gt;Beispiel Headline&lt;/h1&gt;
+</code></pre>    
+<pre><code class="css">
+h1.specificity:not(#spezi) { color: blue;}
+h1.specificity:not(.spezi) { color: maroon;}
+h1.specificity:not(h1#spezi) { color: yellow;}
+h1.specificity { color: #000;}
+.specificity { color: green;}</code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/full/MaqRpG" target="_blank">Codepen</a></div>
+</section> 

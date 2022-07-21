@@ -1,0 +1,123 @@
+<section class="shouting">
+    <h2>Das Boxmodell</h2>
+</section>
+
+<section>
+    <img src="pictures/frontend/boxmodell.png" alt="Schema des Boxmodells">
+    <div class="linksToOutside">
+        <a href="https://codepen.io/jensgro/full/aieCJ" target="_blank">zum Codepen</a>
+    </div>
+</section>
+
+<section>
+    <h2>Das Border-Box-Modell triggern</h2>
+    <pre><code class="css x-large-text">*, *:before, *:after {
+    box-sizing: border-box;
+ }    </code></pre>
+</section>
+
+<section>
+    <h2>Eine andere Methode</h2>
+    <pre><code class="css large-text">
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+    </code></pre>
+    <p>Dadurch fällt es einfacher, in einzelnen Modulen ein anderes Boxmodell zu nutzen, sollte dies notwendig sein.</p>
+</section>
+
+<section>
+    <h2>Hier wird das Boxmodell interessant</h2>
+    <pre><code class="css large-text">.box1 {
+    float: left;
+}
+
+.box2 {
+    float: right;
+}
+
+.box1, .box2 {
+    width: 50%;
+    padding: 10px;
+}    </code></pre>
+</section>
+
+<section>
+    <h2>Padding und Margin auszeichnen</h2>
+    <pre><code class="css large-text">/* lang und umständlich */
+.test {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}</code></pre>
+
+<pre><code class="css large-text">/* Kurzversion */
+.test {
+	padding: 15px 10px;
+}    </code></pre>
+<p>Identisches gilt für <code>margin</code>.</p>
+</section> 
+
+<section>
+    <h2>Border und Outline</h2>
+<pre><code class="css large-text">.test {
+    border: 10px dotted #a20000;
+}    </code></pre>
+<pre><code class="css large-text">.tabelle1 th {
+    border: 2px solid #000;
+    border-top: none;
+}    </code></pre>
+    <pre><code class="css large-text">.test2 {
+    outline: 2em dotted #000;
+    outline-offset: -10px;
+}    </code></pre>
+
+</section>
+
+<section class="shouting-secondary">
+    <h2>Collapsing margins</h2>
+</section>
+<section>
+    <p>Im normalen Dokumentenfluss kollabieren vertikale Margins, die aufeinandertreffen. Es "gewinnt" der höhere Wert.</p>
+<pre><code class="css">/* Die Boxen sind keine Floats! */
+
+.box1 {margin-bottom: 20px}    
+.box2 {margin-top: 10px;}
+/* Der Gesamtabstand ist 20px. */
+</code></pre>    
+    <p>Treffen Floats aufeinander, addieren sich die Margins.</p>
+<pre><code class="css">/* Es handelt sich um Floats. */
+    
+.float1 {margin-bottom: 20px}
+.float2 {margin-top: 10px;}
+/* Die Abstände addieren sich, der Gesamtabstand ist 30px. */
+</code></pre>    
+
+</section>
+
+<section>
+    <img src="pictures/frontend/kollabierende-margins.png" alt="Beispiel für kollabierende und nicht kollabierende Margins" class="stretch">
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/OKjVrX">Codepen</a></div>
+</section>
+
+<section>
+    <h2>Zeilenbox</h2>
+    <p>Nicht nur jedes Blockelement hat eine Box, auch jede Textzeile hat eine eigene "Box". Deren Spezialfall ist, dass sie Unterlängen von Texten mitbedenken muss. Denn Buchstaben wie das kleine "j" oder das kleine "q" gehen unter eine gedachte Textlinie.</p>
+    <p>Alle Inline-Elemente wie ein Bild sitzen <mark>auf dieser Textlinie</mark>. Deshalb kommt es zu kleinen Lücken in Boxen.</p>
+</section>
+
+<section class="shouting-exercise">
+    <h2>Aufgaben</h2>
+    <h3>1. Entfernen Sie die Lücke unterhalb des Bildes im zweiten Container.</h3>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ywKjqL" target="_blank">Codepen</a></div>
+
+    <h3>2. Geben Sie den unterschiedlichen Inline-Elementen ein vertikales Padding und Margin, das wirklich eine Auswirkung hat.</h3>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ZEzwvwQ" target="_blank">Codepen</a></div>
+</section>

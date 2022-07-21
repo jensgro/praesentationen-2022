@@ -1,0 +1,87 @@
+<section class="shouting" data-notes="Keine Ausblendungen!">
+  <h2>Seitenbreite Balken hinter Headlines</h2>
+</section>
+
+<section class="shouting-secondary">
+  <h2>Ausgangslage: Wir haben eine Seite, die in der Breite beschränkt ist, die Headlines sollen aber über die gesamte Breite des Browserfensters gehen.</h2>
+</section>
+
+<!--
+<section>
+  <figure>
+    <img src="pictures/css-tricks/full-browser-width-bars.png" alt="Die Hintergründe der Headlines sind breiter, als der umliegende Inhalt.">
+  </figure>
+</section> -->
+
+<section>
+  <iframe src="beispiele/full-browser-width-bars/index.html" width="100%" height="700"></iframe>
+</section>
+
+<section>
+  <h2>Die Struktur</h2>
+<pre><code class="html"><div class="wrapper">
+    <h1></h1>
+    <p></p>
+
+    <h2 class="headline-bar headline-bar--left-only"> </h2>
+    <p></p>
+
+    <h2 class="headline-bar headline-bar--right-only"> </h2>
+    <p></p>
+
+    <h2 class="headline-bar"> </h2>
+    <p></p>
+</div><!-- /.wrapper --></code></pre>
+<p>Es ist sinnvoll, solche Gestalungsideen an eine Klasse zu binden. Erstens sind sie so transportabel (auf andere Überschriften) und zweitens fällt die Abgrenzung zu anderen Überschriften der gleichen Hierarchiestufe leichter.</p>
+</section>
+
+<section>
+  <h2><code>position: relative</code> ist wichtig!</h2>
+
+<pre><code class="css">.headline-bar {
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  position: relative;
+}</code></pre>
+</section>
+
+<section>
+  <h2>Die Seitenteile werden "angebaut"</h2>
+  <div class="split">
+    <div>
+<pre><code class="css">
+.headline-bar:before, .headline-bar:after {
+  content: "";
+  background: #333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 9999px;
+}</code></pre>
+    </div>
+    <div>
+<pre><code class="css">
+.headline-bar:before {
+  right: 100%;
+}
+
+.headline-bar:after {
+  left: 100%;
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Die beiden Abwandlungen</h2>
+<pre><code class="css">
+  .headline-bar--left-only:after {
+    display: none;
+  }
+
+  .headline-bar--right-only:before {
+    width: 20px;
+  }
+</code></pre>
+</section>

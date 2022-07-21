@@ -1,0 +1,97 @@
+<section class="shouting" data-notes="Keine Ausblendungen!">
+	<h2>Unsere eigenen Checkboxen und Radiobuttons</h2>
+</section>
+
+<section>
+	<p>Formulare lassen sich sehr schlecht gestalten. Form und Optik von Radiobuttons und Checkboxen kann man gar nicht beeinflussen. Allerdings können Sie mittels CSS diese Elemente ersetzen, ohne ihre Funktionalität zu beeinträchtigen.</p>
+	<p>Womit können wir ein solches Element realisieren?</p>
+	<div><img src="pictures/frontend/individuelle-checkboxen.png" alt=""></div>
+</section>
+
+<section>
+	<p>Wir müssen gleichzeitig das Formularlement und das dazugehörige Label-Element gestalten. Deshalb sollten wir beide in ein <code>span</code>- oder <code>div</code>-Element packen.  </p>
+<pre><code class="html"><div class="formwrapper">
+  <span class="checkme">
+    <input type="checkbox" name="chosenone" id="check1">
+    <label for="check1">Auswahl 1</label>
+  </span>
+  <span class="checkme">
+    <input type="checkbox" name="chosenone" id="check2">
+    <label for="check2">Auswahl 2</label>
+  </span>
+  <span class="checkme">
+    <input type="checkbox" name="chosenone" id="check3">
+    <label for="check3">Auswahl 3</label>
+  </span>
+</div><!-- /.formwrapper --></code></pre>
+</section>
+
+
+<section>
+	<h2>Formularelemente verstecken</h2>
+<pre><code class="css">.checkme input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}</code></pre>
+</section>
+
+<section>
+	<h2>Das Label gestalten</h2>
+<pre><code class="css">.checkme label {
+  display: inline-block;
+  background-color: #a20000;
+  color: #fff;
+  padding: 12px 10px 12px 50px;
+}
+
+/* Interaktion muss man schon sehen können. */
+.checkme label:hover,
+.checkme label:focus {
+  cursor: pointer;
+}
+</code></pre>
+</section>
+
+<section>
+	<h2>Kreis und Rechteck</h2>
+<pre><code class="css">/* Sehr wichtig! */
+.checkme  {
+  position: relative;
+}</code></pre>
+<pre><code class="css">.checkme label:before {
+  content: "";
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+}
+
+.checkme [type="radio"] ~ label:before {
+  border-radius: 50%;
+}</code></pre>
+</section>
+
+
+<section>
+	<h2>Styling im aktivierten Zustand</h2>
+<pre><code class="css">.checkme :checked ~ label:before {
+  background-color: #222;
+}
+
+.checkme :checked ~ label {
+  background-color: green;
+}
+</code></pre>
+</section>
+
+<section>
+	<h2>Ergebnis</h2>
+		<iframe width="100%" height="360" src="beispiele/individuelle-checkboxen/index.html" frameborder="0"></iframe>
+		<div class="linksToOutside"><a href="http://codepen.io/jensgro/pen/xVpxqx?editors=1100" target="_blank">Codepen</a></div>
+</section>

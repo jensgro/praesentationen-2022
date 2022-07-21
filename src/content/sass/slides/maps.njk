@@ -1,0 +1,44 @@
+<section class="shouting">
+	<h2>Maps</h2>
+</section>
+
+<section>
+<pre><code class="scss">$themes: (
+  crisp: #313340 #f0f0e3 #f9c27b #ef8531 #f36519,
+  funky: #da0054 #ff692b #fbd726 #009e8f #62b240,
+  autumn: #f6484f #fbe4b1 #a9c886 #417455 #1d4148
+);
+
+@each $theme, $colours in $themes {
+  @for $i from 1 through length($colours) {
+    $colour: nth($colours, $i);
+
+    .theme--#{$theme} li:nth-child(#{$i}) {
+      background: $colour;
+    }
+  }
+}</code></pre>
+<div class="linksToOutside"><a href="https://www.sassmeister.com/gist/dab65329541f77e51681692b61f386e8" target="_bllank">Sassmeister</a></div>
+</section>
+
+<section>
+<pre><code class="css">.theme--crisp li:nth-child(1) {
+  background: #313340;
+}
+
+.theme--crisp li:nth-child(2) {
+  background: #f0f0e3;
+}
+
+.theme--crisp li:nth-child(3) {
+  background: #f9c27b;
+}
+
+.theme--crisp li:nth-child(4) {
+  background: #ef8531;
+}
+
+.theme--crisp li:nth-child(5) {
+  background: #f36519;
+} /* usw... */</code></pre>
+</section>

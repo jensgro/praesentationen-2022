@@ -1,0 +1,26 @@
+<section class="shouting">
+    <h2>Feature Queries - <br>Progressive Enhancement mit Bordmitteln </h2>
+</section>
+
+<section>
+    <pre><code class="css large-text">.icon--color-disabled {
+    opacity: 0.5; /* only IE11 */
+}
+
+@supports (filter: grayscale(100%) opacity(50%)) {
+    .icon--color-disabled {
+        opacity: 1;
+        filter: grayscale(100%) opacity(50%);
+    }
+}</code></pre>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Was tun Browser, die <code>@supports</code> nicht kennen?</h2>
+</section>
+
+<section>
+    <h2>Ignoranz statt Alarmismus!</h2>
+    <p>Sie ignorieren den Codeabschnitt. Auch bei HTML ist das so: kennt ein Browser das <code>picture</code>-Element nicht, interpretiert er immerhin das darin liegende <code>img</code>-Element.</p>
+    <p>In JavaScript würde ein Fehler geschmissen und die Weiterverarbeitung unterbrochen werden. Die Seite wäre im Zweifel unbenutzbar.</p>
+</section>

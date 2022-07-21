@@ -1,0 +1,63 @@
+<section class="shouting">
+    <h2>Ideen für ein Debugging-Stylesheet</h2>
+</section>
+
+<section>
+    <h2>Bild wird nicht geladen</h2>
+    <pre><code class="css large-text">
+img:empty {
+  position: relative;
+}
+
+img:empty::after {
+  content: "\2297";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  font-size: 30px;
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Bild hat kein Alt-Attribut</h2>
+    <pre><code class="css x-large-text">
+img:not([alt]) {
+  outline: 2px solid red;
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Link hat kein Linkziel. Ist also ein interner Ankerverweis</h2>
+    <pre><code class="css large-text">
+a:not([href]) {
+  outline: 2px solid red;
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Leeren Absatz markieren</h2>
+    <pre><code class="css large-text">
+p:empty:before {
+  content: "was machst du da?";
+  display: block;
+  padding: 20px;
+  outline: 5px solid red;
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Das fehlende Sprach-Attribut im HTML-Element markieren</h2>
+    <pre><code class="css large-text">
+html:not([lang]) {
+  background: purple !important;
+}
+    </code></pre>
+</section>
+
+<section class="shouting-secondary">
+    <h2><a href="https://codepen.io/jensgro/pen/MNmdYv" target="_blank">Ein Beispiel auf CodePen</a></h2>
+</section>

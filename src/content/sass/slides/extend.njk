@@ -1,0 +1,77 @@
+<section class="shouting">
+	<h2>@extend</h2>
+</section>
+
+<section>
+	<h2>@extend und eine Klasse</h2>
+	<div class="split">
+		<div>
+<pre><code class="scss" data-noescape>$btn-bgcol: #cecece;
+$btn-warning-bgcol: #a20000;
+
+.button {
+  background-color: $btn-bgcol;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+}
+
+.button-warning {
+  <mark>@extend .button;</mark>
+  background-color: $btn-warning-bgcol;
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">
+.button, .button-warning {
+  background-color: #cecece;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+}
+
+.button-warning {
+  background-color: #a20000;
+}
+
+</code></pre>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>@extend und ein Platzhalter</h2>
+	<div class="split">
+		<div>
+<pre><code class="scss" data-noescape>$btn-bgcol: #cecece;
+$btn-warning-bgcol: #a20000;
+
+%button {
+  background-color: $btn-bgcol;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+}
+
+.button-warning {
+  <mark>@extend %button;</mark>
+  background-color: $btn-warning-bgcol;
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">
+.button-warning {
+  background-color: #cecece;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+}
+
+.button-warning {
+  background-color: #a20000;
+}
+
+</code></pre>
+		</div>
+	</div>
+</section>

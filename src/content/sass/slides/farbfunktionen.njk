@@ -1,0 +1,50 @@
+<section class="shouting">
+	<h2>Sass-eigene Farbfunktionen</h2>
+</section>
+
+<section>
+	<p>Es gibt <a href="http://jackiebalzer.com/color" target="_blank">massenweise Farbfunktionen</a> in Sass. Dies sind gängige Beispiele: </p>
+<pre><code class="scss">background: lighten($breadcrumb-active-fill, 10%);
+background: darken(#a20000, 15%);
+
+color: adjust-color(#102030, $blue: 5); // #102035
+color: adjust-color(#102030, $red: -5, $blue: 5); // #0b2035
+
+background-color:   saturate(#855, 20%); // #9e3f3f
+background-color: desaturate(#855, 20%); // #726b6b
+
+$bg1: ie-hex-str(#abc); // #FFAABBCC;
+$bg2: ie-hex-str(rgba(0,255,0,0.5)); // #8000FF00
+</code></pre>
+</section>
+
+<section>
+	<h2>Einsatzbeispiel</h2>
+	<div class="split">
+		<div>
+<pre class="medium-code"><code class="scss">$bgcol1: #a20000;
+
+.test1{
+    background-color: $bgcol1;
+    &:hover, &:focus {
+        background-color: lighten($bgcol1, 30%);
+    }
+    &:active {
+        background-color: darken($bgcol1, 20);
+    }
+}</code></pre>
+		</div>
+		<div>
+<pre class="medium-code"><code class="css">.test1 {
+  background-color: #a20000;
+}
+.test1:hover, .test1:focus {
+  background-color: #ff3c3c;
+}
+.test1:active {
+  background-color: #3c0000;
+}</code></pre>
+		</div>
+	</div>
+	<div class="linksToOutside"><a href="https://gist.github.com/jensgro/5765888/4cec8b9d4885c0595d742598fd6e7605694cca76" target="_blank">Github-Gist</a></div>
+</section>

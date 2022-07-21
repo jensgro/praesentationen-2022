@@ -1,0 +1,88 @@
+<section class="shouting">
+    <h2>HTML-Basics</h2>
+</section>
+
+<section>
+    <h2>One Doctype to rule them all!</h2>
+    <pre><code class="html xx-large-text">
+        &lt;!DOCTYPE html&gt;
+    </code></pre>
+</section>
+
+<section>
+    <h2>HTML definiert die Struktur einer Seite. HTML sieht nicht aus!</h2>
+</section>
+
+<section>
+        <img src="pictures/frontend/periodic-table-of-html-elements.png" alt="Alle HTML-Elemente in einer Art Periodensystem organisiert." class="stretch">
+        <div class="linksToOutside"> <a href="https://codepen.io/jensgro/full/rXegzj">zum Codepen</a></div>
+</section>
+
+<section>
+    <p>Einige Elemente sind nur für den <code>HEAD</code> der Seite, werden also nie gezeigt oder nur an sehr speziellen Stellen (<code>title</code>).</p>
+    <p>Andere Elemente sind <mark>ersetzte Elemente</mark>, da das HTML durch etwas anderes <mark>ersetzt</mark> wird (Formularelemente, Bilder, Video).</p>
+    <div class="linksToOutside"><a href="https://gethead.info/" target="_blank">Übersicht aller HEAD-Elemente</a></div>
+</section>
+
+<section>
+    <h2>Sehr wichtige Bestandteile des HEAD</h2>
+    <pre class="medium-code"><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;de&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Dokumententitel&lt;/title&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+    </code></pre>
+    
+</section>
+
+<section>
+    <h2>HTML schreiben hat mit Denken zu tun. Aber nicht zu lange denken. Die Semantik ist noch oft uneindeutig und ausbaufähig.</h2>
+</section>
+
+<section>
+    <h2>Manchmal sehr umständlich</h2>
+<pre><code class="html">
+    <blockquote>
+        <p>The browser is a hostile environment!</p>
+        <footer>
+            <cite>Douglas Crockford</cite>
+        </footer>
+    </blockquote>
+
+</code></pre>
+</section>
+
+<section>
+    <h2>Valide ≠ <mark>richtig</mark>!</h2>
+    <pre><code class="html small-text">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Dieses Dokument ist valide!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;HEADER&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;LEFT&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;&lt;u&gt;CENTER&lt;/u&gt;&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;RIGHT&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;FOOTER&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;        
+    </code></pre>
+    <div class="linksToOutside"><a href="https://gist.github.com/jensgro/7303631" target="_blank">zum Github Gist</a></div>
+</section>

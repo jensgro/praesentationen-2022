@@ -1,0 +1,32 @@
+<section class="shouting">
+	<h2>Der for-Loop</h2>
+</section>
+
+<section>
+	<h2>Beispiel: Tagcloud</h2>
+	<div class="split">
+		<div>
+<pre><code class="scss">
+// Tagcloud
+@for $level from 0 to 5 {
+  .tag-#{$level + 1} {
+    font-size: .7em + ($level * .5em);
+  }
+}
+
+</code></pre>
+		</div>
+		<div>
+<pre><code class="css">
+.tag-1 { font-size: 0.7em; }
+.tag-2 { font-size: 1.2em; }
+.tag-3 { font-size: 1.7em; }
+.tag-4 { font-size: 2.2em; }
+.tag-5 { font-size: 2.7em; }
+
+</code></pre>
+		</div>
+	</div>
+
+<div class="linksToOutside"><a href="https://www.sassmeister.com/gist/104f8ba0aa5c6151ec4c2ed545910691" target="_blank">Sassmeister für unterschiedliche Schreibweisen</a></div>
+</section>

@@ -1,0 +1,104 @@
+<section class="shouting">
+    <h2>Responsive Bilder</h2>
+</section>
+
+<section>
+    <h2>Die ganz einfache Methode</h2>
+    <pre><code class="css x-large-text">
+img {
+  max-width: 100%;
+  height: auto; 
+}        
+    </code></pre>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Es gibt aber auch <mark>richtige</mark> responsive Bilder!</h2>
+</section>
+
+<section>
+    <h2>Responsive Bilder</h2>
+    <ol>
+        <li>Unterschiedliche Bildgrößen je nach Viewport und eventuell Pixeldichte.</li>
+        <li>Unterschiedliche Bilder mit redaktionierten Bildausschnitten für unterschiedliche Bildgrößen und eventuell Pixeldichte.</li>
+    </ol>
+     <p>
+        Wir können überall responsive Bilder nutzen. Denn sollte ein Browser diese nicht können, nimmt er den Fallback. Und diese Browser gibt es alle nicht auf mobilen Endgeräten, sodass der Fallback einfach die Desktopversion ist und alles ist gut.
+    </p>
+</section>
+
+
+<section>
+    <img src="pictures/rwd/caniuse-srcset.png" alt="CanIUse-Statistik zum srcset-Attribut" class="stretch">
+    <div class="linksToOutside"><a href="https://caniuse.com/#search=srcset" target="_blank">zu Can I Use</a></div>
+</section>
+
+<section>
+    <h2>Das <code>srcset</code>-Attribut</h2>
+    <pre><code class="html large-text">
+&lt;img src=&quot;pic1x.jpg&quot; 
+    alt=&quot;Was eine tolle Bildbeschreibung!&quot;    
+    srcset=&quot;pic1x.jpg 1x, pic2x.jpg 2x, pic4x.jpg 4x&quot;&gt;&#10;</code></pre>
+    <p>"<mark>2x</mark>" meint "maximale Pixeldichte von 2 Device-Pixeln pro CSS-Pixel".
+  "<mark>4x</mark>" dann entsprechend 4 Device-Pixel pro CSS-Pixel.
+</p>
+</section>
+
+<section>
+    <h2>Das <code>srcset</code>-Attribut</h2>
+    <pre><code class="html large-text">&lt;img alt=&quot;Bildbeschreibung&quot;
+    src=&quot;/path/to/fallbackimage.jpg&quot;
+    srcset=&quot;/path/to/image.jpg 800w 1x, 
+    /path/to/otherimage.jpg 300h 2x&quot;&gt;</code></pre>
+    <p>"<mark>800w</mark>" meint "maximale Viewportbreite von 800 CSS-Pixeln".
+  "<mark>300h</mark>" sind dementsprechend maximal 300 CSS-Pixel in der Viewporthöhe.</p>
+</section>
+
+<section>
+    <h2>Das <code>srcset</code>-Attribut</h2>
+    <pre><code class="html large-text">
+&lt;img&#10;    src=&quot;http://placehold.it/400x200&amp;text=Fallback&quot;&#10;    srcset=&quot;http://placehold.it/320x160/ddd 320w,&#10;            http://placehold.it/480x240/ccc 480w,&#10;            http://placehold.it/768x384/444 768w,&#10;            http://placehold.it/1024x512/a20000 1024w,&#10;            http://placehold.it/1280x640/fd8700 1280w&quot;&#10;&#10;    sizes=&quot;(max-width: 20em) 100vw,&#10;            (max-width: 30em) 60vw,&#10;            (max-width: 40em) 50vw&quot;&#10;    alt=&quot;Super tolle Bildbeschreibung&quot;&gt;
+    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/IhECK" target="_blank">zum Codepen</a></div>
+</section>
+
+<section data-background-image="pictures/rwd/srcset.jpg">
+</section>
+
+
+<section>
+    <img src="pictures/rwd/caniuse-picture-element.png" alt="CanIUse-Statistik zum srcset-Attribut" class="stretch">
+    <div class="linksToOutside"><a href="https://caniuse.com/#search=picture" target="_blank">zu Can I Use</a></div>
+</section>
+
+<section>
+    <h2>Das <code>picture</code>-Element</h2>
+    <pre><code class="html large-text">
+<picture>
+  <source src="small.jpg" media="(max-width: 20em)">
+  <source src="normal.jpg" media="(min-width: 20em)">
+  <source src="image.tiff" media="print">
+
+  <img src="small.jpg" alt="fallback image">
+</picture>
+    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/LxbWOq" target="_blank">zum Codepen</a></div>
+</section>
+
+<section>
+    <h2>Das <code>picture</code>-Element</h2>
+    <pre><code class="html large-text">
+&lt;picture&gt;&#10;  &lt;source media=&quot;(min-width: 800px)&quot;&#10;          srcset=&quot;big.jpg 1x, big-hd.jpg 2x&quot;&gt;&#10;  &lt;source srcset=&quot;small.jpg 1x, small-hd.jpg 2x&quot;&gt;&#10;  &lt;img src=&quot;fallback.jpg&quot; alt=&quot;Tolle Bildbeschreibung&quot;&gt;&#10;&lt;/picture&gt;        &#10;    </code></pre>
+    <p>Die source-Elemente werden von oben nach unten gelesen. Alles unter 800px-Breite bekommt also die zweite Source. Oder das Fallback-Bild, wenn es die Elemente nicht kennt.</p>
+</section>
+<section data-background-image="pictures/rwd/picture-syntax.png">
+</section>
+<section>
+    <h2>Ein paar Links</h2>
+    <ol>
+        <li><a href="http://webkrauts.de/artikel/2014/der-neue-standard-fuer-responsive-bilder" target="_blank">Mein einführender Artikel von 2014</a></li>
+        <li><a href="https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433" target="_blank">A Guide to Responsive Images with Ready-to-Use Templates</a></li>
+        <li><a href="https://cloudfour.com/thinks/responsive-images-101-definitions/" target="_blank">Responsive Images 101</a> (eine umfangreiche und tolle Serie)</li>
+    </ol>  
+</section>
+

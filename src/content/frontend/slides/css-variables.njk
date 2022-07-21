@@ -1,0 +1,270 @@
+<section class="shouting">
+    <h2>Custom Properties</h2>
+    <h3>vulgo: CSS-Variablen</h3>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Custom Properties werden oft als "CSS-Variablen" bezeichnet. Das ist nicht ganz passend.</h2>
+    <h3>Sie werden in allen aktuellen Browsern unterstützt. <a href="https://caniuse.com/#search=variables" target="_blank">Einziger nennenswerter Ausreisser</a> ist der IE.</h3>
+</section>
+
+<section>
+    <img src="pictures/frontend/css-variables-2.png" alt="" class="stretch">
+</section>
+<section class="shouting-tertiary">
+    <h2><mark>custom properties</mark> in CSS und <mark>custom elements</mark> in HTML.</h2>
+</section>
+
+<section>
+    <h2>(Echte) Variablen in Präprozessoren werden lokal in CSS transferiert. Es bleiben keine Variablen übrig.</h2>
+</section>
+
+<section>
+    <h2>Auf custom properties hingegen kann per JavaScript zugriffen werden, auch um diese zu manipulieren. </h2>
+</section>
+
+<section>
+    <h2>Globale Wirkung</h2>
+    <pre><code class="css">
+/* Hier werden properties erschaffen! */
+:root {
+    --main-color: #000;
+    --link-color: #a20000;
+}        
+/* Und hier die Eigenschaft als Wert zugewiesen. */
+body {
+    color: var(--main-color);
+}
+a {
+    color: var(--link-color);
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Lokale Wirkung</h2>
+    <p>Eine globale Custom Property kann für den lokalen Kontext überschrieben werden. Custom Properties unterliegen der Kaskade!</p>
+    <pre><code>
+:root {
+    --link-color: red;
+}        
+
+a {
+    color: var(--link-color);
+}
+
+.mein-modul {
+    --link-color: green;
+}        
+.mein-anderes-modul {
+    --link-color: blue;
+}
+    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/mYmVpe" target="_blank">zum CodePen</a></div>
+</section>
+
+<section>
+    <h2>Custom Properties ...</h2>
+    <ul>
+        <li>sind Teil der Kaskade</li>
+        <li>werden vererbt</li>
+        <li>sind global und lokal möglich</li>
+        <li>sind case-sensitive (--link-color ≠ --link-Color)</li>
+        <li>sind reine Strings</li>
+        <li>sind keine Variablen im klassischen Sinn</li>
+    </ul>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Custom Properties funktionieren <mark>nicht</mark> für Werte einer Media Query!</h2>
+</section>
+
+<section>
+    <h2>Man kann sie aber in Media Queries neu setzen!</h2>
+    <pre><code class="css">
+:root {
+    --headline-2: 2rem;
+}
+
+@media (min-width: 1000px) {
+    :root {
+        --headline-2: 3rem;
+    }
+}
+    </code></pre>
+    <p>Dieses Vorgehen ist sinnvoll und reduziert die Anzahl der Variablen sehr.</p>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Genauer betrachtet gibt es in CSS schon länger Variablen.</h2>
+</section>
+
+<section>
+    <h2>currentColor</h2>
+    <pre><code class="css">
+        blockquote {
+            color: red;
+            border: 2px dashed currentColor;
+        }
+    </code></pre>
+</section>
+
+<section>
+    <h2>currentColor ist Standard bei folgenden Eigenschaften</h2>
+    <ul>
+        <li><code>border-color</code></li>
+        <li><code>caret-color</code></li>
+        <li><code>column-rule-color</code></li>
+        <li><code>text-decoration-color</code></li>
+        <li><code>text-emphasis-color</code></li>
+        <li><code>outline-color</code></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Sinnvoller Einsatz bei ...</h2>
+    <ul>
+        <li>Buttons</li>
+        <li>Links innerhalb von Überschriften</li>
+        <li>Zitatboxen</li>
+        <li>Hinweisboxen</li>
+    </ul>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/full/zQZLyR" target="_blank">CodePen mit Beispielen</a></div>
+</section>
+
+<section>
+    <h2>counter</h2>
+    <pre><code class="css">
+.main-container {
+    counter-reset: headlines; /* wichtig: im Elternelement setzen! */
+}
+h2:before {
+    counter-increment: headlines;
+    content: counter(headlines);
+    
+    /* und jetzt kommt Positionierung und Gestaltung */
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Konfiguration des counter</h2>
+    <p>Man kann das Inkrement auch in 5er-Schritten konfigurieren:</p>
+    <pre><code class="css">
+h2:before {
+    counter-increment: headlines 5;
+}
+    </code></pre>
+
+    <p>Die Ausgabe kann auch in Buchstaben erfolgen:</p>
+    <pre><code class="css">
+h2:before {
+    content: counter(headlines, upper-alpha);
+}
+    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ZNBRQb" target="_blank">zum Codepen</a></div>
+</section>
+
+
+<section>
+    <h2>Die Umgebungsvariable env()</h2>
+    <pre><code class="css">
+body {
+  padding:
+    env(safe-area-inset-top, 20px) /* Variable mit Fallback */
+    env(safe-area-inset-right, 20px)
+    env(safe-area-inset-bottom) /* Variable ohne Fallback */
+    env(safe-area-inset-left, 20px);
+}
+    </code></pre>
+    <p>Diese Umgebungsvariablen werden von allen modernen Browsern unterstützt. Das heisst: der IE und die alten Edge kennen diese Variablen nicht. Da sie aber im Wesentlichen für Smartphones von Bedeutung sind, ist diese Ausnahme irrelevant.</p>
+</section>
+
+
+<section class="shouting-teriary">
+    <h2>Aaaaaber .... der IE!</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Wenn wir uns um den IE kümmern wollen/müssen, dann müssen wir in irgendeiner Form doppelten Code schreiben. Es gibt keinen Polyfill!</h2>
+</section> 
+
+<section>
+    <h2>Sass-Idee</h2>
+    <ol>
+        <li>Eine Map mit den benötigten Variablen wird erstellt.</li>
+        <li>Eine @each-Schleife erzeugt alle Custom Properties in <code>:root</code>.</li>
+        <li>Ein Mixin sorgt für eine Zuweisung des Fallbacks <strong>und</strong> der modernen Schreibweise.</li>
+    </ol>
+</section> 
+
+<section class="shouting-secondary">
+    <h2>Eine Sass-Idee</h2>
+</section>
+
+<section>
+    <h2>Eine Map mit Variablen</h2>
+    <pre><code class="scss">
+$vars: (
+  yellow: #ff0,
+  blk: #000,
+  lightblue: #a1dfcd,
+  ff: sans-serif,
+  fw-n: 300,
+  fw-m: 600,
+  fw-b: 800,
+);
+    </code></pre>
+</section>
+
+<section>
+    <h2>Alle Variablen in <code>:root</code></h2>
+    <pre><code class="scss">
+
+:root {
+  @each $property, $value in $vars {
+    --#{$property}: #{$value};
+  }
+}        
+    </code></pre>
+</section>
+
+<section>
+    <h2>Das Mixin</h2>
+    <pre><code class="scss">
+@mixin var($property, $variable) {
+  #{$property}: map-get($vars, $variable);
+  #{$property}: var(--#{$variable});
+}
+// angewendet
+
+.test {
+    @include var(color, lightblue);
+}
+    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/kevinpowell/pen/jYEGNR" target="_blank">CodePen</a> <a href="https://www.sassmeister.com/gist/adaf0cd8ed1245fcec92253d542bc0d1" target="_blank">Sassmeister</a></div>
+</section>
+ --}}
+
+<section class="shouting-secondary">
+    <h2><a href="https://codepen.io/kevinpowell/pen/47a7913feb4cff477b0c9d7b0fe2008a" target="_blank">CSS-Variable mit JS ändern</a> (CodePen)</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Custom Properties vs. Sass-Variablen</h2>
+    <div class="linkstoOutside">
+        <a href="https://codepen.io/kevinpowell/pen/b3988c73816404c8da79ac7a0a663fa6" target="_blank">CodePen 1</a> 
+        <a href="https://codepen.io/kevinpowell/pen/979bb8daa5c3fbdde61e03aa7c0f2385" target="_blank">CodePen 2</a> 
+    </div>
+</section> 
+
+<section class="shouting-secondary">
+    <h2><a href="https://codepen.io/collection/naydzK/" target="_blank">Schulungsmaterial</a> auf CodePen</h2>
+</section>
+
+<section class="shouting-exercise">
+    <h2>Transferieren Sie Werte in custom properties</h2>
+
+    <img src="pictures/frontend/custom-properties.png" alt="Eine Beispielseite auf CodePen zum Testen von custom properties." class="stretch">
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/GRKLpMg" target="_blank">zum CodePen</a></div>
+</section>

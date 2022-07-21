@@ -1,0 +1,78 @@
+<section class="shouting">
+    <h2>Flexbox Holy Albatros</h2>
+    <h3>Container Queries - in gewisser Weise</h3>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Heydon Pickering hatte mal wieder eine prima Idee und fand dafür einen seltsamen Namen.</h2>
+</section>
+
+<section>
+    <h2>Das Problem</h2>
+    <p>Bei Responsive Webdesign ist der Bezugsrahmen immer das Browserfenster. Die Mediaqueries beziehen sich exakt darauf.</p>
+    <p>Doch was ist mit einem Inhalt, der in unterschiedlichen Kontexten präsntiert wird? Schliesslich sollen sich Module ihrer Umgebung anpassen und keine eigenen Informationen über Breite (und Höhe) besitzen.</p>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Bei gängigen flexiblen Grids wird unweigerlich eine ungleiche Verteilung der Breiten als Zwischenschritt vorkommen. Heydons Ansatz will dies verhindern.</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Ausserdem soll der Inhalt sich nach dem direkten Elternelement richten, nicht nach dem Browserfenster!</h2>
+</section>
+
+<section>
+        <img src="pictures/rwd/flexbox-holy-albatros.png" alt="Schematische Darstellung der Grundidee." class="stretch">
+        <div class="linksToOutside"><a href="http://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated" target="_blank">Das Bild ist dem zweiten Artikel entnommen.</a></div>
+</section>
+
+<section>
+    <h2>Der Code</h2>
+    <pre><code class="css">
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem;
+}
+
+.grid__item {
+  flex-grow: 1;
+  flex-basis: calc((40rem - 100%) * 999);
+  margin: 1rem;
+}        
+    </code></pre>
+    <div class="linksToOutside">
+        <a href="http://www.heydonworks.com/article/the-flexbox-holy-albatross" target="_blank">Der erste Artikel</a>
+        <a href="http://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated" target="_blank">Der Follow-Up Artikel</a>
+        <a href="https://codepen.io/jensgro/pen/pYawVq?editors=0110" target="_blank">Codepen</a>
+    </div>
+</section>
+
+<section>
+    <h2>Das Original</h2>
+    <pre><code class="css">
+.container {
+  --margin: 1rem;
+  --modifier: calc(40rem - 100%);
+  
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--margin) * -1);
+}
+
+.container > * {
+  flex-grow: 1;
+  flex-basis: calc(var(--modifier) * 999);
+  margin: var(--margin);
+}       
+    </code></pre>
+    <div class="linksToOutside">
+        <a href="http://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated" target="_blank">Der erste Artikel</a>
+    </div>
+</section>
+
+<section>
+    <h2>Das geht auch mit unterschiedlich breiten Containern</h2>
+    <img src="pictures/rwd/holy-albatros-different-widths-container.png" alt="Screenshot eines Beispiels auf Codepen." class="stretch">
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ywvXZW?editors=0110" target="_blank">zum Codepen</a></div>
+</section>

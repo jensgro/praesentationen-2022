@@ -1,0 +1,84 @@
+<section class="shouting">
+    <h2>CSS-Reset oder Normalisierung?</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Das ist ein Glaubenskrieg!</h2>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Jeder Browser kommt mit seinem eigenen CSS, um HTML formatiert darzustellen.</h2>
+</section>
+
+<section>
+    <h2>Ein paar Links</h2>
+    <ol>
+        <li><a href="https://bitsofco.de/a-look-at-css-resets-in-2018/" target="_blank">A look at CSS Resets in 2018</a></li>
+        <li><a href="https://css-tricks.com/reboot-resets-reasoning/" target="_blank">Reboot, Resets, and Reasoning</a></li>
+        <li><a href="https://codepen.io/dbox/full/gMbeYw" target="_blank">Codepen</a> mit einer Auswahl an Resets und Normalisierungen zum direkten Vergleich</li>
+        <li><a href="https://hankchizljaw.com/wrote/a-modern-css-reset/" target="_blank">A modern CSS Reset</a></li>
+    </ol>
+</section>
+
+<section class="shouting-exercise">
+    <h2>Aufgabe</h2>
+    <p>Welche Eigenschaften sind in diesem Falle unnötig bzw. wahrscheinlich überflüssig?</p>
+<pre><code class="css">
+    p {
+        display: block;
+        width: 100%;
+        font-size: 1em;
+        text-align: left;
+        color: black;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+</code></pre>
+</section>
+
+<section class="shouting-exercise">
+    <h2>Aufgabe</h2>
+    <p>Welche Eigenschaften sind in diesem Falle wahrscheinlich wirkungslos?</p>
+<pre><code class="css">
+    span {
+        width: 75%;
+        padding: 10px;
+        color: black;
+        background-color: yellow;
+        margin-bottom: 2rem;
+    }
+
+</code></pre>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Shorthand-Schreibweisen beinhalten Standardwerte</h2>
+</section>
+
+<section>
+    <h2>Gern immer wieder geschrieben</h2>
+<pre><code class="css">
+    .testbox {
+        background: #a20000;
+    }
+</code></pre>    
+</section>
+
+<section>
+    <h2>Ausführlich mit allen Standardwerten</h2>
+<pre><code class="css">
+    .testbox {
+        background-color: #a20000;
+
+        /* ==== initial values ====== */
+        background-image: none;
+        background-position: 0% 0%;
+        background-size: auto auto;
+        background-repeat: repeat;
+        background-origin: padding-box;
+        background-clip: border-box;
+        background-attachment: scroll;
+    }
+</code></pre>    
+</section>

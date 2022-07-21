@@ -1,0 +1,90 @@
+<style>
+    .pseudoelemente-4 img:empty {
+      background-color: red; 
+    }
+    .pseudoelemente-4 img:empty::before {
+      content: "Leider fehlt hier ein Bild!";
+      display: block;
+      padding: 10px; 
+    }
+</style>
+<section class="shouting">
+  <h2>Pseudoelement bei einem Bild - eigentlich unmöglich!</h2>
+</section>
+
+<section>
+	<p>Das <code>img</code>-Element stellt keine Pseudoelemente zur Verfügung. Jedenfalls dann nicht, wenn das Bild dargestellt wird. Aber gilt das auch, wenn das Bild <strong>nicht</strong> dargestellt wird?</p>
+  <p>Im Falle von <mark>Webkit-Browsern</mark> sieht die Sache anders aus!</p>
+</section>
+
+<section>
+	<h2>Hier fehlt ein Bild</h2>
+	<div><img src="pictures/frontend/fehlendes-bild.png" alt="Bild des Platzhalters eines fehlenden Bildes."></div>
+	<p>Vor allem während des Entwicklungsprozesses wollen Sie sicherstellen, dass Sie alle Stellen finden, an denen ein Bild fehlt bzw. falsch verlinkt wurde. </p>
+	<p>Welche Lösungsmöglichkeit fällt Ihnen ein?</p>
+</section>
+
+<section>
+<div class="pseudoelemente-4">
+	<figure>
+	  <img src="xxx.jpg" alt="Eine tolle Bildbeschreibung">
+  	<figcaption><p>Hier steht auch eine tolle Bildbeschreibung</p></figcaption>
+	</figure>
+</div>
+
+<pre><code class="html"><figure>
+  <img src="xxx.jpg" alt="Eine tolle Bildbeschreibung">
+  <figcaption>
+    <p>Hier steht auch eine tolle Bildbeschreibung</p>
+  </figcaption>
+</figure>
+</code></pre>
+<pre><code class="css">img:empty {
+  background-color: red; }
+
+img:empty::before {
+  content: "Leider fehlt hier ein Bild!";
+	display: block;
+  padding: 10px; }</code></pre>
+
+</section>
+
+<section>
+	<h2>Und wenn das Bild dann geladen wird?</h2>
+	<div class="pseudoelemente-4">
+		<figure>
+		  <img src="xxx.jpg" alt="Eine tolle Bildbeschreibung">
+	  	<figcaption><p>Hier steht auch eine tolle Bildbeschreibung</p></figcaption>
+		</figure>
+
+		<figure>
+		  <img src="pictures/frontend/100x100.jpg" alt="Eine tolle Bildbeschreibung">
+		  <figcaption><p>Hier steht auch eine tolle Bildbeschreibung</p></figcaption>
+		</figure>
+	</div>
+
+</section>
+
+<section>
+	<h2>Und wie bekommen wir ein Icon vor den Text?</h2>
+	<div><img src="pictures/frontend/fehlendes-bild-2.png" alt="Zu dem Hinweistext gesellt sich ein Icon."></div>
+
+</section>
+
+<section>
+	<p>Dafür nutzen wir das Pseudoelement <code>::after</code>. Das positionieren wir innerhalb von <code>img</code> absolut. Deshalb müssen wir dem <code>img</code>-Element ein <code>position: relative</code> geben.</p>
+<pre><code class="css">img:empty {
+  position: relative;
+}
+
+img:empty::after {
+  content: "\2297";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  font-size: 30px;
+}
+
+</code></pre>
+	<div class="linksToOutside"><a href="http://codepen.io/jensgro/pen/YNgNee/" target="_blank">Beispiel auf Codepen</a></div>
+</section>

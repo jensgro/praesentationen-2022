@@ -1,0 +1,99 @@
+<section class="shouting">
+	<h2>Code-Output</h2>
+</section>
+
+<section>
+	<h2>Vier verschiedene Varianten</h2>
+	<ol>
+		<li>expanded</li>
+		<li>nested</li>
+		<li>compact</li>
+		<li>compressed</li>
+	</ol>
+	<p>Ausserdem kann man eine Map-Datei generieren lassen oder auch den Verweis auf die Quelle in die Ausgabe schreiben lassen.</p>
+</section>
+
+<section>
+	<h2>expanded</h2>
+<pre class="small-code"><code class="css">.breadcrumb-simple ul {
+overflow: hidden;
+list-style-type: none;
+margin-left: 0;
+padding-left: 0;
+}
+.breadcrumb-simple ul li {
+float: left;
+margin-left: 10px;
+padding-left: 0;
+}
+.breadcrumb-simple ul li:first-child {
+margin-left: 0;
+}
+.breadcrumb-simple ul li:first-child:before {
+display: none;
+}
+.breadcrumb-simple ul li:before {
+content: "\25B8";
+display: inline-block;
+}</code></pre>
+</section>
+
+<section>
+	<h2>nested</h2>
+<pre class="small-code"><code class="css">.breadcrumb-simple ul {
+overflow: hidden;
+list-style-type: none;
+margin-left: 0;
+padding-left: 0; }
+.breadcrumb-simple ul li {
+float: left;
+margin-left: 10px;
+padding-left: 0; }
+.breadcrumb-simple ul li:first-child {
+	margin-left: 0; }
+	.breadcrumb-simple ul li:first-child:before {
+		display: none; }
+.breadcrumb-simple ul li:before {
+	content: "\25B8";
+	display: inline-block; }</code></pre>
+</section>
+
+<section>
+	<h2>compact</h2>
+<pre class="small-code"><code class="css">
+.breadcrumb-simple ul { overflow: hidden; list-style-type: none; margin-left: 0; padding-left: 0; }
+.breadcrumb-simple ul li { float: left; margin-left: 10px; padding-left: 0; }
+.breadcrumb-simple ul li:first-child { margin-left: 0; }
+.breadcrumb-simple ul li:first-child:before { display: none; }
+.breadcrumb-simple ul li:before { content: "\25B8"; display: inline-block; }
+</code></pre>
+</section>
+
+<section>
+	<h2>compressed</h2>
+<pre class="small-code"><code class="css">
+
+.breadcrumb-simple ul{overflow:hidden;list-style-type:none;margin-left:0;padding-left:0}.breadcrumb-simple ul li{float:left;margin-left:10px;padding-left:0}.breadcrumb-simple ul li:first-child{margin-left:0}.breadcrumb-simple ul li:first-child:before{display:none}.breadcrumb-simple ul li:before{content:"\25B8";display:inline-block}
+
+</code></pre>
+</section>
+
+
+<section>
+	<h2>Mit Zeilennummern</h2>
+<pre><code class="css">  /* line 8, ../sass/yaml-sass/core/base-modules/_normalization.scss */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* line 12, ../sass/yaml-sass/core/base-modules/_normalization.scss */
+  option {
+    padding-left: 0.4em;
+  }
+
+  /* line 13, ../sass/yaml-sass/core/base-modules/_normalization.scss */
+  select {
+    padding: 1px;
+  }</code></pre>
+</section>

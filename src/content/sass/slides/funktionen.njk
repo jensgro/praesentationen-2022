@@ -1,0 +1,18 @@
+<section class="shouting">
+	<h2>Funktionen</h2>
+</section>
+
+<section>
+<pre><code class="scss">/* Funktion */
+@function px2rem($font-size, $base-font-size: 16) {
+	@return $font-size / $base-font-size + rem;
+}</code></pre>
+<pre><code class="scss">/* Anwendung */
+.test 	{font-size: px2rem(18);}
+.test2 	{font-size: px2rem(18, 20);}</code></pre>
+<pre><code class="css">/* Ausgabe */
+.test 	{font-size: 1.125rem;}
+.test2 	{font-size: 0.9rem;}</code></pre>
+</section>
+
+

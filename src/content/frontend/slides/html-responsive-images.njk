@@ -1,0 +1,49 @@
+<section class="shouting">
+    <h2>Responsive Images</h2>
+</section>
+
+<section>
+    <h2>Das <code>srcset</code>-Attribut</h2>
+    <pre><code class="html large-text">
+&lt;img src=&quot;pic1x.jpg&quot; 
+     alt=&quot;Was eine tolle Bildbeschreibung!&quot;     
+     srcset=&quot;pic1x.jpg 1x, pic2x.jpg 2x, pic4x.jpg 4x&quot;&gt;</code></pre>
+    <p>"<mark>2x</mark>" meint "maximale Pixeldichte von 2 Device-Pixeln pro CSS-Pixel".
+  "<mark>4x</mark>" dann entsprechend 4 Device-Pixel pro CSS-Pixel.
+</p>
+</section>
+
+<section>
+    <h2>Das <code>srcset</code>-Attribut</h2>
+    <pre><code class="html large-text">
+&lt;img&#10;    src=&quot;http://placehold.it/400x200&amp;text=Fallback&quot;&#10;    srcset=&quot;http://placehold.it/320x160/ddd 320w,&#10;            http://placehold.it/480x240/ccc 480w,&#10;            http://placehold.it/768x384/444 768w,&#10;            http://placehold.it/1024x512/a20000 1024w,&#10;            http://placehold.it/1280x640/fd8700 1280w&quot;&#10;&#10;    sizes=&quot;(max-width: 20em) 100vw,&#10;            (max-width: 30em) 60vw,&#10;            (max-width: 40em) 50vw&quot;&#10;    alt=&quot;Super tolle Bildbeschreibung&quot;&gt;
+    </code></pre>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/IhECK" target="_blank">zum Codepen</a></div>
+</section>
+
+<section data-background-image="pictures/frontend/srcset.jpg">
+</section>
+
+<section>
+    <h2>Wenn Art-Direction notwendig ist</h2>
+    <img style="display: block; width: 66.66666%;max-width: 66.66666%; height: auto;" src="pictures/frontend/devices-sm.gif" alt="">
+
+</section>
+
+<section>
+    <h2>Das <code>picture</code>-Element</h2>
+    <pre><code class="html large-text">
+&lt;picture&gt;&#10;  &lt;source media=&quot;(min-width: 800px)&quot;&#10;          srcset=&quot;big.jpg 1x, big-hd.jpg 2x&quot;&gt;&#10;  &lt;source srcset=&quot;small.jpg 1x, small-hd.jpg 2x&quot;&gt;&#10;  &lt;img src=&quot;fallback.jpg&quot; alt=&quot;Tolle Bildbeschreibung&quot;&gt;&#10;&lt;/picture&gt;        &#10;    </code></pre>
+    <p>Die source-Elemente werden von oben nach unten gelesen. Alles unter 800px-Breite bekommt also die zweite Source. Oder das Fallback-Bild, wenn es die Elemente nicht kennt.</p>
+</section>
+<section data-background-image="pictures/frontend/picture-syntax.png">
+</section>
+<section>
+    <h2>Ein paar Links</h2>
+    <ol>
+        <li><a href="http://webkrauts.de/artikel/2014/der-neue-standard-fuer-responsive-bilder" target="_blank">Mein einführender Artikel von 2014</a></li>
+        <li><a href="https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433" target="_blank">A Guide to Responsive Images with Ready-to-Use Templates</a></li>
+        <li><a href="https://cloudfour.com/thinks/responsive-images-101-definitions/" target="_blank">Responsive Images 101</a> (eine umfangreiche und tolle Serie)</li>
+    </ol>  
+</section>
+

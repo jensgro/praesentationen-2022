@@ -1,0 +1,46 @@
+<section class="shouting">
+	<h2>If-Direktive</h2>
+</section>
+
+<section>
+	<div class="split">
+		<div>
+<pre><code class="scss">
+// CONTAINING FLOATS
+@mixin ym-contain($type: "dt") {
+  @if $type == "oh" {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+  }
+  @if $type == "fl" {
+    float: left;
+    width: 100%;
+  }
+  @if $type == "dt" {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+}
+
+</code></pre>
+		</div>
+		<div>
+<pre><code class="scss">
+.test {@include ym-contain;}
+.test2 {@include ym-contain(oh);}
+
+</code></pre>
+		</div>
+	</div>
+  <div class="linksToOutside"><a href="https://www.sassmeister.com/gist/40f8c75eca5cfc40a26d6e79834a181f" target="_blank">Sassmeister</a></div>
+</section>
+
+<section>
+	<h2>Einsatzmöglichkeiten</h2>
+	<ol>
+		<li>Inhalte in Abhängigkeit einer Theme-Variablen</li>
+		<li>Eine Sache mit mehreren Ausprägungen</li>
+	</ol>
+</section>

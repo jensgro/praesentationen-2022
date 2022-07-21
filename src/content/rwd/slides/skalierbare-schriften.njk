@@ -1,0 +1,50 @@
+<section class="shouting">
+    <h2>Skalierbare Schriften</h2>
+</section>
+
+<section>
+    <h2>Einheiten <code>vw</code>, <code>em</code> und <code>%</code></h2>
+    <pre><code class="css large-text">
+h1 {font-size: 5vw;}
+p {font-size: 1.5vw;}
+    </code></pre>
+    <pre><code class="css large-text">
+h1 {font-size: 5rem;}
+p {font-size: 1.5rem;}
+    </code></pre>
+    <pre><code class="css large-text">
+h1 {font-size: 500%;}
+p {font-size: 150%;}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Die Einheiten haben unterschiedliche Bezugsgrößen!</h2>
+    <p><code>vw</code> steht für <mark>viewport-width</mark>. Die Schrift ist also abhängig von der Breite des Browserfensters.</p>
+    <p><code>rem</code> bezieht sich auf die Schriftgröße des <mark>root-elements</mark>. Deshalb ist es wichtigt <code>html</code> eine Schriftgröße zu geben.</p>
+    <p>100% entsprechen 100% der geerbten Schriftgröße.</p>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/zbzggg?editors=1100" target="_blank">ein Beispiel auf Codepen mit Vordergrundbild</a> <a href="https://codepen.io/jensgro/pen/PLKYPO?editors=1100" target="_blank">ein Beispiel auf Codepen mit Hintergrundbild</a></div>
+</section>
+
+<section>
+    <h2>Es gibt noch mehr Einheiten</h2>
+    <ol>
+        <li><mark>em</mark>: 1em entspricht 100% der geerbten Schriftgröße (identisch zu %).</li>
+        <li><mark>ex</mark>: 1ex ist die Höhe des Buchstaben x für das aktuelle Element.</li>
+        <li><mark>ch</mark>; 1ch ist die Breite des Zeichens "0" (Null) für das aktuelle Element.</li>
+    </ol>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Schriften (plakativ) skalierbar machen</h2>
+</section>
+
+<section>
+    <h2>Beispiele auf Codepen</h2>
+    <ol>
+        <li><a href="https://codepen.io/jensgro/pen/zbzggg" target="_blank">Version 1</a> (mit einem normalen Bild)</li>
+        <li><a href="https://codepen.io/jensgro/pen/PLKYPO" target="_blank">Version 2</a> (mit einem Hintergrundbild)</li>
+        <li><a href="https://codepen.io/jensgro/pen/vPRVjM?editors=1100" target="_blank">Version 3</a> (mit ausgefeilter Skalierungstechnik)</li>
+    </ol>
+    <p>Auf CSS-Tricks gibt es <a href="https://css-tricks.com/fun-viewport-units/" target="_blank">einen sehr guten Artikel</a> dazu.</p>
+</section>

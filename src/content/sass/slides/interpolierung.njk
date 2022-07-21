@@ -1,0 +1,19 @@
+<section class="shouting">
+	<h2>Interpolierung</h2>
+</section>
+
+<section>
+<pre><code class="scss" data-noescape>
+@for $level from 0 to 5 {
+  .tag-<mark>#{$level + 1}</mark> {
+    font-size: .7em + ($level * .5em);
+  }
+}
+
+</code></pre>
+</section>
+
+<section>
+  <p>Mittels Interpolierung setzen wir die Werte von Variablen in Selektoren und Bildernamen.</p>
+  <p>Variablen selber lassen sich aber so <strong>nicht</strong>erstellen.</p>
+</section>

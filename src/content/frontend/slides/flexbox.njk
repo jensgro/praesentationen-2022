@@ -1,0 +1,283 @@
+<section class="shouting">
+    <h2>Flexbox</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Womit layouten wir?</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Layout meint dabei das horizontale und vertikale Arrangement von Inhalten auf der Seite oder in Modulen.</h2>
+</section>
+
+<section data-menu-title="Layouttechniken">
+    <ol>
+        <li>Floats</li>
+        <li class="fragment fade-up">(absolute) Positionierung</li>
+        <li class="fragment fade-up">display: inline-block</li>
+        <li class="fragment fade-up">display: table</li>
+    </ol>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Beliebte Layoutprobleme</h2>
+</section>
+
+<section>
+    <h2>Gleichhohe Container</h2>
+    <img src="pictures/flexbox/equal-heights.png"
+        alt="Drei gleich hohe Container mit unterschiedlich viel Inhalt nebeneinander.">
+</section>
+
+<section>
+    <h2>Sticky Footer</h2>
+    <figure>
+        <img src="pictures/flexbox/sticky-footer.png" alt="Sticky Footer mit Flexbox" style="width: 70%;">
+    </figure>
+</section>
+
+<section>
+    <h2>Zentrieren</h2>
+    <figure>
+        <img src="pictures/flexbox/vertical-centering.png" alt="Vertikales Zentrieren mit Flexbox" style="width: 70%;">
+    </figure>
+</section>
+
+<section>
+    <h2>Und nicht vergessen: generell flexible Platzverteilung</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Mit Flexbox gibt es nun endlich ein Layoutmodul in CSS</h2>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Deshalb müssen wir die anderen Techniken aber nicht vergessen. Sie haben noch immer ihre Berechtigung!</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Bei Flexbox ist alles neu: <br>Grundbegriffe und Funktionsweise</h2>
+</section>
+
+<section>
+    <figure>
+        <img src="pictures/flexbox/flex-container-item.svg" alt="">
+    </figure>
+    <p>Ein Elterncontainer wird zum Flex-Container. Die <mark>direkten</mark> Kindelemente werden
+        <mark>automatisch</mark> zu Flex-Items.</p>
+
+    <div class="split">
+        <div>
+            <pre><code class="css">.flex-container {
+  display: flex;
+}</code></pre>
+        </div>
+        <div>
+            <pre><code class="css">.flex-container {
+  display: inline-flex;
+}</code></pre>
+        </div>
+    </div>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Es gibt kein links und rechts, kein oben oder unten mehr, sondern Achsen: <br><br>eine Haupt- und eine
+        Kreuzachse.</h2>
+</section>
+
+<section>
+    <h2>Die Achsen</h2>
+    <figure>
+        <img src="pictures/flexbox/die-achsen-2.svg" alt="Die Flexbox-Achsen">
+    </figure>
+</section>
+
+<section>
+    <h2>Flex Item</h2>
+    <figure>
+        <img src="pictures/flexbox/flex-item-achsen.svg" alt="">
+    </figure>
+</section>
+
+<section>
+    <h2>Die Hauptachse</h2>
+    <figure>
+        <img src="pictures/flexbox/main-axis.svg" alt="">
+    </figure>
+</section>
+
+<section>
+    <h2>Die Kreuzachse</h2>
+    <figure>
+        <img src="pictures/flexbox/cross-axis.svg" alt="">
+    </figure>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Der Gag bei Flexbox ist: aus der horizontale Hauptachse kann schnell eine vertikale werden. Und auch die
+        Fliessrichtung kann umgestellt werden!</h2>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Eine schlanke Struktur ist unverzichtbar, weil Flexbox auf die direkten Kindelemente wirkt.</h2>
+</section>
+
+<section>
+    <h2>Die schlanke Struktur</h2>
+
+    <pre><code class="html">&lt;section class=&quot;ich-bin-der-flexcontainer&quot;&gt;
+ &lt;article&gt;Toller Inhalt&lt;/article&gt; &lt;!-- Flexitem --&gt;
+ &lt;article&gt;Noch mehr toller Inhalt&lt;/article&gt; &lt;!-- Flexitem --&gt;
+ &lt;article&gt;Ihr wisst schon ...&lt;/article&gt; &lt;!-- Flexitem --&gt;
+&lt;/section&gt;</code></pre>
+</section>
+
+<section>
+    <h2>Struktur - Enterprise Edition</h2>
+
+    <pre><code data-noescape class="html">&lt;div class=&quot;ich-bin-der-flexcontainer&quot;&gt;
+ &lt;div class=&quot;vom-CMS-eingefuegtes-dingens&quot;&gt; &lt;!-- <mark>Flexitem</mark> --&gt;
+  &lt;div&gt;Toller Inhalt&lt;/div&gt; &lt;!-- <mark>Kein Flexitem</mark> --&gt;
+  &lt;div&gt;Noch mehr toller Inhalt&lt;/div&gt; &lt;!-- Kein Flexitem --&gt;
+  &lt;div&gt;Ihr wisst schon ...&lt;/div&gt; &lt;!-- Kein Flexitem --&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Wo kann das in der Praxis zum Problem werden?</h2>
+</section>
+
+<section>
+    <h2>Fehlermeldung in einem Formular</h2>
+    <h3>Ausgangslage</h3>
+
+    <pre class="medium-code"><code class="html"><div class="autokennzeichen">
+  <span class="autokennzeichen__land">D</span>
+  <input type="text" class="autokennzeichen__stadt" placeholder="MYK">
+  <span class="autokennzeichen__trenner"></span>
+  <input type="text" class="autokennzeichen__nummer" placeholder="AB 666">
+</div></code></pre>
+</section>
+
+<section>
+    <h2>Fehlermeldung in einem Formular</h2>
+    <h3>So wird Flexbox zerstört</h3>
+    <pre class="medium-code"><code class="html"><div class="autokennzeichen">
+  <div class="error"> <!-- Das ist jetzt das einzige Flex-Item! -->
+    <span class="autokennzeichen__land">D</span>
+    <input type="text" class="autokennzeichen__stadt" placeholder="MYK">
+    <span class="autokennzeichen__trenner"></span>
+    <input type="text" class="autokennzeichen__nummer" placeholder="AB 666">
+  </div>
+</div></code></pre>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Die Kindelemente können nicht "entflexboxt" werden. Bei Floats gibt es immerhin <code>float:none</code>.</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Dafür gibt es aber auch keine Entsprechung zum Clearing. Der Flex-Container umfasst <mark>immer</mark> alle
+        Flex-Items.</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Der Flex-Container steuert viele Eigenschaften der Flex-Items. Es gibt dabei kein individuelles Opt-in oder
+        Opt-out.</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Viele Eigenschaften steuert der Flex-Container, nur wenige die Flex-Items selber.</h2>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Browserunterstützung</h2>
+</section>
+
+<section>
+    <img src="pictures/flexbox/can-i-use-flexbox.png" alt="Die Browserübersicht von Can I Use." class="flexible">
+    <div class="linksToOutside"><a href="http://caniuse.com/#feat=flexbox" target="_blank">CanIUse</a></div>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Es gibt <mark>drei</mark> unterschiedliche Flexbox-Versionen. Sie sind in ihren Fähigkeiten
+        <strong>nicht</strong> identisch.</h2>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Die alten Varianten schreibt man <mark>niemals</mark> selber!</h2>
+</section>
+
+<section>
+    <h2>Tools</h2>
+    <ol>
+        <li>Erweiterungen für Sass/Less/Stylus</li>
+        <li><a href="https://github.com/postcss/autoprefixer" target="_blank">Autoprefixer</a> (auch als <a
+                href="http://autoprefixer.github.io/" target="_blank">Online-Tool</a>)</li>
+        <li><a href="https://github.com/luisrudge/postcss-flexbugs-fixes" target="_blank">PostCSS Flexbugs Fixes</a>
+            versucht, alle Bugs zu umschiffen, die in der wichtigen Liste der <a
+                href="https://github.com/philipwalton/flexbugs" target="_blank">Flexbugs</a> stehen.</li>
+    </ol>
+</section>
+
+<section class="shouting-secondary">
+  <h2>Und was mache ich bei vielen IE8- und IE9-Nutzern?</h2>
+  <h3><a href="https://codepen.io/matuzo/full/Emddvx" target="_blank">Progressive Enhancement</a></h3>
+</section>
+
+<section>
+	<h2>Manche Eigenschaften werden überschrieben!</h2>
+
+    <p>Flexbox überschreibt einige Eigenschaften, die wir für unsere Layouts benötigen. Das ist eingebautes <strong>Progressive Enhancement</strong>, sodass kein Modernizr oder Hacks notwendig sind:</p>
+		<ol>
+			<li><code>float</code></li>
+			<li><code>display: inline-block</code></li>
+			<li><code>display: table-cell</code></li>
+		</ol>
+		<p><code>position: absolute</code> wird <strong>nicht</strong> überschrieben!</p>
+</section>
+
+<section>
+  <h2>Bei Floats ist die Reihenfolge im Code egal</h2>
+<pre><code class="css">.demo {
+  display: flex;
+}
+.demo .items {
+  float: left;
+}</code></pre>
+
+  <p>Hier sind die Container mit der Klasse <code>.items</code> am Ende Flex-Items, obwohl sie direkt als Floats gestylt wurden. Aber natürlich nur, wenn der Browser mit Flexbox etwas anfangen kann.</p>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Die neuen Eigenschaften</h2>
+</section>
+
+<section>
+    <h2>Für den Flex-Container</h2>
+    <ul>
+        <li><code>flex-direction</code></li>
+        <li><code>flex-wrap</code></li>
+        <li><code>justify-content</code></li>
+        <li><code>align-items</code></li>
+        <li><code>align-content</code></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Für die Flex-Items</h2>
+    <ul>
+        <li><code>order</code></li>
+        <li><code>flex-grow</code></li>
+        <li><code>flex-shrink</code></li>
+        <li><code>flex-basis</code></li>
+        <li><code>flex</code></li>
+        <li><code>align-self</code></li>
+    </ul>
+    <div class="linksToOutside">und jetzt alles ausprobieren: <a href="https://codepen.io/jensgro/full/kXwjgZ" target="_blank">Variante 1</a> <a href="https://codepen.io/jensgro/full/grRLqY" target="_blank">Variante 2</a></div>
+</section>
+
+<section class="shouting-secondary">
+    <h2><a href="https://codepen.io/jensgro/full/wbqVEB" target="_blank">Aufgabensammlung</a> auf CodePen</h2>
+</section>

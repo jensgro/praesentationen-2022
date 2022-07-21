@@ -1,0 +1,41 @@
+<section class="shouting">
+    <h2>Grids</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Die klassischen Float-Grids genügen vollkommen für den Seitenaufbau.</h2>
+</section>
+
+<section class="shouting-tertiary">
+    <h2>Aber moderne Techniken wie Flexbox und CSS-Grids sind viel flexibler und einfacher.</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Die modernen Techniken können mehr, als unsere tradierten Denkansätze erfordern.</h2>
+</section>
+
+<section>
+    <h2>Bisher</h2>
+    <pre><code class="css">
+.grid {
+    /* Die floatenden Kinder umfassen! */
+	overflow: hidden;
+}
+
+.gc {
+    /* Die Grid-Items floaten alle. */
+	float: left;
+}
+/* Ein Beispiel für eine Breite */
+.gc--2-12 {
+	width: calc((100% / 12) * 2);
+}        
+    </code></pre>
+</section>
+
+<section>
+    <h2>Float-Grids vs. Flexbox und CSS-Grids</h2>
+    <p>Die Breitenangabe bei Float-Grids führt zwangsweise dazu, dass Media-Queries notwendig sind, um ein neues Arrangement in einem neuen Viewport zu realisieren. Floats waren auch nie für diesen Zweck erdacht.</p>
+    <p>Flexbox und CSS-Grids wurden zu Zeiten konzipiert, als Responsive Webdesign eine Realität war. Deshalb können sie sich autoamtisch an ihre Umgebung anpassen.</p>
+    <p><mark>Mit Flexbox und CSS-Grids können wir auf Media-Queries verzichten!</mark></p>
+</section>

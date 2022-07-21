@@ -1,0 +1,59 @@
+<section class="shouting">
+	<h2>Individuell nummerierte Liste</h2>
+</section>
+
+<section class="shouting-secondary">
+	<h2><img src="pictures/frontend/individuell-nummerierte-liste.png" alt="" /></h2>
+</section>
+
+<section><h2>Verwendete Techniken</h2>
+
+<ul class="x-large-text">
+  <li>counter-reset</li>
+  <li>counter-increment</li>
+  <li>content</li>
+</ul>
+
+<p class="linksToOutside"><a href="http://codepen.io/jensgro/pen/kwAdf?editors=110" target="_blank">Codepen</a></p>
+</section>
+
+<section class="shouting-tertiary" data-notes="1">
+	<h2>Den Counter einstellen</h2>
+</section>
+
+<?php if(isset($mode) && $mode == "teacher"){ ?>
+<section>
+<pre><code class="css">ol, ul {
+	counter-reset: li;
+}
+li:before {
+	counter-increment: li;
+	content: counter(li);
+}</code></pre>
+</section>
+<?php } ?>
+
+<section class="shouting-tertiary" data-notes="1">
+	<h2>Die Listeneigenschaften manipulieren</h2>
+</section>
+
+<?php if(isset($mode) && $mode == "teacher"){ ?>
+<section>
+<pre><code class="css">ol, ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+li {
+  position: relative;
+}
+li:before {
+  position: absolute;
+  top: -2px;
+  left: -2em;
+  width: 2em;
+  padding: 5px;
+  margin-right: 10px;
+}</code></pre>
+</section>
+<?php } ?>

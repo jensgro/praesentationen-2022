@@ -1,0 +1,206 @@
+<section class="shouting">
+	<h2>Griderweiterungen für Sass</h2>
+</section>
+<!--
+
+
+<section>
+	<h2></h2>
+	<figure>
+		<img src="pictures/sass/" alt="" class="flexible">
+		<figcaption class="linksToOutside"><a href="" target="_blank">Webseite</a></figcaption>
+	</figure>
+</section>
+
+<section>
+	<h2></h2>
+	<figure>
+		<img src="pictures/sass/" alt="" class="flexible">
+		<figcaption class="linksToOutside"><a href="" target="_blank">Webseite</a></figcaption>
+	</figure>
+</section> -->
+
+
+<section>
+	<h2>Susy</h2>
+	<figure>
+		<img src="pictures/sass/susy.png" alt="Webseite der Griderweiterung Susy." class="flexible">
+		<figcaption class="linksToOutside">
+			<a href="http://susydocs.oddbird.net/en/latest/" target="_blank">Webseite</a>
+			<p>Ursprünglich für die Nutzung von Compass geschaffen, kann man es wohl mittlerweile auch mit Libsass nutzen. Explizit erwähnt wird dies nicht. Susy ist sehr komplex.</p>
+		</figcaption>
+	</figure>
+</section>
+
+<section>
+	<h2>Susy anwenden (1)</h2>
+<div class="split">
+	<div>
+<pre><code class="scss">@import "susy";
+// Den Grid-Kontext kreieren.
+main { @include container(80em); }
+
+// Den Elementen Dimensionen geben
+.content-wrap { @include span(25%); }</code></pre>
+	</div>
+	<div>
+<pre><code class="css">main {
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.content-wrap {
+  width: 25%;
+  float: left;
+  margin-right: 0.93458%;
+}</code></pre>
+	</div>
+</div>
+</section>
+
+<section>
+	<h2>Susy anwenden (2)</h2>
+<div class="split">
+	<div>
+<pre><code class="scss">@import "susy";
+
+// Den Grid-Kontext kreieren.
+main { @include container(80em); }
+
+// Man kann die Anzahl
+// der Gridspalten direkt
+// in den Aufruf
+// des Mixins schreiben:
+
+.content-wrap { @include span(3 of 12); }</code></pre>
+	</div>
+	<div>
+<pre><code class="css">main {
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.content-wrap {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+}</code></pre>
+	</div>
+</div>
+</section>
+
+<section>
+	<h2>Susy anwenden (3)</h2>
+<div class="split">
+	<div>
+		<pre><code class="scss">@import "susy";
+
+// Anzahl der Spalten und Breite des Raums
+// zwischen den Spalten (im Verhältnis zur
+// Breite der Spalten)
+
+$susy: (
+  columns: 12,
+  gutters: 1/8,
+);
+
+// Man kann auch die Variable
+// mit der Anzahl der Gridspalten
+// durch Aufruf im Mixin
+// überschreiben kann.
+
+.content-wrap { @include span(3); }
+.footer-list { @include span(3 of 16)}
+</code></pre>
+	</div>
+	<div>
+<pre><code class="css">/*
+  main und main:after sind identisch
+  zum vorherigen Beispiel.
+*/
+.content-wrap {
+  width: 24.29907%;
+  float: left;
+  margin-right: 0.93458%;
+}
+
+.footer-list {
+  width: 18.18182%;
+  float: left;
+  margin-right: 0.6993%;
+}	</code></pre>
+	</div>
+</div>
+</section>
+
+
+<section>
+	<h2>Singularity</h2>
+	<figure>
+		<img src="pictures/sass/singularity.png" alt="Github-Repo von Singularity" class="flexible">
+		<figcaption class="linksToOutside">
+			<a href="" target="_blank">Webseite</a>
+			<p>Es scheint keine Webseite zu diesem Projekt (mehr?) zu geben. Die Dokumentation steckt im Wiki des Github-Repo.<br>Das Tool ist sehr flexibel, erfordert aber auch intensive Einarbeitung.</p>
+		</figcaption>
+	</figure>
+</section>
+
+<section>
+	<h2>Ein Beispiel</h2>
+<div class="split">
+	<div>
+		<pre><code class="scss">@import "singularitygs";
+
+$grids: 12;
+$gutters: 1/3;
+
+article {
+  @include grid-span(9, 1);
+}
+
+// 3 Spalten, beginnend bei der 10.
+aside {
+  @include grid-span(3, 10);
+}</code></pre>
+	</div>
+	<div>
+		<pre><code class="css">article {
+  width: 74.46809%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0%;
+  clear: none;
+}
+
+aside {
+  width: 23.40426%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+}</code></pre>
+	</div>
+</div>
+</section>
+
+<section>
+	<h2>Umfangreicher Überblick mit Beispielen</h2>
+	<figure>
+		<img src="pictures/sass/individuelle-responsive-gridsysteme.png" alt="Screenshot eines Artikels von Sven Wolfermann." class="flexible">
+		<figcaption class="linksToOutside"><a href="http://maddesigns.de/responsive-grids-sass-1883.html" target="_blank">Artikel</a></figcaption>
+	</figure>
+</section>

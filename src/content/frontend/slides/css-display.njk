@@ -1,0 +1,114 @@
+<section class="shouting">
+    <h2>Die <code>display</code>-Eigenschaft</h2>
+</section>
+
+<section class="shouting-secondary">
+    <h2>Wir sind ständig dabei, die <mark>Darstellung</mark> eines Inhalts mit CSS zu verändern.</h2>
+</section>
+
+<section>
+    <h2><code>display</code> (Auswahl)</h2>
+    <div class="split">
+        <div>
+<pre><code class="css">
+display: none;
+display: inline;
+display: block;
+display: contents;
+display: list-item;
+display: inline-block;
+
+display: flex;
+display: inline-flex;
+display: grid;
+display: inline-grid;
+</code></pre>
+        </div>
+        <div>
+<pre><code class="css">
+display: inline-table;
+display: table;
+display: table-cell;
+display: table-column;
+display: table-column-group;
+display: table-footer-group;
+display: table-header-group;
+display: table-row;
+display: table-row-group;
+</code></pre>
+        </div>
+    </div>
+</section>
+
+<section class="shouting-secondary">
+    <h2>HTML sieht nicht aus!</h2>
+    <h3>HTML markiert Bedeutung, mehr nicht.</h3>
+    <p>Wenn HTML nach etwas Bestimmtem aussieht, dann nur durch CSS. Jeder Browser führt ein Browser-Stylesheet mit sich.</p>
+</section>
+
+<section>
+    <h2>Die Tabellen-Optik kommt von CSS</h2>
+<pre><code class="css">
+table    { display: table }
+tr       { display: table-row }
+thead    { display: table-header-group }
+tbody    { display: table-row-group }
+tfoot    { display: table-footer-group }
+col      { display: table-column }
+colgroup { display: table-column-group }
+td, th   { display: table-cell }
+caption  { display: table-caption }    
+</code></pre>
+</section>
+
+<section>
+    <h2>Navigationen</h2>
+    <p>Eine Navigation ist eine Liste von Links. Deshalb zeichnet man sie als Liste aus. Danach wird sie horizontal oder vertikal formatiert. Aber niemand erkennt mehr eine Liste in ihr. Unsere Vorstellung einer Liste beinhalt Marker wie Nummern oder Striche oder Punkte.</p>
+</section>
+<section>
+    <h2>Ein Beispiel - das HTML</h2>
+
+<pre><code class="html">
+<!-- content to be placed inside <body>…</body> -->
+<div class="paragraphToList">
+  <p>Das ist ein Absatz.</p>
+  <p>Das ist noch ein Absatz.</p>
+  <p>Aber alle sehen aus, als wären sie Teil einer Liste.</p>
+  <p>Sind sie aber nicht.</p>
+  <p>Sie sehen nur so aus.</p>
+</div>    
+</code></pre>            
+</section>
+<section>
+    <h2>Ein Beispiel - das CSS</h2>
+<pre><code class="css">
+/**
+ * Semantik und Optik sind entkoppelt
+ */
+.paragraphToList {
+	margin: 20px;
+}
+.paragraphToList p {
+	display: list-item;
+	margin-left: 10px;
+	color: black
+}    
+</code></pre>            
+
+
+</section>
+
+<section>
+    <h2>Das Ergebnis</h2>
+    <img src="pictures/frontend/fake-liste.png" class="stretch" alt="Optisch ist das eine Liste, semantisch einfach nur Absätze.">
+    <div class="linksToOutside"><a href="http://dabblet.com/gist/7b9990fae51783cabf56" target="_blank">das Beispiel bei dabblet</a></div>
+</section>
+
+<section class="shouting-exercise">
+    <h2>Aufgaben</h2>
+    <h3>1. Entfernen Sie die Lücke unterhalb des Bildes im zweiten Container.</h3>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ywKjqL" target="_blank">Codepen</a></div>
+
+    <h3>2. Geben Sie den unterschiedlichen Inline-Elementen ein vertikales Padding und Margin, das wirklich eine Auswirkung hat.</h3>
+    <div class="linksToOutside"><a href="https://codepen.io/jensgro/pen/ZEzwvwQ" target="_blank">Codepen</a></div>
+</section>

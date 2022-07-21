@@ -1,0 +1,356 @@
+<section class="shouting">
+	<h2>Die SCSS-Syntax von Sass</h2>
+</section>
+<!-- ================================= -->
+<section class="shouting-secondary">
+	<h2>Nesting</h2>
+</section>
+
+<section>
+	<div class="split">
+		<div>
+<pre><code class="scss">tbody {
+  th {
+  	text-align: left;
+  	border-top: 1px solid #ccc;
+  }
+
+  td {
+  	text-align: left;
+  	border-top: 1px solid #ccc;
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">tbody th {
+  text-align: left;
+  border-top: 1px solid #ccc;
+}
+tbody td {
+  text-align: left;
+  border-top: 1px solid #ccc;
+}
+</code></pre>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>Nesting mit Mediaqueries</h2>
+	<div class="split">
+		<div>
+<pre class="medium-code"><code class="scss">.test {
+  color: red;
+  @media screen and (min-width: 400px) {
+     color: blue;
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre class="medium-code"><code class="css">.test { color: red; }
+
+@media screen and (min-width: 400px) {
+	.test { color: blue; }
+}
+</code></pre>
+		</div>
+	</div>
+	<p>In der praktischen Arbeit würden wir den Aufruf der Media-Queries in ein Mixin auslagern und damit kompakter gestalten.</p>
+  <div class="linksToOutside"><a href="https://www.sassmeister.com/gist/a2d727d6dbd3a5998983a69fbcf2f83c" target="_blank">zu Sassmeister</a></div>
+</section>
+
+<!-- ================================= -->
+<section class="shouting-secondary">
+	<h2>Der Parent-Selector</h2>
+</section>
+
+<section>
+	<h2>Einfache und gängige Nutzung (1)</h2>
+	<div class="split">
+		<div>
+<pre><code class="scss">a {
+  color: red;
+
+  &:hover, &:focus {
+    color: green;
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">a {
+  color: red;
+}
+a:hover, a:focus {
+  color: green;
+}
+</code></pre>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>Einfache und gängige Nutzung (2)</h2>
+	<div class="split">
+		<div>
+<pre><code class="scss">.foo {
+  margin: 1em 0;
+
+  .bar {
+    background-color: #cecece;
+  }
+
+  &.bar {
+    background-color: red;
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">.foo {
+  margin: 1em 0;
+}
+.foo .bar {
+  background-color: #cecece;
+}
+.foo.bar {
+  background-color: red;
+}</code></pre>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>Die Reihenfolge des Parent-Selectors ist variabel</h2>
+	<div class="split">
+		<div>
+<pre><code class="scss">.foo {
+  margin: 1em 0;
+  
+  .bar {
+    background-color: #cecece;
+  }
+  
+  .bar & {
+    background-color: red;
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">.foo {
+  margin: 1em 0;
+}
+.foo .bar {
+  background-color: #cecece;
+}
+.bar .foo {
+  background-color: red;
+}</code></pre>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="split">
+		<div>
+<pre><code class="scss">.box {
+
+  &#{&} { color: red; }
+
+  & + & { color: purple; }
+
+// BEM
+  &__element { color: green; }
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">.box.box {
+  color: red;
+}
+.box + .box {
+  color: purple;
+}
+.box__element {
+  color: green;
+}</code></pre>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="split">
+		<div>
+<pre class="small-code"><code class="scss">.test1 {
+  $parent: &;
+
+  &--modifier {
+    color: yellow;
+
+    &__element {
+      color: lime;
+    }
+
+    #{$parent}__element {
+      color: blue;
+
+      > #{$parent}__more { color: white; }
+    }
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre class="small-code"><code class="css">.test1--modifier {
+  color: yellow;
+}
+.test1--modifier__element {
+  color: lime;
+}
+.test1--modifier .test1__element {
+  color: blue;
+}
+.test1--modifier .test1__element > .test1__more {
+  color: white;
+}</code></pre>
+		</div>
+	</div>
+  <div class="linksToOutside"><a href="https://www.sassmeister.com/gist/35931722aa03adc6a7d78dac46cde28a" target="_blank">Sassmeister</a></div>
+</section>
+
+<!-- ================================= -->
+
+<section class="shouting-tertiary">
+	<h2>Vorsicht vor zu tiefem Nesting!</h2>
+</section>
+
+<section>
+<pre><code class="scss">div.container {
+  div.content {
+    div.articles {
+      & > div.post {
+        div.title {
+          h1 {
+            a { }
+          }
+        }
+        div.content {
+          p { }
+          ul {
+            li { }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+<div class="linksToOutside"><a href="http://www.sassmeister.com/gist/d3934a82b361807ea3ce5cb4ed6c4b3c" target="_blank">Beispiel auf Sassmeister</a></div>
+</section>
+
+<section>
+<pre><code class="css">div.content div.container { ... }
+div.content div.container div.articles { ... }
+div.content div.container div.articles > div.post { ... }
+div.content div.container div.articles > div.post div.title { ... }
+div.content div.container div.articles > div.post div.title h1 { ... }
+div.content div.container div.articles > div.post div.title h1 a { ... }
+div.content div.container div.articles > div.post div.content { ... }
+div.content div.container div.articles > div.post div.content p { ... }
+div.content div.container div.articles > div.post div.content ul { ... }
+div.content div.container div.articles > div.post div.content ul li { ... }</code></pre>
+</section>
+
+<!-- ================================= -->
+
+<section class="shouting-tertiary">
+	<h2>BEM geht auch mit Sass</h2>
+</section>
+
+<section>
+	<div class="split">
+		<div>
+<pre><code class="scss">.post {
+
+  &__header {}
+  &--modification {}
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">.post {}
+.post__header {}
+.post--modification {}
+</code></pre>
+		</div>
+	</div>
+<div class="linksToOutside"><a href="http://www.sassmeister.com/gist/0af0b8b03fc188ae0af45e7ae4d38142" target="_blank">Beispiel auf Sassmeister</a></div>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Variablen</h2>
+</section>
+
+<section>
+	<ul>
+		<li>Variablennamen können Binde- und Unterstriche haben. Beide sind identisch.</li>
+		<li><code>$tolle-variable</code> ist identisch mit <code>$tolle_variable</code></li>
+		<li>Variablen können Texte und Zahlen enthalten.</li>
+	</ul>
+</section>
+
+<section>
+<pre><code class="scss">$ci-color:  #d21a1a;
+
+$lightgrey1:  #f6f6f6;
+$lightgrey2:  #e1e1e1;
+$lightgrey3:  #c9c9c9;
+$lightgrey4:  #999;
+
+$color1:  $lightgrey1;
+$color2:  $lightgrey2;
+$color3:  $lightgrey3;
+$color4:  $lightgrey4;
+
+$font-icons-col:  darken(#f3d126, 15%);
+
+$mainnav-subnav-border:  1px solid $color3;
+</code></pre>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Kommentare</h2>
+</section>
+
+<section>
+<pre><code class="scss">// Ich werde nicht in der CSS-Datei landen
+
+/*  Ich bin ein ganz normaler Kommentar
+		und lande im kompilierten CSS -
+		ausser in der compressed-Variante. */
+
+/*!  Ich bin ein ganz normaler Kommentar
+		 und lande im kompilierten CSS -
+		 AUCH in der compressed-Variante. */</code></pre>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Mit Sass rechnen</h2>
+</section>
+
+<section>
+	<div class="split">
+		<div>
+<pre><code class="scss">$page_max_width: 1200px;
+$padding: 20px;
+
+.container {
+  max-width:$page_max_width - $padding * 2;
+  padding: 0 $padding;
+}</code></pre>
+		</div>
+		<div>
+<pre><code class="css">.container {
+  /* 1200px - 20px * 2 */
+  max-width: 1160px;
+  padding: 0 20px;
+}
+
+</code></pre>
+		</div>
+	</div>
+</section>

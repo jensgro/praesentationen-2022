@@ -1,0 +1,110 @@
+<section class="shouting">
+	<h2>Kapitel nummerieren</h2>
+</section>
+
+<section>
+
+	<p>Das eben Gelernte können wir auch auf längere Texte anwenden. Wenn auf einer Seite die Kapitel durchnummeriert werden sollen, dann können wir dies per CSS tun.</p>
+</section>
+
+<section>
+	<figure>
+		<img src="pictures/frontend/automatische-ueberschriftennummerierung.png" alt="Die Überschriften sind mit CSS automatisch nummeriert.">
+		<!-- weiterführenden Link für Demo ausblenden -->
+		<?php if(!isset($mode) ||  $mode == "teacher"){ ?>
+		<figcaption>
+			<div class="linksToOutside"><a href="http://codepen.io/jensgro/pen/VPNQQw?editors=1100" target="_blank">Codepen</a></div>
+		</figcaption>
+  <?php } elseif ($mode == "pupil") { ?>
+    <figcaption>
+			<div class="linksToOutside"><a href="zip/pseudoelemente-ueberschriftennummerierung.zip" target="_blank">Arbeitsgrundlage herunterladen</a></div>
+		</figcaption>
+  <?php  }  ;?>
+
+	</figure>
+</section>
+
+<section class="shouting-tertiary" data-notes="5">
+  <h2>Gibt es einen oder mehrere Ankerpunkte für den Counter?</h2>
+</section>
+
+<?php if(isset($mode) && $mode == "teacher"){ ?>
+<section>
+  <p>Ein Counter in CSS kennt keine Ebenen. Der zählt stur immer einen Wert drauf.</p>
+  <p>Also muss jede Überschriftenebene für die nächst niederigere der Bezugspunkt für den Counter sein.</p>
+  <p><mark>Und die Überschrift erster Ordnung?</mark></p>
+</section>
+
+<section>
+	<p>Die Überschriften stecken in einem <code>main</code>-Element, deshalb ist dieses der Ankerpunkt, um die Nummerierung für die Überschriften der ersten Ordnung zurückzusetzen. Diese wiederum zählen sich selber immer weiter.</p>
+<pre><code class="css">main {
+  counter-reset: headlines-1;
+}
+h1 {
+  counter-increment: headlines-1;
+}</code></pre>
+<p>Den Counter geben wir dann mit dem Pseudoelement <code>:before</code> aus.</p>
+<pre><code class="css">h1:before {
+  content: counter(headlines-1) ". "
+}</code></pre>
+</section>
+
+<section>
+	<p>Die Überschriften erster Ordnung setzen wiederum die Überschriften zweiter Ordnung zurück, die sich wiederum selber immer erhöhen.</p>
+<pre><code class="css">h1 {
+  counter-reset: headlines-2;
+}
+h2 {
+  counter-increment: headlines-2;
+}
+h2:before {
+  content: counter(headlines-1) "." counter(headlines-2) ". ";
+}</code></pre>
+</section>
+
+<section>
+	<p>Und so geht das für die anderen Ebenen weiter.</p>
+<pre><code class="css">h2 {
+  counter-reset: headlines-3;
+}
+h3 {
+  counter-increment: headlines-3;
+}
+h3:before {
+  content: counter(headlines-1) "." counter(headlines-2) "." counter(headlines-3) ". ";
+}
+
+</code></pre>
+</section>
+
+<section>
+<pre><code class="css">h3 {
+  counter-reset: headlines-4;
+}
+h4 {
+  counter-increment: headlines-4;
+}
+h4:before {
+  content: counter(headlines-1) "." counter(headlines-2) "." counter(headlines-3) "." counter(headlines-4) ". ";
+}</code></pre>
+
+</section>
+<?php } ?>
+
+<section class="shouting-tertiary" data-notes="1">
+  <h2>Und wie können wir die Counter mit Punkten verknüpfen?</h2>
+</section>
+
+<?php if(isset($mode) && $mode == "teacher"){ ?>
+<section>
+	<h2>Strings kombinieren in CSS</h2>
+
+<pre><code class="css">h4:before {
+  content: counter(headlines-1) "."
+           counter(headlines-2) "."
+           counter(headlines-3) "."
+           counter(headlines-4) ". ";
+}</code></pre>
+
+</section>
+<?php } ?>

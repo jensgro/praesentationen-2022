@@ -1,0 +1,98 @@
+<section class="shouting">
+	<h2>Projektorganisation</h2>
+</section>
+<section>
+	<div class="split">
+		<div>
+			<figure>
+				<img src="pictures/sass/projektaufbau-sass.png" class="flexible" alt="Sass-Projektaufbau">
+			</figure>
+		</div>
+		<div>
+			<figure>
+				<img src="pictures/sass/projektaufbau-sass-modules.png" class="flexible" alt="Sass-Projektaufbau">
+			</figure>
+		</div>
+	</div>
+</section>
+
+
+<section class="shouting-secondary">
+	<h2>Dateien importieren</h2>
+</section>
+
+<section>
+	<h2>Sass-@import ≠ CSS-@import</h2>
+	<p>Es ist keine gute Idee, CSS-Dateien zu importieren. Das beeinträchtigt die Performance.</p>
+	<p>Bei Sass sprechen wir allerdings nur Arbeiten auf einem lokalen Rechner. Hier können wir ohne Probleme einzelne (S)CSS-Dateien in eine zentrale Datei importieren.</p>
+</section>
+
+<section>
+	<h2>Die Steuerdatei</h2>
+<pre><code class="scss">// Jedes Projekt braucht seine eigene Config-Datei
+@import "config";
+
+// Die Schriftarten und die Iconfonts
+@import "modules/fonts";
+
+/* YAML Framework Components and normalize.scss */
+@import "yaml-sass/yaml-var-globals",
+"yaml-sass/mixins/yaml-mixins-core",
+"yaml-sass/core/base",
+"yaml-sass/print/print";
+
+/* Meine Mixins */
+@import "mixins/my-mixins";
+
+/* ------- Module --------------- */
+@import "modules";</code></pre>
+</section>
+
+<section>
+	<h2>Die config.scss</h2>
+<pre><code class="scss">// Konfiguration
+@import "config/yaml-config",
+	"config/yaml-var-typography",
+	"config/colors",
+	"config/project";</code></pre>
+</section>
+
+<section>
+	<h2>Die modules.scss</h2>
+<pre><code class="scss">@import "modules/layout";
+@import "modules/fonts";
+@import "modules/typography";
+@import "modules/header";
+@import "modules/navigations";
+@import "modules/box";
+@import "modules/tables";
+@import "modules/tabs";
+@import "modules/lists";
+@import "modules/forms";
+@import "modules/footer";
+
+@import	"modules/print";</code></pre>
+</section>
+
+<section>
+	<h2>mymixins.scss</h2>
+<pre><code class="scss">@import "separate-mixins/arrow",
+	"separate-mixins/before-after",
+	"separate-mixins/box-shadow",
+	"separate-mixins/button-creator",
+	"separate-mixins/colors",
+	"separate-mixins/css3",
+	"separate-mixins/forms",
+	"separate-mixins/helpers",
+	"separate-mixins/linear-gradient",
+	"separate-mixins/lists",
+	"separate-mixins/navigation",
+	"separate-mixins/slanted-corners",
+	"separate-mixins/yaml-columns",
+	"separate-mixins/mediaqueries";
+
+@import "placeholders/basics",
+	"placeholders/links",
+	"placeholders/lists";</code></pre>
+
+</section>

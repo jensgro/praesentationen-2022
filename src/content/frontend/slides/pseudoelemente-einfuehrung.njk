@@ -1,0 +1,187 @@
+<style>
+	.pseudoelemente-1-link:before {
+		content: "Dieser ";
+		color: blue;
+	}
+
+	.pseudoelemente-1-link:after {
+		content: " wurde ergänzt!";
+		color: blue;
+	}
+	
+	.pseudoelemente-2-link:before {
+		content: "";
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border: 13px solid transparent;
+		border-left-color: black;
+		margin-right: 5px;
+	}
+	.pseudoelemente-3-company:before {
+		content: "";
+		display: inline-block;
+		width: 80px;
+		height: 40px;
+		background: url("pictures/frontend/jg-logo-80x40.png") no-repeat 0 0;
+		margin-right: 10px;
+	}
+</style>
+
+<section class="shouting" data-notes="Keine Ausblendungen!">
+	<h2>Die Pseudoelemente <br><code>:before</code> und <code>:after</code></h2>
+</section>
+
+<section data-menu-title="Zwei kostenlose Elemente">
+	<p>Sehr viele Elemente kommen <strong>kostenlos</strong> mit zwei Pseudoelementen, die wir selber erstellen und gestalten können. Das geht nur per CSS, nicht per HTML.</p>
+
+	<pre><code class="html">
+<a class="pseudoelemente-1-link" href="#">Link zur nächsten Seite</a>
+	</code></pre>
+
+<pre><code class="css">.pseudoelemente-1-link:before {
+	content: "Dieser ";
+}
+
+.pseudoelemente-1-link:after {
+	content: " wurde ergänzt!";
+	color: #a20000;
+}</code></pre>
+
+	<div class="pseudoelemente-1">
+		<a class="pseudoelemente-1-link" href="#">Link zur nächsten Seite</a>
+	</div>
+
+</section>
+
+<section data-menu-title="Wo vor ist before?">
+	<p><code>:before</code> bedeutet <strong>nicht</strong> vor dem Element, sondern <mark>vor dem Inhalt des Elements</mark>. </p>
+	<p>Dementsprechend bedeutet <code>:after</code> <mark>nach dem Inhalt des Elements</mark> aber noch innerhalb der Grenzen des Elements.</p>
+	<p>Soll ein Text als neues Element bspw. nach einem Absatz oder Link injiziert werden, ist JavaScript die richtige Technik für diese Unternehmung.</p>
+</section>
+
+<section>
+	<h2>Alte und neue Schreibweise</h2>
+	<div class="split">
+		<div>
+			<h3>Alte Schreibweise</h3>
+			<div><code>:before</code> und <code>:after</code></div>
+			<p>Mit nur einem Doppelpunkt kann auch der IE8 die Regel verstehen.</p>
+		</div>
+		<div>
+			<h3>Neue Schreibweise</h3>
+			<div><code>::before</code> und <code>::after</code></div>
+			<p>So soll eine Trennschärfe zu den Pseudoselektoren wie <code>:first-child</code> entstehen. Der IE versteht das ab Version 9.</p>
+		</div>
+	</div>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Und was soll ich damit anfangen?</h2>
+</section>
+
+<section>
+	<h2>Textergänzungen per CSS</h2>
+
+	<div class="split">
+		<div>
+			<h3>Positiv</h3>
+			<ul>
+				<li>Erläuterungen können nachgeschoben werden.</li>
+				<li>Kann das HTML nicht angefasst werden, ist dies ein Notausgang.</li>
+			</ul>
+
+		</div>
+		<div>
+			<h3>Negativ</h3>
+			<ul>
+				<li>Bei Sprachversionen wird es ein wenig umständlicher und ist vom korrekten HTML abhängig.</li>
+				<li>Kein Eingreifen der Redakteure.</li>
+				<li>Inhalte werde ins CSS geschoben, dabei gehören sie ins HTML.</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section>
+	<h2>Dreiecke und ähnliches erzeugen</h2>
+	<div class="pseudoelemente-2">
+		<a href="#" class="pseudoelemente-2-link">ein toller Link</a>
+	</div>
+<pre><code class="css">.pseudoelemente-2-link:before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 13px solid transparent;
+  border-left-color: black;
+  margin-right: 5px;
+}</code></pre>
+
+</section>
+
+<section>
+	<h2>Bilder hinterlegen</h2>
+
+	<div class="pseudoelemente-3">
+		<div class="pseudoelemente-3-company">
+			Jens Grochtdreis
+		</div>
+	</div>
+
+<pre><code class="html"><div class="pseudoelemente-3-company">
+	Jens Grochtdreis
+</div></code></pre>
+
+<pre><code class="css">.pseudoelemente-3-company:before {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  background: url("images/jg-logo-80x40.png") no-repeat 0 0;
+  margin-right: 10px;
+}
+</code></pre>
+</section>
+
+<section>
+	<h2>Sehr nützlich</h2>
+
+<pre><code class="css">
+a[href$=".pdf"]:after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("images/pdf.gif") no-repat 0 0;
+}
+</code></pre>
+
+<pre><code class="css">
+a[href$=".doc"]:after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("images/word.gif") no-repat 0 0;
+}
+</code></pre>
+</section>
+
+
+<section class="shouting-secondary">
+	<h2>Nicht jedes Element ist betroffen!</h2>
+</section>
+
+<section>
+
+	<p>Manche Elemente bieten keine zwei Pseudoelemente. Diese Elemente sind sogenannte <mark>ersetzte Elemente</mark>. </p>
+	<p>Im HTML steht nicht deren Inhalt, sondern eine Art Platzhalter. Die bekanntesten, wichtigsten Elemente sind: </p>
+	<ul>
+		<li>Bilder (img)</li>
+		<li>Video (video und source)</li>
+		<li>Die meisten Formularelemente <mark>ausser Label und Button</mark></li>
+	</ul>
+</section>
+
+

@@ -1,0 +1,102 @@
+<section class="shouting">
+  <h2>Einen Ja-Nein-Schalter realisieren</h2>
+</section>
+
+<section>
+  <p>Wenn wir nur die Wahl zwischen Ja und Nein haben, können wir eine Checkbox nutzen. Das Label wird dann passend behandelt, damit wir einen Schalter visualisieren können.</p>
+
+  <div class="hide-check check-yes-no">
+    <input id="test-02" type="checkbox" class="check-yes-no__input">
+    <label for="test-02">
+      <span class="yes">Ja</span><span class="no">Nein</span>
+    </label>
+  </div>
+</section>
+
+<section class="shouting-tertiary" data-notes="1">
+  <h2>Die Struktur sollte möglichst einfach aussehen</h2>
+</section>
+
+<section>
+<pre><code class="html">&lt;div class=&quot;hide-check check-yes-no&quot;&gt;
+  &lt;input id=&quot;test-02&quot; type=&quot;checkbox&quot; class=&quot;check-yes-no__input&quot;&gt;
+  &lt;label for=&quot;test-02&quot;&gt;
+    &lt;span class=&quot;yes&quot;&gt;Ja&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Nein&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+  <p>Es ist zwingend notwendig, dass in diesem Konstrukt ein korrekt verknüpftes Label vorkommt. Deshalb habe ich darauf verzichtet, eine Klasse zu vergeben. Ohne das Label müsste man dessen Funktion mittels JavaScript nachbilden, was wenig sinnvoll wäre.</p>
+</section>
+
+<section class="shouting-tertiary" data-notes="1">
+  <h2>Als Erstes müssen die Checkboxen versteckt werden.</h2>
+</section>
+
+<section>
+  <h2>Checkbox verstecken</h2>
+<pre><code class="css">.hide-check {
+position: relative;
+margin-top: 0; }
+.hide-check > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  z-index: -2; }
+.hide-check > label {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer; }
+</code></pre>
+</section>
+
+<section class="shouting-tertiary" data-notes="1">
+  <h2>Die beiden Optionen "ja" und "nein" müssen gut platziert werden.</h2>
+</section>
+
+<section>
+  <h2>Die zwei Optionen</h2>
+<pre><code class="css">.check-yes-no__input ~ label {
+display: table;
+table-layout: fixed;
+width: 100%;
+}
+.check-yes-no__input ~ label span {
+  display: table-cell;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+.check-yes-no__input ~ label > .yes {
+  background-color: #fff;
+  color: #000;
+}
+.check-yes-no__input ~ label > .no {
+  background-color: #00bb9a; /* fies grün */
+  color: #fff;
+}</code></pre>
+</section>
+
+<section class="shouting-tertiary" data-notes="1">
+  <h2>Und jetzt die Farbänderung bei Aktivierung der Checkbox</h2>
+</section>
+
+<section>
+  <h2>Zustandsänderung</h2>
+<pre><code class="css">.check-yes-no__input:checked + label > .yes {
+background-color: #00bb9a; /* fies grün */
+color: #fff;
+}
+
+.check-yes-no__input:checked + label > .no {
+background-color: #fff;
+color: #000;
+}</code></pre>
+<p>Der Kombinator <code>+</code> bedeutet, dass das Label-Element <mark>direkt</mark> auf die Checkbox folgt. Wenn das Layout mehrere Checkboxen oder Radiobuttons in einem Container vorsieht, ist dieser Kombinator wichtig. </p>
+<p>Wenn nur, wie in diesem Beispiel, eine Checkbox und ein Label in einem Container existieren, dann kann auch der Nachbarschafts-Kombinator (<code>~</code>) genutzt werden.</p>
+</section>

@@ -1,0 +1,137 @@
+<section class="shouting">
+	<h2>Mixins</h2>
+</section>
+
+<section>
+	<p>Mit Mixins werden Codeschnipsel (wie Funktionen) ausgelagert. Sie sind besonders praktisch bei komplizierten Codes oder bei einer größeren Menge Code.</p>
+	<p>Ausserdem können auf diese Weise mehrere Entwickler einfach an einem CSS-Projekt arbeiten. Erfahrene Entwickler schreiben Mixins, die von unerfahrenen einfach nur genutzt werden.</p>
+</section>
+<section>
+	<h2>Mixin ohne Option</h2>
+<pre><code class="scss">@mixin vertnav {
+  list-style-type: none;
+    &, li {
+      margin-left: 0;
+      padding-left: 0;
+  }
+}</code></pre>
+<h3>Anwendung</h3>
+<pre><code class="scss">.vertical-navigation {
+  @include vertnav;
+}</code></pre>
+</section>
+
+<section>
+	<h2>Mixin mit Option</h2>
+<pre><code class="scss">@mixin link-colors($text:#000, $hover:#a20000) {
+  color: $text;
+  text-decoration: underline;
+  &:hover, &:focus {
+    color: $hover;
+    text-decoration: none;
+  }
+}</code></pre>
+<h3>Anwendung</h3>
+<pre><code class="scss">a {
+  @include link-colors($hover: #03f);
+}
+
+// die Variablenvorgaben können auch übernommen werden
+a {
+  @include link-colors();
+}</code></pre>
+</section>
+
+<section>
+	<h2>Sehr umfangreiches Mixin</h2>
+<pre class="medium-code"><code class="scss">@mixin b-a-complex($ba: before, $border-width: 10px,
+	$padding: $border-width * 1.5, $border-side: left,
+	$top-position: 0, $position-side: $border-side,
+	$position-side-distance: 0, $border-color: #000) {
+
+	$seladd : ":";
+	padding-#{$border-side}: $padding;
+	&{position: relative;}
+	&#{$seladd+$ba} {
+		content: "";
+		display: block;
+		width: 0; height: 0;
+		border: $border-width solid transparent;
+		border-#{$border-side}-color: $border-color;
+		position: absolute;
+		top: $top-position;
+		#{$position-side}: $position-side-distance;
+	}
+}</code></pre>
+</section>
+
+
+<section class="shouting-tertiary">
+	<h2>Die Mixins werden mit <code>@include</code> angesprochen.</h2>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Ein Media-Query-Mixin</h2>
+</section>
+
+<section>
+<pre><code class="scss">@mixin mq($dimension, $breakpoint, $breakpoint2:false) {
+  @if $dimension == min {
+    @media screen and (min-width: $breakpoint) {
+    	@content;
+    }
+  } @else if $dimension == max {
+    @media screen and (max-width: $breakpoint) {
+    	@content;
+    }
+  } @else if $dimension == min-max {
+    @media screen and (min-width: $breakpoint)
+                  and (max-width: $breakpoint2) {
+      @content;
+    }
+  }
+}</code></pre>
+</section>
+
+<section>
+	<h2>Anwendung und Ausgabe</h2>
+	<div class="split">
+		<div>
+<pre class="medium-code"><code class="scss">.test1 {
+  @include mq(min, 400px){
+    color: #000;
+  }
+}
+
+.test2 {
+  @include mq(max, 800px) {
+    color: red;
+  }
+}
+
+.test3 {
+  color: red;
+  @include mq(min-max, 400px, 800px) {
+    color: blue;
+  }
+}</code></pre>
+		</div>
+		<div>
+<pre class="medium-code"><code class="css">.test { color: red; }
+@media screen and (min-width: 400px) {
+  .test { color: blue; }
+}
+
+.test2 { color: red; }
+@media screen and (max-width: 800px) {
+  .test2 { color: blue; }
+}
+
+.test3 { color: red; }
+@media screen and (min-width: 400px)
+              and (max-width: 800px) {
+  .test3 { color: blue; }
+}</code></pre>
+		</div>
+	</div>
+</section>

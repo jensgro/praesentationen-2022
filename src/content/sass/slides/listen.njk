@@ -1,0 +1,276 @@
+<section class="shouting">
+	<h2>Listen</h2>
+</section>
+
+<section>
+	<h2>Eine Farbliste</h2>
+	<div class="split">
+		<div>
+<pre class="medium-code"><code class="scss">
+$col1: #cecece;
+$col2: #656565;
+$col3: #5f5f5f;
+$col4: #f6f6f6;
+
+//  add colour to each piece.
+$colors-list: $col1 $col2 $col3 $col4;
+
+@each $current-color in $colors-list {
+  $i: index($colors-list, $current-color);
+  .color-list li:nth-child(#{$i}) {
+      background-color: $current-color;
+  }
+}
+
+</code></pre>
+		</div>
+		<div>
+<pre class="medium-code"><code class="css">
+.color-list li:nth-child(1) {
+  background-color: #cecece;
+}
+
+.color-list li:nth-child(2) {
+  background-color: #656565;
+}
+
+.color-list li:nth-child(3) {
+  background-color: #5f5f5f;
+}
+
+.color-list li:nth-child(4) {
+  background-color: #f6f6f6;
+}
+
+</code></pre>
+		</div>
+	</div>
+</section>
+
+
+<section class="shouting-secondary">
+	<h2>Zwei Variablen - <br>
+	ineinandergeschachtelte Listen</h2>
+</section>
+
+<section>
+<pre><code class="scss">$site-skins: green-skin, blue-skin;
+$site-sections: header, footer, sidebar, main;
+
+// looping on skin
+@each $skin in $site-skins{
+    // now looping on sections
+    @each $section in $site-sections{
+        .#{$skin} .#{$section} {
+            background: url(img/#{$skin}/#{$section}.png);
+        }
+    }
+}</code></pre>
+<div class="linksToOutside"><a href="https://www.sassmeister.com/gist/6a02d0f55b1b1d1f733494286d95e508" target="_blank">Sassmeister</a></div>
+</section>
+
+<section>
+	<h2>Ausgabe</h2>
+<pre><code class="css">
+.green-skin .header  {background: url(img/green-skin/header.png);}
+.green-skin .footer  {background: url(img/green-skin/footer.png);}
+.green-skin .sidebar {background: url(img/green-skin/sidebar.png);}
+.green-skin .main    {background: url(img/green-skin/main.png);}
+
+.blue-skin .header   {background: url(img/blue-skin/header.png);}
+.blue-skin .footer   {background: url(img/blue-skin/footer.png);}
+.blue-skin .sidebar  {background: url(img/blue-skin/sidebar.png);}
+.blue-skin .main     {background: url(img/blue-skin/main.png);}
+
+</code></pre>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Liste als Mixin</h2>
+</section>
+
+<section>
+<pre><code class="scss">$fragrance-products: roses, vanilla, anise, ginger, basil;
+// a mixin to call this loop later
+@mixin all-fragrance-products{
+    @each $fragrance in $fragrance-products{
+        .photo-#{$fragrance} {
+            background-image: url(img/fragrances/#{$fragrance}.png);
+        }
+    }
+}
+// call the loop mixin
+.sidebar {
+    @include all-fragrance-products;
+}</code></pre>
+
+<div class="linksToOutside"><a href="https://www.sassmeister.com/gist/769ca107b8a55a729f36e466a6895054" target="_blank">Sassmeister</a></div>
+</section>
+
+<section>
+	<h2>Ausgabe</h2>
+<pre><code class="css">.sidebar .photo-roses {
+  background-image: url(img/fragrances/roses.png);
+}
+.sidebar .photo-vanilla {
+  background-image: url(img/fragrances/vanilla.png);
+}
+.sidebar .photo-anise {
+  background-image: url(img/fragrances/anise.png);
+}
+.sidebar .photo-ginger {
+  background-image: url(img/fragrances/ginger.png);
+}
+.sidebar .photo-basil {
+  background-image: url(img/fragrances/basil.png);
+}</code></pre>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Farbcodierung von Containern</h2>
+</section>
+
+<section>
+<pre><code class="scss">
+$col-codetype: (HTML #0B7E88 #08464B) (CSS #7B990C #4B5D08)
+        (JavaScript #545448 #1F2E24) (JQuery #395540 #2E2E27)
+	(PHP #FF9900 #865003) (XML #FF0C39 #790015);
+
+@each $color in $col-codetype {
+	$type: 	nth($color, 1);
+	$c1: 	nth($color, 2);
+	$c2: 	nth($color, 3);
+
+	pre[data-codetype="#{$type}"] {
+		border-color: $c1;
+		color: $c2;
+		&:before {
+		  background-color: $c1;
+		}
+	}
+}
+
+</code></pre>
+<div class="linksToOutside"><a href="https://www.sassmeister.com/gist/fb99c64eeb5b5c283d558c3ce6be41c2" target="_blank">Sassmeister</a></div>
+</section>
+
+<section>
+  <div class="split">
+    <div>
+<pre class="small-code"><code class="css">pre[data-codetype="JQuery"] {
+  border-color: #395540;
+  color: #2e2e27;
+}
+pre[data-codetype="JQuery"]:before {
+  background-color: #395540;
+}
+
+pre[data-codetype="PHP"] {
+  border-color: #ff9900;
+  color: #865003;
+}
+pre[data-codetype="PHP"]:before {
+  background-color: #ff9900;
+}
+
+pre[data-codetype="XML"] {
+  border-color: #ff0c39;
+  color: #790015;
+}
+pre[data-codetype="XML"]:before {
+  background-color: #ff0c39;
+}
+</code></pre>
+    </div>
+    <div>
+<pre class="small-code"><code class="css">pre[data-codetype="HTML"] {
+  border-color: #0b7e88;
+  color: #08464b;
+}
+pre[data-codetype="HTML"]:before {
+  background-color: #0b7e88;
+}
+
+pre[data-codetype="CSS"] {
+  border-color: #7b990c;
+  color: #4b5d08;
+}
+pre[data-codetype="CSS"]:before {
+  background-color: #7b990c;
+}
+
+pre[data-codetype="JavaScript"] {
+  border-color: #545448;
+  color: #1f2e24;
+}
+pre[data-codetype="JavaScript"]:before {
+  background-color: #545448;
+}
+</code></pre>
+    </div>
+  </div>
+
+</section>
+
+
+<section>
+<pre class="small-code"><code class="scss">
+
+@mixin contrast($bgcol, $dark:#000, $light:#fff) {
+  background-color: $bgcol;
+    $contrastratio: ( (red($bgcol)*299) + (green($bgcol)*587) + (blue($bgcol)*114) ) / 1000;
+
+  @if $contrastratio >= 128 {
+    color: $dark;
+  }
+  @else {
+    color: $light;
+  }
+
+  &:after {
+    content: "#{$bgcol}";
+  }
+}</code></pre>
+<div class="linksToOutside"><a href="http://www.sassmeister.com/gist/bf8e5f1f62d642ca05f8ea3305b94d7a" target="_blank">Sassmeister</a></div>
+</section>
+
+<section>
+<pre><code class="scss">&.a { @include contrast(#ef4444); }
+&.b { @include contrast(#faa31b); }
+&.c { @include contrast(#fff000); }
+&.d { @include contrast(#82c341); }
+&.e { @include contrast(#009f75); }
+&.f { @include contrast(#88c6ed); }
+&.g { @include contrast(#394ba0); }
+&.h { @include contrast(#d54799); }</code></pre>
+</section>
+
+<section>
+<pre class="small-code"><code class="css">div.a {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+div.a:after {
+  content: "#ef4444";
+}
+
+div.b {
+  background-color: #faa31b;
+  color: #000;
+}
+
+div.b:after {
+  content: "#faa31b";
+}
+
+div.c {
+  background-color: #fff000;
+  color: #000;
+}
+
+div.c:after {
+  content: "#fff000";
+}</code></pre>
+</section>
+

@@ -1,0 +1,206 @@
+<section class="shouting">
+	<h2>Sitzplätze reservieren</h2>
+</section>
+
+<section>
+	<p>Es soll ein Formular erstellt werden, um Sitzplätze (bspw. in einem Kino) reservieren zu können. Es geht dabei erst einmal um das Prinzip, also benötigen wir bspw. <mark>6 Reihen</mark> mit <mark>je 10 Sitzplätzen</mark>. Die Sitzplätze haben drei Zustände:</p>
+	<ol>
+		<li class="li">ist reserviert</li>
+		<li class="li">ist nicht reserviert</li>
+		<li class="li">habe ich gerade reserviert</li>
+	</ol>
+	<p>All dies kann mit ein wenig HTML und CSS erreicht werden. Wir benötigen dafür kein JavaScript.</p>
+</section>
+
+<section>
+	<h2>Das Ergebnis</h2>
+	<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/index.html" frameborder="0"></iframe>
+	<p>Wie kommen wir dahin?</p>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Alles ist ein Formular!</h2>
+</section>
+
+<section class="shouting-secondary">
+	<h2>Es ist eine Liste, am Besten sogar eine verschachtelte!</h2>
+</section>
+
+<section>
+	<h2>Die Stuhlreihen</h2>
+<pre><code class="html"><ol class="roomplan">
+  <li>
+    <span>
+      <input type="checkbox" id="id-1-1" name="roomplan">
+      <label for="id-1-1"></label>
+    </span>
+    <span>
+      <input type="checkbox" id="id-1-2" name="roomplan">
+      <label for="id-1-2"></label>
+    </span>
+    <!-- und weitere Stühle -->
+  </li>
+  <!-- und weitere Reihen -->
+</ol></code></pre>
+<h3>Emmet:</h3>
+<pre><code>
+ol.roomplan.clearfix>li*6>(span>input[type="checkbox"][id="id--$"][name="roomplan"]+label[for="id--$"])*10
+</code></pre>
+</section>
+
+<section>
+	<h2>Ohne CSS</h2>
+		<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/index-without-styles.html" frameborder="0"></iframe>
+		<p>Noch nicht hübsch, würde aber funktionieren. (Der Sitzplan ist für Demozwecke skaliert.)</p>
+</section>
+
+<section class="shouting-tertiary">
+	<h2>Welche Bestandteile des Sitzplans können wir denn gestalten?</h2>
+	<p>Es stehen zur Verfügung:</p>
+	<ol>
+		<li><code>ol</code></li>
+		<li><code>li</code></li>
+		<li><code>span</code></li>
+		<li><code>input</code></li>
+		<li><code>label</code></li>
+	</ol>
+</section>
+
+<section>
+	<ol class="no-list">
+		<li class="checked checked-yes"><code>ol</code> <span class="visuallyhidden">kann gestaltet werden!</span></li>
+		<li class="checked checked-yes"><code>li</code> <span class="visuallyhidden">kann gestaltet werden!</span></li>
+		<li class="checked checked-yes"><code>span</code> <span class="visuallyhidden">kann gestaltet werden!</span></li>
+		<li class="checked checked-no"><code>input</code> <span class="visuallyhidden">kann <strong>nicht</strong> gestaltet werden!</span></li>
+		<li class="checked checked-yes"><code>label</code> <span class="visuallyhidden">kann gestaltet werden!</span></li>
+	</ol>
+</section>
+
+<section class="shouting-tertiary" data-notes="2">
+	<h2>Die Liste und die Spans in Sitzplätze verwandeln</h2>
+</section>
+
+<section>
+	<pre><code class="css">.roomplan, .roomplan li {
+  list-style-type: none;
+}</code></pre>
+	<pre><code class="css">.roomplan li {
+  /* Brauchen wir wegen der floatenden Spans */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+/* .roomplan li span wäre unnötig gewschwätzig */
+.roomplan span {
+  position: relative;
+  float: left;
+  /* Hier die Größe der Sitzplätze konfigurieren! */
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}</code></pre>
+</section>
+<section>
+	<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/step-1.html" frameborder="0"></iframe>
+	<p>Zur besseren Sichtbarkeit ist der Hintergrund des Formulars eingefärbt.</p>
+</section>
+
+<section class="shouting-tertiary" data-notes="1">
+	<h2>Als nächstes müssen wir die Checkboxen verstecken und die Labels gestalten!</h2>
+</section>
+
+<section>
+	<h2>Die Checkboxen verstecken</h2>
+<pre><code class="css"> /* nicht: .roomplan li span input[type="checkbox"] */
+.roomplan input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}</code></pre>
+	<p>Damit das richtig funktioniert benötigen wir:</p>
+<pre><code class="css">.roomplan span {
+  position: relative;
+}</code></pre>
+<p>Ein einfaches <code>display: none</code> würde alle Screenreadernutzer unnötigerweise ausschliessen.</p>
+</section>
+
+<section class="shouting-tertiary" data-notes="2">
+	<h2>Jetzt gestalten wir das <code>Label</code>-Element!</h2>
+</section>
+
+<section>
+<pre><code class="css">.roomplan label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #fd8700;
+  cursor: pointer;
+}</code></pre>
+</section>
+
+<section>
+	<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/step-2.html" frameborder="0"></iframe>
+</section>
+
+<section class="shouting-tertiary" data-notes="2">
+	<h2>Und jetzt erstellen wir die unterschiedlichen Zustände</h2>
+</section>
+
+<section>
+<pre><code class="css">.roomplan input[type="checkbox"]:checked + label {
+  background-color: green;
+}
+.roomplan input[type="checkbox"].reserved + label {
+  background-color: #a20000;
+}</code></pre>
+</section>
+
+<section>
+	<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/step-3.html" frameborder="0"></iframe>
+	<p>Die schon reservierten Checkboxen sind rot markiert, die noch reservierbaren sind orange. Klickt man einen Sitzplatz an, um ihn zu reservieren, ändert sich die Farbe auf grün.</p>
+</section>
+
+<section class="shouting-tertiary" data-notes="2">
+	<h2>Die schon reservierten Plätze brauchen einen anderen Cursor</h2>
+</section>
+
+<section>
+<pre><code class="css">.roomplan input[disabled] + label:hover,
+.roomplan input[disabled] + label:focus {
+  cursor: none;
+  cursor: not-allowed;
+}</code></pre>
+</section>
+
+<section>
+	<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/step-4.html" frameborder="0"></iframe>
+</section>
+
+<section class="shouting-tertiary" data-notes="2">
+	<h2>Es fehlen noch die Reihennummern</h2>
+</section>
+
+<section>
+<pre><code class="css">.roomplan {
+  counter-reset: rows;
+}
+.roomplan li:before {
+  counter-increment: rows;
+  content: "Reihe " counter(rows, decimal-leading-zero);
+  float: left;
+  margin-right: 20px;
+  font-size: 20px;
+  position: relative;
+  top: 15px;
+}</code></pre>
+<p>Über <code>counter</code> können wir die Sitzreihen bequem mit eigenem Text durchnummerieren. Der Parameter <code>decimal-leading-zero</code> ist optional. Generell sind alle <strong>list-style-types</strong> nutzbar.</p>
+</section>
+
+<section>
+	<iframe width="100%" height="460" src="beispiele/sitzplan-formular-2/index.html" frameborder="0"></iframe>
+</section>
+
+
