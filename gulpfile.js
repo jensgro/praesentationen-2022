@@ -32,6 +32,29 @@ const config = {
     assets: "_site/content/css/assets/",
     picsSource: "_site/pictures/frontend/*.*",
     picsTarget: "_site/content/css/pictures/frontend/"
+  },
+
+  frontend: {
+    folder: "_site/content/frontend/",
+    assets: "_site/content/frontend/assets/",
+    picsSource: "_site/pictures/frontend/*.*",
+    picsTarget: "_site/content/css/pictures/frontend/"
+  },
+  patternlibraries: {
+    folder: "_site/content/pattern-libraries/",
+    assets: "_site/content/pattern-libraries/assets/"
+  },
+  rwd: {
+    folder: "_site/content/rwd/",
+    assets: "_site/content/rwd/assets/",
+    picsSource: "_site/pictures/rwd/*.*",
+    picsTarget: "_site/content/css/pictures/rwd/"
+  },
+  sass: {
+    folder: "_site/content/sass/",
+    assets: "_site/content/sass/assets/",
+    picsSource: "_site/pictures/sass/*.*",
+    picsTarget: "_site/content/css/sass/frontend/"
   }
 };
 
@@ -95,8 +118,8 @@ gulp.task("cpCSSAssets", function(){
 });
 
 gulp.task("cpCSSPics", function(){
-  return gulp.src(config.a11y.imagesource)
-             .pipe(gulp.dest(config.css.imagetarget))
+  return gulp.src(config.a11y.picsSource)
+             .pipe(gulp.dest(config.css.picsTarget))
 });
 
 gulp.task("cpCSSFav", function(){
@@ -105,8 +128,80 @@ gulp.task("cpCSSFav", function(){
 });
 // ================
 
+gulp.task("cpFrontendAssets", function(){
+  return gulp.src(config.all.allAssets)
+            .pipe(gulp.dest(config.frontend.assets));
+});
+
+gulp.task("cpFrontendPics", function(){
+  return gulp.src(config.frontend.picsSource)
+             .pipe(gulp.dest(config.frontend.picsTarget))
+});
+
+gulp.task("cpFrontendFav", function(){
+  return gulp.src(config.all.favico)
+            .pipe(gulp.dest(config.frontend.folder));
+});
+// ================
+
+gulp.task("cpPatternLibrariesAssets", function(){
+  return gulp.src(config.all.allAssets)
+            .pipe(gulp.dest(config.patternlibraries.assets));
+});
+
+gulp.task("cpPatternLibrariesPics", function(){
+  return gulp.src(config.patternlibraries.picsSource)
+             .pipe(gulp.dest(config.patternlibraries.picsTarget))
+});
+
+gulp.task("cpPatternLibrariesFav", function(){
+  return gulp.src(config.all.favico)
+            .pipe(gulp.dest(config.patternlibraries.folder));
+});
+// ================
+
+gulp.task("cpRWDAssets", function(){
+  return gulp.src(config.all.allAssets)
+            .pipe(gulp.dest(config.rwd.assets));
+});
+
+gulp.task("cpRWDPics", function(){
+  return gulp.src(config.rwd.picsSource)
+             .pipe(gulp.dest(config.rwd.picsTarget))
+});
+
+gulp.task("cpRWDFav", function(){
+  return gulp.src(config.all.favico)
+            .pipe(gulp.dest(config.rwd.folder));
+});
+// ================
+
+
+gulp.task("cpSassAssets", function(){
+  return gulp.src(config.all.allAssets)
+            .pipe(gulp.dest(config.sass.assets));
+});
+
+gulp.task("cpSassPics", function(){
+  return gulp.src(config.sass.picsSource)
+             .pipe(gulp.dest(config.sass.picsTarget))
+});
+
+gulp.task("cpSassFav", function(){
+  return gulp.src(config.all.favico)
+            .pipe(gulp.dest(config.sass.folder));
+});
+// ================
+
+
+
+
 exports.setup = gulp.series("cpRev", "cpFonts", "cpImages", "cpPics");
 exports.a11y = gulp.series("cpA11yAssets", "cpA11yPics", "cpA11yFav");
 exports.html = gulp.series("cpHTMLAssets", "cpHTMLPics", "cpHTMLFav");
 exports.css = gulp.series("cpCSSAssets", "cpCSSPics", "cpCSSFav");
+exports.frontend = gulp.series("cpFrontendAssets", "cpFrontendPics", "cpFrontendFav");
+exports.patternlibraries = gulp.series("cpPatternLibrariesAssets", "cpPatternLibrariesFav");
+exports.rwd = gulp.series("cpRWDAssets", "cpRWDPics", "cpRWDFav");
+exports.sass = gulp.series("cpSassAssets", "cpSassPics", "cpSassFav");
 
