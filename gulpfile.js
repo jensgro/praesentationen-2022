@@ -38,7 +38,7 @@ const config = {
     folder: "_site/content/frontend/",
     assets: "_site/content/frontend/assets/",
     picsSource: "_site/pictures/frontend/*.*",
-    picsTarget: "_site/content/css/pictures/frontend/"
+    picsTarget: "_site/content/frontend/pictures/frontend/"
   },
   patternlibraries: {
     folder: "_site/content/pattern-libraries/",
