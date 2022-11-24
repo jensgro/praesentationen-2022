@@ -4,7 +4,9 @@
  * GLOBAL STYLES
  *********************************************/
 
-@import "./exposer";
+@import "settings";
+@import "mixins";
+@import "exposer";
 
 .reveal-viewport {
 	@include bodyBackground();
