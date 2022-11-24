@@ -12,6 +12,7 @@
     "copy:reveal": "gulp cpRev",
     "gulp:fonts": "gulp cpFonts",
     "gulp:a11y": "gulp a11y",
+    "gulp:a11yAssets": "gulp a11yAssets",
     "gulp:html": "gulp html",
     "gulp:css": "gulp css",
     "gulp:frontend": "gulp frontend",
@@ -21,7 +22,7 @@
     "build": "npm-run-all slides initiate build:sass gulp:*",
     "start": "npm-run-all build:sass --parallel watch:*",
     "test": "npm-run-all slides build:sass initiate gulp:a11y gulp:html gulp:css",
-    "theme": "npm-run-all build:sass gulp:a11y"
+    "theme": "npm-run-all build:sass gulp:a11yAssets"
   },
   "repository": {
     "type": "git",

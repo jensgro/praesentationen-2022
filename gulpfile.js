@@ -198,6 +198,7 @@ gulp.task("cpSassFav", function(){
 
 exports.setup = gulp.series("cpRev", "cpFonts", "cpImages", "cpPics");
 exports.a11y = gulp.series("cpA11yAssets", "cpA11yPics", "cpA11yFav");
+exports.a11yAssets = gulp.series("cpA11yAssets");
 exports.html = gulp.series("cpHTMLAssets", "cpHTMLPics", "cpHTMLFav");
 exports.css = gulp.series("cpCSSAssets", "cpCSSPics", "cpCSSFav");
 exports.frontend = gulp.series("cpFrontendAssets", "cpFrontendPics", "cpFrontendFav");
