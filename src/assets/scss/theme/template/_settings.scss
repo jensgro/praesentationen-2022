@@ -2,20 +2,20 @@
 // overridden by the super-theme
 
 // Background of the presentation
-$backgroundColor: #2b2b2b;
+$backgroundColor: #fff;
 
 // Primary/body text
-$mainFont: 'Lato', sans-serif;
-$mainFontSize: 40px;
-$mainColor: #eee;
+$mainFont: 'Noto Regular', sans-serif;
+$mainFontSize: 30px;
+$mainColor: #000;
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'League Gothic', Impact, sans-serif;
-$headingColor: #eee;
+$headingFont: 'Ubuntu Medium', sans-serif;
+$headingColor: #000;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
@@ -31,11 +31,11 @@ $heading4Size: 1.00em;
 $codeFont: monospace;
 
 // Links and actions
-$linkColor: #13DAEC;
+$linkColor: #a20000;
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
-$selectionBackgroundColor: #FF5E99;
+$selectionBackgroundColor: #90d358;
 $selectionColor: #fff;
 
 // Generates the presentation background, can be overridden

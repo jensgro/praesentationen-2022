@@ -59,13 +59,11 @@
     display: inline-block;
     padding: 3px 10px;
     color: #fff;
-    background: rgba(239, 83, 80, 0.75);
-    border-bottom: 1px solid #EF5350;
+    background: teal;
   }
   .linksToOutside a:focus, .linksToOutside a:hover {
-    background: #fff;
-    color: #4e342e;
-    border-bottom: 1px solid rgba(239, 83, 80, 0.25);
+    background: #a20000;
+    color: #fff;
   }
   .linksToOutside a + a {
     margin-left: 20px;
